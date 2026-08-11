@@ -17,7 +17,7 @@ forecast -> shortage risk -> packing queue -> escalation plan -> audit memory
 
 ## Project Links
 
-- **Live Demo:** https://medpackai-production.up.railway.app/
+- **Live Demo:** https://healthcareai-production-a736.up.railway.app/medpack/
 - **GitHub Repository:** https://github.com/draculess99/MEDPACK_AI/
 - **LinkedIn:** https://www.linkedin.com/in/gammaconsult/
 - **Portfolio:** https://draculess99.github.io/
