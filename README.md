@@ -22,15 +22,13 @@ We use the **`gpt-5.4-nano`** model to ensure lightning-fast inference and tight
 
 ```mermaid
 flowchart TD
-    A[Hospital Data (No PHI)] --> B(MedPack Core Engine)
-    B --> C{Demand Forecast (XGBoost)}
-    C --> D[Usable Stock Analysis]
-    D --> E[Priority & Shortage Gap]
-    E --> F{Microsoft AI Foundry}
-    F -->|Local Mode (Default)| G[Deterministic Zero-Token Committee]
-    F -->|Azure Mode (Configured)| H[gpt-5.4-nano Agent Committee]
-    G --> I[Human Command Center Approval]
-    H --> I
+    A["Hospital inventory data (no PHI)"] --> B["Deterministic MedPack Core"]
+    B --> C["Demand forecast (XGBoost)"]
+    C --> D["Usable-stock and shortage analysis"]
+    D --> E["Local committee consensus"]
+    E --> F["Foundry explanation copilot (optional)"]
+    E --> G["Human approval required"]
+    F --> G
 ```
 
 ---
