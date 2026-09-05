@@ -27,6 +27,7 @@ def _sample_inputs():
 
 def test_local_mode_is_zero_token(monkeypatch):
     monkeypatch.setenv("USE_LLM_AGENTS", "false")
+    monkeypatch.setenv("USE_FOUNDRY_AGENT", "false")
     monkeypatch.delenv("GEMINI_API_KEY", raising=False)
     result = run_committee(*_sample_inputs(), agent_mode="local")
     assert result["actual_agent_mode"] == "local"
@@ -36,6 +37,7 @@ def test_local_mode_is_zero_token(monkeypatch):
 
 def test_remote_mode_without_env_falls_back_zero_token(monkeypatch):
     monkeypatch.setenv("USE_LLM_AGENTS", "false")
+    monkeypatch.setenv("USE_FOUNDRY_AGENT", "false")
     monkeypatch.delenv("GEMINI_API_KEY", raising=False)
     result = run_committee(*_sample_inputs(), agent_mode="remote")
     assert result["requested_agent_mode"] == "remote"

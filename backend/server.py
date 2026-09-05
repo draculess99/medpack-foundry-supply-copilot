@@ -57,11 +57,12 @@ def _resolve_committee_agent_mode(telemetry):
 @app.route("/health", methods=["GET"])
 def health():
     remote_enabled = str(os.environ.get("USE_LLM_AGENTS", "false")).strip().lower() in {"1", "true", "yes", "y", "on"}
+    foundry_enabled = str(os.environ.get("USE_FOUNDRY_AGENT", "false")).strip().lower() in {"1", "true", "yes", "y", "on"}
     return jsonify({
         "status": "ok",
         "service": "MedPack AI backend",
         "default_agent_mode": os.environ.get("DEFAULT_AGENT_MODE", "local"),
-        "remote_llm_enabled": remote_enabled,
+        "remote_llm_enabled": remote_enabled or foundry_enabled,
         "groq_key_present": bool(os.environ.get("GROQ_API_KEY", "").strip()),
         "gemini_key_present": bool(os.environ.get("GEMINI_API_KEY", "").strip()),
         "safe_default": "local_zero_token",

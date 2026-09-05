@@ -210,3 +210,16 @@ tools/a2a-inspector/
 
 # RAG vector index (generated at runtime)
 data/rag_index/
+
+# Streamlit
+.streamlit/
+
+# Local databases and logs
+database/supply_memory_events.jsonl
+database/supply_memory_state.json
+rag_debug.log
+
+# Explicitly ensure reproducibility artifacts are tracked
+!database/processed/medpack_training_data.csv
+!models/model_metrics.json
+!models/supply_demand_xgboost.pkl

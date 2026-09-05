@@ -9,6 +9,13 @@ try:
 except ImportError:
     rag_manager = None
 
+try:
+    from backend.foundry_client import invoke_foundry_agent, is_foundry_configured
+except ImportError:
+    # If the module isn't loaded properly or dependencies are missing
+    def is_foundry_configured(): return False
+    def invoke_foundry_agent(*args, **kwargs): raise NotImplementedError()
+
 
 AGENT_NAMES = [
     "Demand Forecast Agent",
@@ -305,11 +312,17 @@ def run_committee(
         requested_mode = "local"
 
     local_texts = _build_local_committee_texts(telemetry, prediction_result, shortage_result, priority_result, memory_state)
-    remote_enabled = _truthy(os.environ.get("USE_LLM_AGENTS", "false"))
+    remote_enabled = _truthy(os.environ.get("USE_LLM_AGENTS", "false")) or is_foundry_configured()
     provider = telemetry.get("selected_provider") or "Groq"
     has_groq_key = bool(os.environ.get("GROQ_API_KEY", "").strip())
     has_gemini_key = bool(os.environ.get("GEMINI_API_KEY", "").strip())
-    has_key = has_gemini_key if provider == "Google Gemini" else has_groq_key
+    
+    if provider == "Google Gemini":
+        has_key = has_gemini_key
+    elif provider == "Microsoft Foundry":
+        has_key = is_foundry_configured()
+    else:
+        has_key = has_groq_key
 
     mode_note = "Local deterministic mode selected. No remote LLM call was made. Zero LLM tokens used."
     actual_mode = "local"
@@ -327,6 +340,10 @@ def run_committee(
                 if provider == "Google Gemini":
                     remote = _try_remote_gemini_summary(telemetry, prediction_result, shortage_result, priority_result, memory_state)
                     local_texts["final_recommendation_agent"] = "[Remote LLM Committee Summary] " + remote["text"]
+                    local_texts["committee_summary"] = remote["text"]
+                elif provider == "Microsoft Foundry":
+                    remote = invoke_foundry_agent(telemetry, prediction_result, shortage_result, priority_result, memory_state)
+                    local_texts["final_recommendation_agent"] = "[Foundry Agent Summary] " + remote["text"]
                     local_texts["committee_summary"] = remote["text"]
                 else:
                     remote = _try_remote_groq_summary(telemetry, prediction_result, shortage_result, priority_result, memory_state)
@@ -404,8 +421,15 @@ def run_committee_stream(
         requested_mode = "local"
 
     provider = telemetry.get("selected_provider") or "Groq"
-    remote_enabled = _truthy(os.environ.get("USE_LLM_AGENTS", "false"))
-    has_key = bool(os.environ.get("GEMINI_API_KEY", "").strip()) if provider == "Google Gemini" else bool(os.environ.get("GROQ_API_KEY", "").strip())
+    remote_enabled = _truthy(os.environ.get("USE_LLM_AGENTS", "false")) or is_foundry_configured()
+    
+    if provider == "Google Gemini":
+        has_key = bool(os.environ.get("GEMINI_API_KEY", "").strip())
+    elif provider == "Microsoft Foundry":
+        has_key = is_foundry_configured()
+    else:
+        has_key = bool(os.environ.get("GROQ_API_KEY", "").strip())
+        
     local_texts = _build_local_committee_texts(telemetry, prediction_result, shortage_result, priority_result, memory_state)
 
     if requested_mode != "remote":
@@ -414,7 +438,7 @@ def run_committee_stream(
         return
 
     if not remote_enabled or not has_key:
-        reason = "USE_LLM_AGENTS is not true" if not remote_enabled else f"{provider} API key is missing"
+        reason = "USE_LLM_AGENTS is not true" if not remote_enabled else f"{provider} API key or configuration is missing"
         yield {"event": "warning", "message": f"Remote mode unavailable ({reason}). Falling back to local zero-token committee."}
         yield from _yield_local_stream(local_texts, requested_mode, f"Remote mode unavailable ({reason}). Local zero-token committee used.")
         return
@@ -435,6 +459,25 @@ def run_committee_stream(
                 "tokens_used": int(remote.get("tokens_used") or 0),
                 "fallback_mode": False,
                 "mode_note": f"Remote LLM Mode used Gemini ({remote.get('model')}).",
+            })
+            yield {"event": "complete", "data": local_texts}
+            return
+            
+        if provider == "Microsoft Foundry":
+            yield {"event": "agent_start", "agent_name": "Committee Summarizer"}
+            remote = invoke_foundry_agent(telemetry, prediction_result, shortage_result, priority_result, memory_state)
+            yield {"event": "agent_done", "agent_name": "Committee Summarizer"}
+            local_texts["final_recommendation_agent"] = "[Foundry Agent Summary] " + remote["text"]
+            local_texts["committee_summary"] = remote["text"]
+            local_texts.update({
+                "requested_agent_mode": requested_mode,
+                "actual_agent_mode": "remote",
+                "remote_llm_enabled": True,
+                "remote_llm_key_present": True,
+                "remote_model": remote.get("model"),
+                "tokens_used": int(remote.get("tokens_used") or 0),
+                "fallback_mode": False,
+                "mode_note": f"Remote LLM Mode used Microsoft Foundry ({remote.get('model')}).",
             })
             yield {"event": "complete", "data": local_texts}
             return
