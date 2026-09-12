@@ -1,4 +1,4 @@
-import os
+﻿import os
 import json
 from datetime import datetime
 from flask import Flask, request, jsonify
@@ -555,6 +555,64 @@ def run_medpack_committee_fast():
     telemetry["force_local_committee"] = True
     return jsonify(build_fast_committee_payload(telemetry))
 
+
+@app.route("/api/foundry-explanation", methods=["POST"])
+def foundry_explanation():
+    """Optional post-hoc explanation from Microsoft Foundry.
+
+    Accepts the locked deterministic result fields and asks the Foundry agent
+    to explain them in plain language. Foundry is strictly read-only: it cannot
+    change predicted demand, usable stock, risk level, shortage gap, packing
+    priority, recommended action, or the human-approval requirement.
+
+    Returns a safe JSON payload regardless of Foundry availability, so that
+    a Foundry failure can never break the deterministic dashboard result.
+    """
+    from backend.foundry_client import invoke_foundry_agent, is_foundry_configured
+
+    if not is_foundry_configured():
+        return jsonify({
+            "available": False,
+            "source": "Microsoft Foundry",
+            "explanation": "",
+            "tokens_used": 0,
+            "model": "azure-foundry-agent",
+            "reason": "Foundry is disabled or not configured on this server."
+        })
+
+    data = request.get_json(silent=True) or {}
+    telemetry         = data.get("telemetry", {})
+    prediction        = data.get("prediction", {})
+    shortage_risk     = data.get("shortage_risk", {})
+    packing_priority  = data.get("packing_priority", {})
+    memory_state      = data.get("memory_state", {})
+
+    try:
+        foundry_result = invoke_foundry_agent(
+            telemetry=telemetry,
+            prediction_result=prediction,
+            shortage_result=shortage_risk,
+            priority_result=packing_priority,
+            memory_state=memory_state,
+        )
+        return jsonify({
+            "available": True,
+            "source": "Microsoft Foundry",
+            "explanation": foundry_result.get("text", ""),
+            "tokens_used": foundry_result.get("tokens_used", 0),
+            "model": foundry_result.get("model", "azure-foundry-agent"),
+        })
+    except Exception:
+        # Never expose credentials, endpoint URLs, Azure tenant IDs, or stack traces
+        # to the frontend. Return a safe, generic failure message only.
+        return jsonify({
+            "available": False,
+            "source": "Microsoft Foundry",
+            "explanation": "",
+            "tokens_used": 0,
+            "model": "azure-foundry-agent",
+            "reason": "Foundry agent call failed. Deterministic result is unaffected."
+        })
 @app.route("/api/run-medpack-committee", methods=["POST"])
 def run_medpack_committee():
     telemetry = request.get_json(silent=True) or {}

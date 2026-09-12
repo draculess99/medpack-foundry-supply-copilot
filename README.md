@@ -1,4 +1,4 @@
-# MedPack AI: Human-Governed Medication Supply Risk Copilot
+﻿# MedPack AI: Human-Governed Medication Supply Risk Copilot
 
 ## Problem Statement
 Hospitals face constant supply chain disruptions. When critical supplies (like IV-start kits, specialized tubing, or emergency medications) run low, clinical staff lose valuable time searching for alternatives or waiting for transfers, potentially delaying patient care. Traditional inventory systems provide historical data but lack predictive foresight, operational context, and actionable recommendations.
@@ -16,6 +16,10 @@ MedPack AI bridges the gap between historical inventory data and operational rea
 ---
 
 ## Architecture & Microsoft Foundry Integration
+
+> Microsoft Foundry is an optional explanation copilot; deterministic MedPack calculations and human approval remain authoritative.
+
+
 
 MedPack AI leverages **Microsoft AI Foundry** to deploy a multi-agent system (`medpack-supply-copilot`). 
 We use the **`gpt-5.4-nano`** model to ensure lightning-fast inference and tight cost-control, making it economically viable to run hundreds of supply checks per hour across a hospital network.

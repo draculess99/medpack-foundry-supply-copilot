@@ -1,4 +1,4 @@
-import os
+﻿import os
 import requests
 import json
 import pandas as pd
@@ -1731,6 +1731,71 @@ with col1:
                     st.caption(mode_note)
                     # Freeze Fix v4: stop the script after rendering the committee result.
                     # This prevents the lower live API panels from refreshing during the committee click.
+                    # -------------------------------------------------------
+                    # Microsoft Foundry Explanation (Optional)
+                    # Inserted AFTER the deterministic committee result is
+                    # fully rendered. Foundry is read-only: it cannot change
+                    # any deterministic field already displayed above.
+                    # -------------------------------------------------------
+                    st.markdown("---")
+                    st.markdown("### 🤖 Microsoft Foundry Explanation (Optional)")
+                    st.caption(
+                        "Foundry explains the locked MedPack result. "
+                        "It cannot change the decision."
+                    )
+
+                    if "foundry_result" not in st.session_state:
+                        st.session_state["foundry_result"] = None
+
+                    foundry_btn = st.button(
+                        "Explain this deterministic result with Foundry",
+                        key="foundry_explain_btn",
+                    )
+                    if foundry_btn:
+                        foundry_payload = {
+                            "telemetry": result.get("telemetry", {}),
+                            "prediction": result.get("prediction", {}),
+                            "shortage_risk": result.get("shortage_risk", {}),
+                            "packing_priority": result.get("packing_priority", {}),
+                            "memory_state": result.get("memory_state", {}),
+                        }
+                        try:
+                            with st.spinner("Calling Microsoft Foundry agent…"):
+                                foundry_res = requests.post(
+                                    f"{MEDPACK_API_BASE_URL}/api/foundry-explanation",
+                                    json=foundry_payload,
+                                    timeout=(5, 60),
+                                )
+                            if foundry_res.status_code == 200:
+                                st.session_state["foundry_result"] = foundry_res.json()
+                            else:
+                                st.session_state["foundry_result"] = {
+                                    "available": False,
+                                    "reason": f"Backend returned HTTP {foundry_res.status_code}.",
+                                }
+                        except Exception as _foundry_exc:
+                            st.session_state["foundry_result"] = {
+                                "available": False,
+                                "reason": "Could not reach the backend for Foundry explanation.",
+                            }
+
+                    if st.session_state.get("foundry_result") is not None:
+                        _fr = st.session_state["foundry_result"]
+                        if _fr.get("available"):
+                            st.markdown("#### Foundry Narrative")
+                            st.info(_fr.get("explanation", ""))
+                            _tokens = int(_fr.get("tokens_used", 0) or 0)
+                            _model  = _fr.get("model", "azure-foundry-agent")
+                            if _tokens > 0:
+                                st.caption(f"Model: {_model} · Tokens used: {_tokens:,}")
+                            else:
+                                st.caption(f"Model: {_model}")
+                        else:
+                            st.warning(
+                                f"⚠️ Foundry explanation unavailable — "
+                                f"{_fr.get('reason', 'unknown error')}. "
+                                "All deterministic results above remain unchanged."
+                            )
                     st.stop()
         except Exception as e:
             st.error(f"Failed to connect to backend server at {MEDPACK_API_BASE_URL}. Ensure server is running. Error: {e}")
