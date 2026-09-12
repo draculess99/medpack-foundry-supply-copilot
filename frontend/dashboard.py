@@ -1,4 +1,4 @@
-﻿import os
+import os
 import requests
 import json
 import pandas as pd
@@ -48,11 +48,16 @@ if "last_llm_usage" not in st.session_state:
 if "counted_llm_call_ids" not in st.session_state:
     st.session_state["counted_llm_call_ids"] = set()
 
+if "medpack_deterministic_result" not in st.session_state:
+    st.session_state["medpack_deterministic_result"] = None
+if "foundry_result" not in st.session_state:
+    st.session_state["foundry_result"] = None
+
 
 # Configure page
 st.set_page_config(
     page_title="MedPack AI / MedAIM Dashboard",
-    page_icon="📦",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -194,12 +199,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # App Titles
-st.title("📦 MedPack AI: Hospital Supply Shortage & Packing Priority System")
+st.title("\U0001F3E5 MedPack AI: Hospital Supply Shortage & Packing Priority System")
 st.subheader("Forecasting hospital supply demand and converting shortage risk into packing and replenishment action.")
 
 st.markdown("""
 **Problem Statement:**
-Hospital supply shortages are not just inventory problems — they are patient-flow and clinical operations problems. When demand rises faster than supplies can be packed, staged, and replenished, nurses lose time searching for critical items and patient care slows down. MedPack AI forecasts supply demand, identifies shortage risk, and prioritizes packing actions before the shortage reaches the bedside.
+Hospital supply shortages are not just inventory problems  -  they are patient-flow and clinical operations problems. When demand rises faster than supplies can be packed, staged, and replenished, nurses lose time searching for critical items and patient care slows down. MedPack AI forecasts supply demand, identifies shortage risk, and prioritizes packing actions before the shortage reaches the bedside.
 """)
 
 # Sidebar Controls
@@ -228,11 +233,11 @@ def reset_state():
         pass
 
 with st.sidebar.container(border=True):
-    st.subheader("🧭 Runtime Mode")
+    st.subheader("Runtime Mode")
 
     agent_mode_label = st.radio(
         "Agent execution",
-        ["Local AI Mode — zero tokens", "Remote LLM Mode — may use tokens"],
+        ["Local AI Mode  -  zero tokens", "Remote LLM Mode  -  may use tokens"],
         index=0,
         on_change=reset_state,
         help="Local mode is deterministic and free. Groq remote mode uses one short, non-streaming Groq call to rewrite the committee response in a more LLM-like style if GROQ_API_KEY is available."
@@ -316,9 +321,9 @@ def render_token_gauge(tokens_val):
         completion_t = int(usage.get("completion_tokens", 0) or 0)
         src = usage.get("token_usage_source", "none")
         token_detail_placeholder.caption(
-            f"Last call: {tokens_val:,} tokens · Session total: {int(st.session_state.get('total_tokens', 0)):,}\n\n"
-            f"Provider: {provider} · Model: {model} · Status: {status}\n\n"
-            f"Prompt: {prompt_t:,} · Completion: {completion_t:,} · Source: {src}"
+            f"Last call: {tokens_val:,} tokens  |  Session total: {int(st.session_state.get('total_tokens', 0)):,}\n\n"
+            f"Provider: {provider}  |  Model: {model}  |  Status: {status}\n\n"
+            f"Prompt: {prompt_t:,}  |  Completion: {completion_t:,}  |  Source: {src}"
         )
     except Exception:
         pass
@@ -328,7 +333,7 @@ render_token_gauge(st.session_state["current_tokens"])
 st.sidebar.caption(f"Backend API: `{MEDPACK_API_BASE_URL}`")
 
 with st.sidebar.container(border=True):
-    st.subheader("🏥 Supply Selection")
+    st.subheader("\U0001F4E6 Supply Selection")
     # Options
     DEPARTMENTS = [
         "Emergency Department",
@@ -363,7 +368,7 @@ with st.sidebar.container(border=True):
     st.markdown(f"**Category:** `{item_cat}`")
 
 with st.sidebar.container(border=True):
-    st.subheader("📊 Operational Metrics")
+    st.subheader("\U0001F4C8 Operational Metrics")
     current_stock = st.number_input("Current Stock", min_value=0, max_value=500, value=30)
     patient_volume = st.slider("Patient Volume", 1, 100, 15)
     acuity_level = st.slider("Acuity Level (1=Low, 4=Critical)", 1.0, 4.0, 2.5, step=0.1)
@@ -371,7 +376,7 @@ with st.sidebar.container(border=True):
     recent_usage_rate = st.slider("Recent Usage Rate (units/hr)", 0.0, 50.0, 8.5, step=0.5)
 
 with st.sidebar.container(border=True):
-    st.subheader("⏱️ Supply & Logistics")
+    st.subheader("\U0001F69A Supply & Logistics")
     supplier_delay = st.slider("Supplier Delay (Days)", 0.0, 14.0, 2.5, step=0.5)
     reorder_point = st.number_input("Reorder Point", min_value=0, max_value=200, value=25)
     supplier_reliability = st.slider("Supplier Reliability Score", 0.0, 1.0, 0.9, step=0.05)
@@ -380,7 +385,7 @@ with st.sidebar.container(border=True):
     clinical_criticality = st.slider("Clinical Criticality (1-4)", 1, 4, 3)
 
 with st.sidebar.container(border=True):
-    st.subheader("📅 Time Context")
+    st.subheader("\U0001F552 Time Context")
     hour = st.slider("Hour of Day", 0, 23, 12)
     day_of_week = st.slider("Day of Week (0=Mon, 6=Sun)", 0, 6, 2)
     season = st.selectbox("Season", ["Spring", "Summer", "Autumn", "Winter"], index=1)
@@ -867,11 +872,11 @@ else:
     col2 = None
 
 with col1:
-    st.header("🔮 Prediction & Logistics Actions")
+    st.header("\U0001F4CA Prediction & Logistics Actions")
     
     # Buttons
-    run_forecast = st.button("🔮 Predict 24-Hour Supply Demand")
-    run_committee_btn = st.button("🤖 Run MedPack Committee Decision")
+    run_forecast = st.button("\U0001F52E Predict 24-Hour Supply Demand")
+    run_committee_btn = st.button("\U0001F9E0 Run MedPack Committee Decision")
     
     if run_forecast or run_committee_btn:
         # Call Backend. Stage 2 fix: every committee path has a timeout and a local fallback.
@@ -897,7 +902,7 @@ with col1:
 
             if run_committee_btn:
                 st.markdown("---")
-                st.header("🤖 Agentic Committee Panel")
+                st.header("Agentic Committee Panel")
                 st.caption("Freeze Guard v4 + Stage 5/6 is active: the core decision runs locally first, then Groq can rewrite the wording if selected.")
                 lights_ph = st.empty()
 
@@ -922,11 +927,11 @@ with col1:
                     def _card(idx, agent_name):
                         status = status_map.get(agent_name, "pending")
                         if status == "done":
-                            icon, label, css = "✓", "Complete", "done"
+                            icon, label, css = "", "Complete", "done"
                         elif status == "running":
-                            icon, label, css = "●", "Running", "running"
+                            icon, label, css = "", "Running", "running"
                         else:
-                            icon, label, css = "○", "Queued", "queued"
+                            icon, label, css = "", "Queued", "queued"
                         return (
                             "<div class='mp-flow-card {css}'>"
                             "  <div class='mp-flow-card-top'>"
@@ -943,7 +948,7 @@ with col1:
                             step = start_idx + offset
                             parts.append(_card(step, name))
                             if offset < len(row_agents) - 1:
-                                parts.append("<div class='mp-flow-arrow' aria-label='next'>→</div>")
+                                parts.append("<div class='mp-flow-arrow' aria-label='next'>-></div>")
                         return "<div class='mp-flow-row'>" + "".join(parts) + "</div>"
 
                     rows_html = []
@@ -956,8 +961,8 @@ with col1:
                             rows_html.append(
                                 "<div class='mp-row-handoff'>"
                                 "  <span class='mp-row-handoff-line'></span>"
-                                "  <span class='mp-row-handoff-badge'>Step {from_step} → Step {to_step}</span>"
-                                "  <span class='mp-row-handoff-arrow'>↓</span>"
+                                "  <span class='mp-row-handoff-badge'>Step {from_step} -> Step {to_step}</span>"
+                                "  <span class='mp-row-handoff-arrow'>v</span>"
                                 "  <span class='mp-row-handoff-line'></span>"
                                 "</div>".format(from_step=from_step, to_step=to_step)
                             )
@@ -1178,10 +1183,10 @@ with col1:
                         </div>
                         <div class='mp-progress-track'><div class='mp-progress-fill'></div></div>
                         <div class='mp-flow-legend'>
-                            <span class='mp-legend-chip'>✓ Complete</span>
-                            <span class='mp-legend-chip'>● Running</span>
-                            <span class='mp-legend-chip'>○ Queued</span>
-                            <span class='mp-legend-chip'>Flow: left → right, then down to next row</span>
+                            <span class='mp-legend-chip'> Complete</span>
+                            <span class='mp-legend-chip'> Running</span>
+                            <span class='mp-legend-chip'> Queued</span>
+                            <span class='mp-legend-chip'>Flow: left -> right, then down to next row</span>
                         </div>
                         <div class='mp-flow-map'>{rows}</div>
                     </div>
@@ -1462,6 +1467,10 @@ with col1:
                     st.error(f"Backend API returned error code {res.status_code}: {res.text}")
 
             if result:
+                # Persist the locked deterministic result so the Foundry panel
+                # survives Streamlit reruns triggered by its own button.
+                st.session_state["medpack_deterministic_result"] = result
+                st.session_state["foundry_result"] = None  # reset on new run
                 prediction = result["prediction"]
                 shortage = result["shortage_risk"]
                 priority = result["packing_priority"]
@@ -1469,7 +1478,7 @@ with col1:
                 usable_analysis = result.get("usable_stock_analysis", {})
                 
                 # Render Metrics
-                st.markdown("### 📊 Live Analytics Output")
+                st.markdown("### Live Analytics Output")
                 m_col1, m_col2, m_col3, m_col4 = st.columns(4)
                 
                 with m_col1:
@@ -1498,7 +1507,7 @@ with col1:
                 # Stage 2 Forecast + Usable Stock Panel
                 if usable_analysis:
                     st.markdown("---")
-                    st.markdown("### 🧮 Demand Forecast vs Usable Stock")
+                    st.markdown("### \U0001F9EE Demand Forecast vs Usable Stock")
                     st.caption("The forecast is now compared against safe, usable stock instead of raw total stock.")
                     u1, u2, u3, u4, u5, u6 = st.columns(6)
                     u1.metric("Forecast Demand", f"{usable_analysis.get('predicted_24h_demand', 0):.1f}")
@@ -1510,17 +1519,17 @@ with col1:
                     st.warning(usable_analysis.get("recommended_stage2_action", "No usable-stock action returned."))
                     notes = usable_analysis.get("safety_notes", [])
                     if notes:
-                        st.caption(" | ".join(notes))
+                        st.caption("| ".join(notes))
                     transfer_options = usable_analysis.get("top_transfer_options", [])
                     if transfer_options:
-                        with st.expander("🔁 Transfer candidates from other departments", expanded=False):
+                        with st.expander("Transfer candidates from other departments", expanded=False):
                             st.dataframe(pd.DataFrame(transfer_options), use_container_width=True)
                 
                 # Stage 3 Supplier + Transfer Intelligence Panel
                 stage3_plan = result.get("stage3_action_plan", {})
                 if stage3_plan:
                     st.markdown("---")
-                    st.markdown("### 🚚 Supply Chain Response Plan")
+                    st.markdown("### Supply Chain Response Plan")
                     st.caption("After finding the true shortage, the app decides whether to transfer, order, substitute, or escalate.")
                     transfer = stage3_plan.get("transfer_recommendation", {}) or {}
                     supplier = stage3_plan.get("supplier_risk", {}) or {}
@@ -1538,14 +1547,14 @@ with col1:
                             st.write(f"- {step}")
                     c1, c2, c3 = st.columns(3)
                     with c1:
-                        with st.expander("🔁 Transfer options", expanded=False):
+                        with st.expander("Transfer options", expanded=False):
                             options = transfer.get("transfer_options", [])
                             if options:
                                 st.dataframe(pd.DataFrame(options), use_container_width=True)
                             else:
                                 st.write(transfer.get("recommendation", "No transfer options found."))
                     with c2:
-                        with st.expander("🚚 Supplier ranking", expanded=False):
+                        with st.expander("Supplier ranking", expanded=False):
                             vendors = supplier.get("ranked_vendors", [])
                             if vendors:
                                 display_vendor_cols = ["vendor_name", "role", "adjusted_delay_days", "reliability_score", "backorder_probability", "unit_cost_multiplier", "recommended_order_qty", "supplier_score"]
@@ -1554,7 +1563,7 @@ with col1:
                             else:
                                 st.write(supplier.get("recommendation", "No vendor data returned."))
                     with c3:
-                        with st.expander("🔄 Substitute options", expanded=False):
+                        with st.expander("Substitute options", expanded=False):
                             subs = substitute.get("substitute_options", [])
                             if subs:
                                 display_sub_cols = ["substitute_item", "clinical_fit", "suitability_score", "total_available_substitute_stock", "recommended_substitute_qty", "acceptable"]
@@ -1568,7 +1577,7 @@ with col1:
                 stage4_roi = result.get("stage4_roi_analysis", {})
                 if stage4_roi:
                     st.markdown("---")
-                    st.markdown("### 💰 Financial Impact & ROI Dashboard")
+                    st.markdown("### Financial Impact & ROI Dashboard")
                     st.caption("The operational recommendation is translated into estimated dollars at risk, waste exposure, action cost, and value protected.")
                     r1, r2, r3, r4, r5 = st.columns(5)
                     r1.metric("Shortage Risk $", f"${stage4_roi.get('shortage_risk_value', 0):,.0f}")
@@ -1606,7 +1615,7 @@ with col1:
                 stage5_command = result.get("stage5_command_center", {})
                 if stage5_command:
                     st.markdown("---")
-                    st.markdown("### 🧭 Command Center")
+                    st.markdown("### \U0001F9ED Command Center")
                     st.caption("The final command layer: converts all analysis into priority status, owners, response windows, action cards, escalation, and an executive handoff.")
                     z1, z2, z3, z4, z5 = st.columns(5)
                     z1.metric("Priority", stage5_command.get("priority_code", "P3"))
@@ -1639,7 +1648,7 @@ with col1:
 
                 # Packing Priority Panel
                 st.markdown("---")
-                st.markdown("### 📦 Warehouse Packing Instructions")
+                st.markdown("### \U0001F4E6 Warehouse Packing Instructions")
                 p_col1, p_col2 = st.columns(2)
                 with p_col1:
                     st.metric("Priority Score", f"{priority['priority_score']:.1f} / 100")
@@ -1647,36 +1656,36 @@ with col1:
                     st.metric("Recommended Pack Quantity", f"{priority['recommended_pack_quantity']} units")
                 
                 if priority["escalation_required"]:
-                    st.error(f"⚠️ **Escalation Triggered!** {priority['recommended_action']}")
+                    st.error(f" **Escalation Triggered!** {priority['recommended_action']}")
                 else:
-                    st.success(f"✅ **Action Ready:** {priority['recommended_action']}")
+                    st.success(f" **Action Ready:** {priority['recommended_action']}")
                 st.caption(priority["reasoning"])
                 
                 # Committee Panel
                 if run_committee_btn:
-                    with st.expander("👤 Demand Forecast Agent Insights", expanded=True):
+                    with st.expander("Demand Forecast Agent Insights", expanded=True):
                         st.write(committee["demand_forecast_agent"])
-                    with st.expander("👤 Inventory Risk Agent Insights", expanded=True):
+                    with st.expander("Inventory Risk Agent Insights", expanded=True):
                         st.write(committee["inventory_risk_agent"])
-                    with st.expander("👤 Packing Priority Agent Insights", expanded=True):
+                    with st.expander("Packing Priority Agent Insights", expanded=True):
                         st.write(committee["packing_priority_agent"])
-                    with st.expander("👤 Clinical Safety Agent Insights", expanded=True):
+                    with st.expander("Clinical Safety Agent Insights", expanded=True):
                         st.write(committee["clinical_safety_agent"])
                     if committee.get("stage3_control_tower_agent") or result.get("stage3_action_plan"):
-                        with st.expander("👤 Supplier & Transfer Agent Insights", expanded=True):
+                        with st.expander("Supplier & Transfer Agent Insights", expanded=True):
                             st.write(committee.get("stage3_control_tower_agent", result.get("stage3_action_plan", {}).get("control_tower_summary", "Stage 3 action plan unavailable.")))
                     if committee.get("stage4_financial_impact_agent") or result.get("stage4_roi_analysis"):
-                        with st.expander("👤 Cost / Waste / ROI Agent Insights", expanded=True):
+                        with st.expander("Cost / Waste / ROI Agent Insights", expanded=True):
                             st.write(committee.get("stage4_financial_impact_agent", result.get("stage4_roi_analysis", {}).get("control_tower_summary", "Stage 4 financial view unavailable.")))
                     if committee.get("stage5_command_center_agent") or result.get("stage5_command_center"):
-                        with st.expander("👤 Command Center Agent Insights", expanded=True):
+                        with st.expander("Command Center Agent Insights", expanded=True):
                             st.write(committee.get("stage5_command_center_agent", result.get("stage5_command_center", {}).get("control_tower_summary", "Command center unavailable.")))
-                    with st.expander("👤 Final Recommendation Agent Insights", expanded=True):
+                    with st.expander("Final Recommendation Agent Insights", expanded=True):
                         st.write(committee["final_recommendation_agent"])
                         
-                    st.markdown("#### 📝 Committee Consensus Summary")
+                    st.markdown("#### \U0001F4DD Committee Consensus Summary")
                     st.success(committee["committee_summary"])
-                    with st.expander("🛠️ DEBUG: RAG Knowledge Received", expanded=True):
+                    with st.expander("\U0001F4DA DEBUG: RAG Knowledge Received", expanded=True):
                         # Use the exact same logic here so the debug panel shows exactly what Groq sees
                         debug_rag_text = committee.get("rag_knowledge", "")
                         if not debug_rag_text:
@@ -1720,8 +1729,8 @@ with col1:
                     if is_remote_llm and tokens_used > 0:
                         st.warning(f"Groq LLM mode used. Tokens reported: {tokens_used:,}")
                         st.caption(
-                            f"Prompt: {int(committee.get('prompt_tokens', 0) or 0):,} · "
-                            f"Completion: {int(committee.get('completion_tokens', 0) or 0):,} · "
+                            f"Prompt: {int(committee.get('prompt_tokens', 0) or 0):,}  |  "
+                            f"Completion: {int(committee.get('completion_tokens', 0) or 0):,}  |  "
                             f"Source: {committee.get('token_usage_source', 'groq_usage')}"
                         )
                     elif is_remote_llm:
@@ -1729,648 +1738,649 @@ with col1:
                     else:
                         st.info(f"Local AI mode used. Tokens reported: {tokens_used:,}")
                     st.caption(mode_note)
-                    # Freeze Fix v4: stop the script after rendering the committee result.
-                    # This prevents the lower live API panels from refreshing during the committee click.
-                    # -------------------------------------------------------
-                    # Microsoft Foundry Explanation (Optional)
-                    # Inserted AFTER the deterministic committee result is
-                    # fully rendered. Foundry is read-only: it cannot change
-                    # any deterministic field already displayed above.
-                    # -------------------------------------------------------
-                    st.markdown("---")
-                    st.markdown("### 🤖 Microsoft Foundry Explanation (Optional)")
-                    st.caption(
-                        "Foundry explains the locked MedPack result. "
-                        "It cannot change the decision."
-                    )
-
-                    if "foundry_result" not in st.session_state:
-                        st.session_state["foundry_result"] = None
-
-                    foundry_btn = st.button(
-                        "Explain this deterministic result with Foundry",
-                        key="foundry_explain_btn",
-                    )
-                    if foundry_btn:
-                        foundry_payload = {
-                            "telemetry": result.get("telemetry", {}),
-                            "prediction": result.get("prediction", {}),
-                            "shortage_risk": result.get("shortage_risk", {}),
-                            "packing_priority": result.get("packing_priority", {}),
-                            "memory_state": result.get("memory_state", {}),
-                        }
-                        try:
-                            with st.spinner("Calling Microsoft Foundry agent…"):
-                                foundry_res = requests.post(
-                                    f"{MEDPACK_API_BASE_URL}/api/foundry-explanation",
-                                    json=foundry_payload,
-                                    timeout=(5, 60),
-                                )
-                            if foundry_res.status_code == 200:
-                                st.session_state["foundry_result"] = foundry_res.json()
-                            else:
-                                st.session_state["foundry_result"] = {
-                                    "available": False,
-                                    "reason": f"Backend returned HTTP {foundry_res.status_code}.",
-                                }
-                        except Exception as _foundry_exc:
-                            st.session_state["foundry_result"] = {
-                                "available": False,
-                                "reason": "Could not reach the backend for Foundry explanation.",
-                            }
-
-                    if st.session_state.get("foundry_result") is not None:
-                        _fr = st.session_state["foundry_result"]
-                        if _fr.get("available"):
-                            st.markdown("#### Foundry Narrative")
-                            st.info(_fr.get("explanation", ""))
-                            _tokens = int(_fr.get("tokens_used", 0) or 0)
-                            _model  = _fr.get("model", "azure-foundry-agent")
-                            if _tokens > 0:
-                                st.caption(f"Model: {_model} · Tokens used: {_tokens:,}")
-                            else:
-                                st.caption(f"Model: {_model}")
-                        else:
-                            st.warning(
-                                f"⚠️ Foundry explanation unavailable — "
-                                f"{_fr.get('reason', 'unknown error')}. "
-                                "All deterministic results above remain unchanged."
-                            )
-                    st.stop()
         except Exception as e:
             st.error(f"Failed to connect to backend server at {MEDPACK_API_BASE_URL}. Ensure server is running. Error: {e}")
 
-    # Top 5 Supplies Table
+
+# -----------------------------------------------------------------------
+# Microsoft Foundry Explanation (Optional)
+# Module-level: runs on every rerun so it survives the Foundry button rerun.
+# Reads the locked deterministic result from session_state.
+# Foundry is read-only: it cannot change any deterministic field.
+# -----------------------------------------------------------------------
+if st.session_state.get("medpack_deterministic_result") is not None:
+    _locked_result = st.session_state["medpack_deterministic_result"]
     st.markdown("---")
-    st.header("📋 Top 5 Supplies to Pack First")
+    st.markdown("### \U0001F916 Microsoft Foundry Explanation (Optional)")
     st.caption(
-        "This queue uses the live sidebar scenario. Department changes the supply universe; "
-        "the sliders, hour/day, and season change risk, pack quantity, priority score, and ranking."
+        "Foundry explains the locked MedPack result. "
+        "It cannot change the decision."
     )
-    try:
-        queue_payload = dict(telemetry)
-        queue_payload.update({"limit": 5, "max_records": 75})
-        queue_res = requests.post(
-            f"{MEDPACK_API_BASE_URL}/api/packing-queue",
-            json=queue_payload,
-            timeout=30,
-        )
-        if queue_res.status_code == 200:
-            queue_response = queue_res.json()
-            queue_data = queue_response.get("queue", queue_response if isinstance(queue_response, list) else [])
-            if queue_data:
-                df_queue = pd.DataFrame(queue_data)
-                display_cols = [
-                    "item_name",
-                    "item_category",
-                    "department",
-                    "total_stock",
-                    "usable_stock",
-                    "unsafe_stock",
-                    "active_task_reserved_stock",
-                    "transfer_candidate_stock",
-                    "predicted_24h_demand",
-                    "true_shortage_gap",
-                    "post_transfer_gap",
-                    "risk_level",
-                    "recommended_pack_quantity",
-                    "priority_score",
-                    "scenario_pressure_score",
-                    "escalation_required",
-                ]
-                available_cols = [c for c in display_cols if c in df_queue.columns]
-                st.dataframe(df_queue[available_cols], use_container_width=True)
-                with st.expander("Why did the Top 5 change?", expanded=False):
-                    st.write(
-                        "The table was recalculated using the current sidebar inputs: "
-                        f"department={dept}, patient_volume={patient_volume}, acuity={acuity_level}, "
-                        f"procedure_count={procedure_count}, recent_usage_rate={recent_usage_rate}, "
-                        f"supplier_delay={supplier_delay}, season={season}, hour={hour}, day={day_of_week}."
-                    )
-                    if "pressure_note" in df_queue.columns:
-                        st.dataframe(df_queue[["item_name", "pressure_note"]], use_container_width=True)
+
+    foundry_btn = st.button(
+        "Explain this deterministic result with Foundry",
+        key="foundry_explain_btn",
+    )
+    if foundry_btn:
+        foundry_payload = {
+            "telemetry": _locked_result.get("telemetry", {}),
+            "prediction": _locked_result.get("prediction", {}),
+            "shortage_risk": _locked_result.get("shortage_risk", {}),
+            "packing_priority": _locked_result.get("packing_priority", {}),
+            "memory_state": _locked_result.get("memory_state", {}),
+        }
+        try:
+            with st.spinner("Calling Microsoft Foundry agent..."):
+                foundry_res = requests.post(
+                    f"{MEDPACK_API_BASE_URL}/api/foundry-explanation",
+                    json=foundry_payload,
+                    timeout=(5, 60),
+                )
+            if foundry_res.status_code == 200:
+                st.session_state["foundry_result"] = foundry_res.json()
             else:
-                st.write("No inventory records found for this department.")
+                st.session_state["foundry_result"] = {
+                    "available": False,
+                    "reason": f"Backend returned HTTP {foundry_res.status_code}.",
+                }
+        except Exception as _foundry_exc:
+            st.session_state["foundry_result"] = {
+                "available": False,
+                "reason": "Could not reach the backend for Foundry explanation.",
+            }
+
+    if st.session_state.get("foundry_result") is not None:
+        _fr = st.session_state["foundry_result"]
+        if _fr.get("available"):
+            st.markdown("#### \U0001F4AC Foundry Narrative")
+            st.info(_fr.get("explanation", ""))
+            _tokens = int(_fr.get("tokens_used", 0) or 0)
+            _model  = _fr.get("model", "azure-foundry-agent")
+            if _tokens > 0:
+                st.caption(f"Model: {_model} | Tokens used: {_tokens:,}")
+            else:
+                st.caption(f"Model: {_model}")
         else:
-            st.error(f"Failed to load live packing queue from API: {queue_res.status_code} - {queue_res.text}")
-    except Exception as e:
-        st.write(f"Cannot load live queue: {e}")
-
-    # Stage 1 + Stage 2 + Stage 3 + Stage 4 + Stage 5 Control Tower Panels
-    st.markdown("---")
-    st.header("🏥 Full Pipeline Control Tower")
-    st.caption("Traceability → Usable Stock → Supply Chain Response → Financial Impact → Command Center. Each panel below runs independently against the backend.")
-
-    st.markdown("#### 🧮 Usable-Stock Check")
-    st.caption("Shows the difference between total stock on paper and what is actually usable for the selected item.")
-    try:
-        stage2_res = api_post("/api/usable-stock-analysis", telemetry, timeout=20)
-        if stage2_res.status_code == 200:
-            stage2 = stage2_res.json()
-            s2a, s2b, s2c, s2d, s2e, s2f = st.columns(6)
-            s2a.metric("Forecast", f"{stage2.get('predicted_24h_demand', 0):.1f}")
-            s2b.metric("Total", stage2.get("total_stock", 0))
-            s2c.metric("Usable", stage2.get("usable_stock", 0))
-            s2d.metric("Unsafe", stage2.get("unsafe_stock", 0))
-            s2e.metric("Transferable", stage2.get("transfer_candidate_stock", 0))
-            s2f.metric("True Gap", f"{stage2.get('true_shortage_gap', 0):.1f}")
-            st.info(stage2.get("explanation", ""))
-            st.warning(stage2.get("recommended_stage2_action", ""))
-            if stage2.get("top_transfer_options"):
-                with st.expander("Transfer options", expanded=False):
-                    st.dataframe(pd.DataFrame(stage2.get("top_transfer_options", [])), use_container_width=True)
-        else:
-            st.error(f"Stage 2 usable-stock API error: {stage2_res.status_code} - {stage2_res.text}")
-    except Exception as e:
-        st.error(f"Stage 2 usable-stock panel unavailable: {e}")
-
-    st.markdown("#### 🚚 Supply Chain Action Plan")
-    st.caption("From shortage detection to fix: transfer internally, order from a vendor, use a substitute, or escalate.")
-    try:
-        stage3_res = api_post("/api/stage3-action-plan", telemetry, timeout=25)
-        if stage3_res.status_code == 200:
-            stage3 = stage3_res.json()
-            transfer = stage3.get("transfer_recommendation", {}) or {}
-            supplier = stage3.get("supplier_risk", {}) or {}
-            substitute = stage3.get("substitute_options", {}) or {}
-            g1, g2, g3, g4, g5 = st.columns(5)
-            g1.metric("Best Action", stage3.get("best_action", "N/A"))
-            g2.metric("True Gap", f"{stage3.get('true_shortage_gap', 0):.1f}")
-            g3.metric("Transfer Qty", transfer.get("recommended_transfer_qty", 0))
-            g4.metric("Post-Transfer Gap", f"{stage3.get('post_transfer_gap', 0):.1f}")
-            g5.metric("Supplier", (supplier.get("recommended_vendor") or {}).get("vendor_name", "N/A"))
-            st.success(stage3.get("final_recommendation", "No supply-chain recommendation returned."))
-            with st.expander("Details: transfer, suppliers, substitutes", expanded=False):
-                d1, d2, d3 = st.columns(3)
-                with d1:
-                    st.markdown("**Transfer**")
-                    if transfer.get("transfer_options"):
-                        st.dataframe(pd.DataFrame(transfer.get("transfer_options", [])), use_container_width=True)
-                    else:
-                        st.write(transfer.get("recommendation", "No transfer data."))
-                with d2:
-                    st.markdown("**Suppliers**")
-                    if supplier.get("ranked_vendors"):
-                        st.dataframe(pd.DataFrame(supplier.get("ranked_vendors", [])), use_container_width=True)
-                    else:
-                        st.write(supplier.get("recommendation", "No supplier data."))
-                with d3:
-                    st.markdown("**Substitutes**")
-                    if substitute.get("substitute_options"):
-                        st.dataframe(pd.DataFrame(substitute.get("substitute_options", [])), use_container_width=True)
-                    else:
-                        st.write(substitute.get("recommendation", "No substitute data."))
-        else:
-            st.error(f"Stage 3 API error: {stage3_res.status_code} - {stage3_res.text}")
-    except Exception as e:
-        st.error(f"Stage 3 action-plan panel unavailable: {e}")
+            st.warning(
+                "Warning: Foundry explanation unavailable - "
+                f"{_fr.get('reason', 'unknown error')}. "
+                "All deterministic results above remain unchanged."
+            )
 
 
-    st.markdown("#### 💰 Cost, Waste & ROI Executive View")
-    st.caption("Business value at a glance: shortage dollars at risk, waste exposure, emergency premium, action cost, and net estimated value.")
-    try:
-        stage4_res = api_post("/api/stage4-roi-analysis", telemetry, timeout=25)
-        if stage4_res.status_code == 200:
-            stage4 = stage4_res.json()
-            q1, q2, q3, q4, q5, q6 = st.columns(6)
-            q1.metric("Unit Cost", f"${stage4.get('unit_cost_used', 0):,.2f}")
-            q2.metric("Shortage Risk $", f"${stage4.get('shortage_risk_value', 0):,.0f}")
-            q3.metric("Waste Risk $", f"${(stage4.get('waste_risk') or {}).get('total_waste_risk_value', 0):,.0f}")
-            q4.metric("Action Cost", f"${stage4.get('estimated_action_cost', 0):,.0f}")
-            q5.metric("Net Value", f"${stage4.get('net_value_estimate', 0):,.0f}")
-            q6.metric("ROI", f"{stage4.get('roi_ratio', 0):,.2f}x")
-            st.success(stage4.get("executive_recommendation", "No executive recommendation returned."))
-            with st.expander("Full financial breakdown", expanded=False):
-                st.json(stage4)
-        else:
-            st.error(f"Stage 4 API error: {stage4_res.status_code} - {stage4_res.text}")
-    except Exception as e:
-        st.error(f"Stage 4 ROI panel unavailable: {e}")
+    st.stop()  # Freeze guard: prevent lower panels from refreshing after Foundry renders.
 
-
-
-
-    st.markdown("#### 🧭 Command Center")
-    st.caption("The final command layer: priority code, owner, response window, action cards, escalation owner, audit checklist, and handoff packet.")
-    try:
-        stage5_res = api_post("/api/stage5-command-center", telemetry, timeout=25)
-        if stage5_res.status_code == 200:
-            stage5 = stage5_res.json()
-            v1, v2, v3, v4, v5, v6 = st.columns(6)
-            v1.metric("Priority", stage5.get("priority_code", "P3"))
-            v2.metric("Status", stage5.get("command_status", "Monitor"))
-            v3.metric("Risk", stage5.get("risk_level", "Low"))
-            v4.metric("Window", f"{stage5.get('response_window_minutes', 0)} min")
-            v5.metric("Open Actions", stage5.get("open_action_count", 0))
-            v6.metric("Net Value", f"${stage5.get('net_value_estimate', 0):,.0f}")
-            st.success(stage5.get("commander_decision", "No command decision returned."))
-            cards = stage5.get("action_cards", [])
-            if cards:
-                with st.expander("Action-card queue", expanded=True):
-                    df_cards = pd.DataFrame(cards)
-                    cols = ["action_id", "owner", "status", "due_minutes", "action", "success_metric"]
-                    st.dataframe(df_cards[[c for c in cols if c in df_cards.columns]], use_container_width=True)
-            with st.expander("Full command packet", expanded=False):
-                st.json(stage5)
-        else:
-            st.error(f"Stage 5 API error: {stage5_res.status_code} - {stage5_res.text}")
-    except Exception as e:
-        st.error(f"Stage 5 command-center panel unavailable: {e}")
-
-
-    st.markdown("#### 🌪️ What-If Surge Simulator")
-    st.caption("Stress-test the selected item/department under ED surge, ICU spike, flu season, supplier delay, mass-casualty, weekend staffing, or surgery spike.")
-    try:
-        stage6_ref_res = api_get("/api/stage6-scenarios", timeout=10)
-        if stage6_ref_res.status_code == 200:
-            stage6_ref = stage6_ref_res.json()
-            scenario_list = stage6_ref.get("scenarios", [])
-        else:
-            scenario_list = []
-        if not scenario_list:
-            scenario_list = [
-                {"scenario_id": "ED_SURGE_40", "scenario_name": "ED Surge +40%"},
-                {"scenario_id": "ICU_RESPIRATORY_SPIKE", "scenario_name": "ICU Respiratory Spike"},
-                {"scenario_id": "FLU_SEASON_DEMAND", "scenario_name": "Flu Season Demand"},
-                {"scenario_id": "SUPPLIER_DELAY_5D", "scenario_name": "Supplier Delay +5 Days"},
-                {"scenario_id": "MASS_CASUALTY_MODE", "scenario_name": "Mass Casualty Mode"},
-                {"scenario_id": "WEEKEND_STAFFING_CONSTRAINT", "scenario_name": "Weekend Staffing Constraint"},
-                {"scenario_id": "SURGERY_SCHEDULE_SPIKE", "scenario_name": "Surgery Schedule Spike"},
+# Top 5 Supplies Table
+st.markdown("---")
+st.header("\U0001F4CB Top 5 Supplies to Pack First")
+st.caption(
+    "This queue uses the live sidebar scenario. Department changes the supply universe; "
+    "the sliders, hour/day, and season change risk, pack quantity, priority score, and ranking."
+)
+try:
+    queue_payload = dict(telemetry)
+    queue_payload.update({"limit": 5, "max_records": 75})
+    queue_res = requests.post(
+        f"{MEDPACK_API_BASE_URL}/api/packing-queue",
+        json=queue_payload,
+        timeout=30,
+    )
+    if queue_res.status_code == 200:
+        queue_response = queue_res.json()
+        queue_data = queue_response.get("queue", queue_response if isinstance(queue_response, list) else [])
+        if queue_data:
+            df_queue = pd.DataFrame(queue_data)
+            display_cols = [
+                "item_name",
+                "item_category",
+                "department",
+                "total_stock",
+                "usable_stock",
+                "unsafe_stock",
+                "active_task_reserved_stock",
+                "transfer_candidate_stock",
+                "predicted_24h_demand",
+                "true_shortage_gap",
+                "post_transfer_gap",
+                "risk_level",
+                "recommended_pack_quantity",
+                "priority_score",
+                "scenario_pressure_score",
+                "escalation_required",
             ]
+            available_cols = [c for c in display_cols if c in df_queue.columns]
+            st.dataframe(df_queue[available_cols], use_container_width=True)
+            with st.expander("Why did the Top 5 change?", expanded=False):
+                st.write(
+                    "The table was recalculated using the current sidebar inputs: "
+                    f"department={dept}, patient_volume={patient_volume}, acuity={acuity_level}, "
+                    f"procedure_count={procedure_count}, recent_usage_rate={recent_usage_rate}, "
+                    f"supplier_delay={supplier_delay}, season={season}, hour={hour}, day={day_of_week}."
+                )
+                if "pressure_note" in df_queue.columns:
+                    st.dataframe(df_queue[["item_name", "pressure_note"]], use_container_width=True)
+        else:
+            st.write("No inventory records found for this department.")
+    else:
+        st.error(f"Failed to load live packing queue from API: {queue_res.status_code} - {queue_res.text}")
+except Exception as e:
+    st.write(f"Cannot load live queue: {e}")
 
-        scenario_names = [s.get("scenario_name", s.get("scenario_id")) for s in scenario_list]
-        scenario_name_to_id = {s.get("scenario_name", s.get("scenario_id")): s.get("scenario_id") for s in scenario_list}
-        w1, w2, w3 = st.columns([1.5, 1, 1])
-        with w1:
-            selected_scenario_name = st.selectbox("Scenario", scenario_names, index=0, key="stage6_scenario_select")
-            selected_scenario_id = scenario_name_to_id.get(selected_scenario_name, "ED_SURGE_40")
-        with w2:
-            compare_all_scenarios = st.checkbox("Compare all scenarios", value=False, key="stage6_compare_all")
-        with w3:
-            show_stage6_json = st.checkbox("Show full JSON", value=False, key="stage6_show_json")
+# Stage 1 + Stage 2 + Stage 3 + Stage 4 + Stage 5 Control Tower Panels
+st.markdown("---")
+st.header("Full Pipeline Control Tower")
+st.caption("Traceability -> Usable Stock -> Supply Chain Response -> Financial Impact -> Command Center. Each panel below runs independently against the backend.")
 
-        with st.expander("Optional custom shock controls", expanded=False):
-            c1, c2, c3, c4, c5 = st.columns(5)
-            with c1:
-                custom_demand_multiplier = st.number_input("Demand multiplier", min_value=0.5, max_value=3.0, value=1.0, step=0.05, key="stage6_demand_mult")
-            with c2:
-                custom_supplier_delay = st.number_input("Add supplier delay days", min_value=0.0, max_value=14.0, value=0.0, step=0.5, key="stage6_delay_add")
-            with c3:
-                custom_stock_loss = st.number_input("Stock loss units", min_value=0, max_value=500, value=0, step=1, key="stage6_stock_loss")
-            with c4:
-                custom_acuity_delta = st.number_input("Acuity delta", min_value=0.0, max_value=2.0, value=0.0, step=0.1, key="stage6_acuity_delta")
-            with c5:
-                custom_pack_multiplier = st.number_input("Pack time multiplier", min_value=0.5, max_value=3.0, value=1.0, step=0.05, key="stage6_pack_mult")
+st.markdown("#### Usable-Stock Check")
+st.caption("Shows the difference between total stock on paper and what is actually usable for the selected item.")
+try:
+    stage2_res = api_post("/api/usable-stock-analysis", telemetry, timeout=20)
+    if stage2_res.status_code == 200:
+        stage2 = stage2_res.json()
+        s2a, s2b, s2c, s2d, s2e, s2f = st.columns(6)
+        s2a.metric("Forecast", f"{stage2.get('predicted_24h_demand', 0):.1f}")
+        s2b.metric("Total", stage2.get("total_stock", 0))
+        s2c.metric("Usable", stage2.get("usable_stock", 0))
+        s2d.metric("Unsafe", stage2.get("unsafe_stock", 0))
+        s2e.metric("Transferable", stage2.get("transfer_candidate_stock", 0))
+        s2f.metric("True Gap", f"{stage2.get('true_shortage_gap', 0):.1f}")
+        st.info(stage2.get("explanation", ""))
+        st.warning(stage2.get("recommended_stage2_action", ""))
+        if stage2.get("top_transfer_options"):
+            with st.expander("Transfer options", expanded=False):
+                st.dataframe(pd.DataFrame(stage2.get("top_transfer_options", [])), use_container_width=True)
+    else:
+        st.error(f"Stage 2 usable-stock API error: {stage2_res.status_code} - {stage2_res.text}")
+except Exception as e:
+    st.error(f"Stage 2 usable-stock panel unavailable: {e}")
 
-        if st.button("🌪️ Run What-If Simulator", key="run_stage6_whatif"):
-            stage6_payload = {
-                "telemetry": telemetry,
-                "scenario_id": selected_scenario_id,
-                "compare_all": bool(compare_all_scenarios),
-                "custom_modifiers": {
-                    "demand_multiplier": float(custom_demand_multiplier),
-                    "supplier_delay_add_days": float(custom_supplier_delay),
-                    "stock_reduction_units": int(custom_stock_loss),
-                    "acuity_delta": float(custom_acuity_delta),
-                    "pack_time_multiplier": float(custom_pack_multiplier),
-                },
-            }
-            with st.spinner("Running scenario through Stage 2-5 control tower..."):
-                stage6_res = api_post("/api/stage6-whatif-simulator", stage6_payload, timeout=35)
-
-            if stage6_res.status_code != 200:
-                st.error(f"Stage 6 simulator API error: {stage6_res.status_code} - {stage6_res.text}")
-            else:
-                stage6 = stage6_res.json()
-                if stage6.get("benchmark_rows"):
-                    st.success(stage6.get("control_tower_summary", "Scenario benchmark complete."))
-                    df_stage6 = pd.DataFrame(stage6.get("benchmark_rows", []))
-                    show_cols = [
-                        "scenario_name", "severity", "scenario_forecast", "demand_delta",
-                        "scenario_gap", "gap_delta", "scenario_priority", "scenario_score",
-                    ]
-                    st.dataframe(df_stage6[[c for c in show_cols if c in df_stage6.columns]], use_container_width=True)
-                    top = stage6.get("highest_risk_scenario", {})
-                    b1, b2, b3, b4 = st.columns(4)
-                    b1.metric("Highest Risk Scenario", top.get("scenario_name", "N/A"))
-                    b2.metric("Priority", top.get("scenario_priority", "N/A"))
-                    b3.metric("Scenario Gap", top.get("scenario_gap", 0))
-                    b4.metric("Demand Δ", top.get("demand_delta", 0))
+st.markdown("#### \U0001F69A Supply Chain Action Plan")
+st.caption("From shortage detection to fix: transfer internally, order from a vendor, use a substitute, or escalate.")
+try:
+    stage3_res = api_post("/api/stage3-action-plan", telemetry, timeout=25)
+    if stage3_res.status_code == 200:
+        stage3 = stage3_res.json()
+        transfer = stage3.get("transfer_recommendation", {}) or {}
+        supplier = stage3.get("supplier_risk", {}) or {}
+        substitute = stage3.get("substitute_options", {}) or {}
+        g1, g2, g3, g4, g5 = st.columns(5)
+        g1.metric("Best Action", stage3.get("best_action", "N/A"))
+        g2.metric("True Gap", f"{stage3.get('true_shortage_gap', 0):.1f}")
+        g3.metric("Transfer Qty", transfer.get("recommended_transfer_qty", 0))
+        g4.metric("Post-Transfer Gap", f"{stage3.get('post_transfer_gap', 0):.1f}")
+        g5.metric("Supplier", (supplier.get("recommended_vendor") or {}).get("vendor_name", "N/A"))
+        st.success(stage3.get("final_recommendation", "No supply-chain recommendation returned."))
+        with st.expander("Details: transfer, suppliers, substitutes", expanded=False):
+            d1, d2, d3 = st.columns(3)
+            with d1:
+                st.markdown("**Transfer**")
+                if transfer.get("transfer_options"):
+                    st.dataframe(pd.DataFrame(transfer.get("transfer_options", [])), use_container_width=True)
                 else:
-                    s1, s2, s3, s4, s5, s6 = st.columns(6)
-                    s1.metric("Baseline Demand", f"{stage6.get('baseline_forecast', 0):.1f}")
-                    s2.metric("Scenario Demand", f"{stage6.get('scenario_forecast', 0):.1f}", delta=f"{stage6.get('demand_delta', 0):+.1f}")
-                    s3.metric("Baseline Gap", stage6.get("baseline_true_shortage_gap", 0))
-                    s4.metric("Scenario Gap", stage6.get("scenario_true_shortage_gap", 0), delta=f"{stage6.get('true_shortage_gap_delta', 0):+.1f}")
-                    s5.metric("Priority Shift", f"{stage6.get('baseline_priority_code')} → {stage6.get('scenario_priority_code')}")
-                    s6.metric("Net Value Δ", f"${stage6.get('net_value_delta', 0):,.0f}")
-                    st.warning(stage6.get("simulator_summary", "No scenario summary returned."))
-                    st.success(stage6.get("recommended_scenario_action", "No scenario action returned."))
-                    scenario_stage5 = stage6.get("scenario_stage5_command_center", {})
-                    if scenario_stage5:
-                        with st.expander("Scenario Stage 5 command cards", expanded=True):
-                            cards = scenario_stage5.get("action_cards", [])
-                            if cards:
-                                df_cards = pd.DataFrame(cards)
-                                cols = ["action_id", "owner", "status", "due_minutes", "action", "success_metric"]
-                                st.dataframe(df_cards[[c for c in cols if c in df_cards.columns]], use_container_width=True)
-                            else:
-                                st.write("No action cards generated.")
-                    with st.expander("Applied scenario modifiers", expanded=False):
-                        mods = stage6.get("applied_modifiers", [])
-                        if mods:
-                            st.dataframe(pd.DataFrame(mods), use_container_width=True)
+                    st.write(transfer.get("recommendation", "No transfer data."))
+            with d2:
+                st.markdown("**Suppliers**")
+                if supplier.get("ranked_vendors"):
+                    st.dataframe(pd.DataFrame(supplier.get("ranked_vendors", [])), use_container_width=True)
+                else:
+                    st.write(supplier.get("recommendation", "No supplier data."))
+            with d3:
+                st.markdown("**Substitutes**")
+                if substitute.get("substitute_options"):
+                    st.dataframe(pd.DataFrame(substitute.get("substitute_options", [])), use_container_width=True)
+                else:
+                    st.write(substitute.get("recommendation", "No substitute data."))
+    else:
+        st.error(f"Stage 3 API error: {stage3_res.status_code} - {stage3_res.text}")
+except Exception as e:
+    st.error(f"Stage 3 action-plan panel unavailable: {e}")
+
+
+st.markdown("#### \U0001F4B0 Cost, Waste & ROI Executive View")
+st.caption("Business value at a glance: shortage dollars at risk, waste exposure, emergency premium, action cost, and net estimated value.")
+try:
+    stage4_res = api_post("/api/stage4-roi-analysis", telemetry, timeout=25)
+    if stage4_res.status_code == 200:
+        stage4 = stage4_res.json()
+        q1, q2, q3, q4, q5, q6 = st.columns(6)
+        q1.metric("Unit Cost", f"${stage4.get('unit_cost_used', 0):,.2f}")
+        q2.metric("Shortage Risk $", f"${stage4.get('shortage_risk_value', 0):,.0f}")
+        q3.metric("Waste Risk $", f"${(stage4.get('waste_risk') or {}).get('total_waste_risk_value', 0):,.0f}")
+        q4.metric("Action Cost", f"${stage4.get('estimated_action_cost', 0):,.0f}")
+        q5.metric("Net Value", f"${stage4.get('net_value_estimate', 0):,.0f}")
+        q6.metric("ROI", f"{stage4.get('roi_ratio', 0):,.2f}x")
+        st.success(stage4.get("executive_recommendation", "No executive recommendation returned."))
+        with st.expander("Full financial breakdown", expanded=False):
+            st.json(stage4)
+    else:
+        st.error(f"Stage 4 API error: {stage4_res.status_code} - {stage4_res.text}")
+except Exception as e:
+    st.error(f"Stage 4 ROI panel unavailable: {e}")
+
+
+
+
+st.markdown("#### \U0001F9ED Command Center")
+st.caption("The final command layer: priority code, owner, response window, action cards, escalation owner, audit checklist, and handoff packet.")
+try:
+    stage5_res = api_post("/api/stage5-command-center", telemetry, timeout=25)
+    if stage5_res.status_code == 200:
+        stage5 = stage5_res.json()
+        v1, v2, v3, v4, v5, v6 = st.columns(6)
+        v1.metric("Priority", stage5.get("priority_code", "P3"))
+        v2.metric("Status", stage5.get("command_status", "Monitor"))
+        v3.metric("Risk", stage5.get("risk_level", "Low"))
+        v4.metric("Window", f"{stage5.get('response_window_minutes', 0)} min")
+        v5.metric("Open Actions", stage5.get("open_action_count", 0))
+        v6.metric("Net Value", f"${stage5.get('net_value_estimate', 0):,.0f}")
+        st.success(stage5.get("commander_decision", "No command decision returned."))
+        cards = stage5.get("action_cards", [])
+        if cards:
+            with st.expander("Action-card queue", expanded=True):
+                df_cards = pd.DataFrame(cards)
+                cols = ["action_id", "owner", "status", "due_minutes", "action", "success_metric"]
+                st.dataframe(df_cards[[c for c in cols if c in df_cards.columns]], use_container_width=True)
+        with st.expander("Full command packet", expanded=False):
+            st.json(stage5)
+    else:
+        st.error(f"Stage 5 API error: {stage5_res.status_code} - {stage5_res.text}")
+except Exception as e:
+    st.error(f"Stage 5 command-center panel unavailable: {e}")
+
+
+st.markdown("#### What-If Surge Simulator")
+st.caption("Stress-test the selected item/department under ED surge, ICU spike, flu season, supplier delay, mass-casualty, weekend staffing, or surgery spike.")
+try:
+    stage6_ref_res = api_get("/api/stage6-scenarios", timeout=10)
+    if stage6_ref_res.status_code == 200:
+        stage6_ref = stage6_ref_res.json()
+        scenario_list = stage6_ref.get("scenarios", [])
+    else:
+        scenario_list = []
+    if not scenario_list:
+        scenario_list = [
+            {"scenario_id": "ED_SURGE_40", "scenario_name": "ED Surge +40%"},
+            {"scenario_id": "ICU_RESPIRATORY_SPIKE", "scenario_name": "ICU Respiratory Spike"},
+            {"scenario_id": "FLU_SEASON_DEMAND", "scenario_name": "Flu Season Demand"},
+            {"scenario_id": "SUPPLIER_DELAY_5D", "scenario_name": "Supplier Delay +5 Days"},
+            {"scenario_id": "MASS_CASUALTY_MODE", "scenario_name": "Mass Casualty Mode"},
+            {"scenario_id": "WEEKEND_STAFFING_CONSTRAINT", "scenario_name": "Weekend Staffing Constraint"},
+            {"scenario_id": "SURGERY_SCHEDULE_SPIKE", "scenario_name": "Surgery Schedule Spike"},
+        ]
+
+    scenario_names = [s.get("scenario_name", s.get("scenario_id")) for s in scenario_list]
+    scenario_name_to_id = {s.get("scenario_name", s.get("scenario_id")): s.get("scenario_id") for s in scenario_list}
+    w1, w2, w3 = st.columns([1.5, 1, 1])
+    with w1:
+        selected_scenario_name = st.selectbox("Scenario", scenario_names, index=0, key="stage6_scenario_select")
+        selected_scenario_id = scenario_name_to_id.get(selected_scenario_name, "ED_SURGE_40")
+    with w2:
+        compare_all_scenarios = st.checkbox("Compare all scenarios", value=False, key="stage6_compare_all")
+    with w3:
+        show_stage6_json = st.checkbox("Show full JSON", value=False, key="stage6_show_json")
+
+    with st.expander("Optional custom shock controls", expanded=False):
+        c1, c2, c3, c4, c5 = st.columns(5)
+        with c1:
+            custom_demand_multiplier = st.number_input("Demand multiplier", min_value=0.5, max_value=3.0, value=1.0, step=0.05, key="stage6_demand_mult")
+        with c2:
+            custom_supplier_delay = st.number_input("Add supplier delay days", min_value=0.0, max_value=14.0, value=0.0, step=0.5, key="stage6_delay_add")
+        with c3:
+            custom_stock_loss = st.number_input("Stock loss units", min_value=0, max_value=500, value=0, step=1, key="stage6_stock_loss")
+        with c4:
+            custom_acuity_delta = st.number_input("Acuity delta", min_value=0.0, max_value=2.0, value=0.0, step=0.1, key="stage6_acuity_delta")
+        with c5:
+            custom_pack_multiplier = st.number_input("Pack time multiplier", min_value=0.5, max_value=3.0, value=1.0, step=0.05, key="stage6_pack_mult")
+
+    if st.button("Run What-If Simulator", key="run_stage6_whatif"):
+        stage6_payload = {
+            "telemetry": telemetry,
+            "scenario_id": selected_scenario_id,
+            "compare_all": bool(compare_all_scenarios),
+            "custom_modifiers": {
+                "demand_multiplier": float(custom_demand_multiplier),
+                "supplier_delay_add_days": float(custom_supplier_delay),
+                "stock_reduction_units": int(custom_stock_loss),
+                "acuity_delta": float(custom_acuity_delta),
+                "pack_time_multiplier": float(custom_pack_multiplier),
+            },
+        }
+        with st.spinner("Running scenario through Stage 2-5 control tower..."):
+            stage6_res = api_post("/api/stage6-whatif-simulator", stage6_payload, timeout=35)
+
+        if stage6_res.status_code != 200:
+            st.error(f"Stage 6 simulator API error: {stage6_res.status_code} - {stage6_res.text}")
+        else:
+            stage6 = stage6_res.json()
+            if stage6.get("benchmark_rows"):
+                st.success(stage6.get("control_tower_summary", "Scenario benchmark complete."))
+                df_stage6 = pd.DataFrame(stage6.get("benchmark_rows", []))
+                show_cols = [
+                    "scenario_name", "severity", "scenario_forecast", "demand_delta",
+                    "scenario_gap", "gap_delta", "scenario_priority", "scenario_score",
+                ]
+                st.dataframe(df_stage6[[c for c in show_cols if c in df_stage6.columns]], use_container_width=True)
+                top = stage6.get("highest_risk_scenario", {})
+                b1, b2, b3, b4 = st.columns(4)
+                b1.metric("Highest Risk Scenario", top.get("scenario_name", "N/A"))
+                b2.metric("Priority", top.get("scenario_priority", "N/A"))
+                b3.metric("Scenario Gap", top.get("scenario_gap", 0))
+                b4.metric("Demand (Change)", top.get("demand_delta", 0))
+            else:
+                s1, s2, s3, s4, s5, s6 = st.columns(6)
+                s1.metric("Baseline Demand", f"{stage6.get('baseline_forecast', 0):.1f}")
+                s2.metric("Scenario Demand", f"{stage6.get('scenario_forecast', 0):.1f}", delta=f"{stage6.get('demand_delta', 0):+.1f}")
+                s3.metric("Baseline Gap", stage6.get("baseline_true_shortage_gap", 0))
+                s4.metric("Scenario Gap", stage6.get("scenario_true_shortage_gap", 0), delta=f"{stage6.get('true_shortage_gap_delta', 0):+.1f}")
+                s5.metric("Priority Shift", f"{stage6.get('baseline_priority_code')} -> {stage6.get('scenario_priority_code')}")
+                s6.metric("Net Value (Change)", f"${stage6.get('net_value_delta', 0):,.0f}")
+                st.warning(stage6.get("simulator_summary", "No scenario summary returned."))
+                st.success(stage6.get("recommended_scenario_action", "No scenario action returned."))
+                scenario_stage5 = stage6.get("scenario_stage5_command_center", {})
+                if scenario_stage5:
+                    with st.expander("Scenario Stage 5 command cards", expanded=True):
+                        cards = scenario_stage5.get("action_cards", [])
+                        if cards:
+                            df_cards = pd.DataFrame(cards)
+                            cols = ["action_id", "owner", "status", "due_minutes", "action", "success_metric"]
+                            st.dataframe(df_cards[[c for c in cols if c in df_cards.columns]], use_container_width=True)
                         else:
-                            st.write("No modifiers returned.")
-                if show_stage6_json:
-                    st.json(stage6)
+                            st.write("No action cards generated.")
+                with st.expander("Applied scenario modifiers", expanded=False):
+                    mods = stage6.get("applied_modifiers", [])
+                    if mods:
+                        st.dataframe(pd.DataFrame(mods), use_container_width=True)
+                    else:
+                        st.write("No modifiers returned.")
+            if show_stage6_json:
+                st.json(stage6)
+except Exception as e:
+    st.error(f"Stage 6 simulator panel unavailable: {e}")
+
+
+stage_tabs = st.tabs([
+    " Traceability",
+    " Compliance Alerts",
+    " Scan Simulator",
+    " Dynamic PAR",
+    " Packing Tasks",
+    " Stage 3 Data",
+    " Stage 4 Finance",
+    " Stage 5 Playbook",
+    " Stage 6 Scenarios",
+])
+
+with stage_tabs[0]:
+    try:
+        inv_res = api_get("/api/inventory", timeout=15)
+        if inv_res.status_code == 200:
+            inventory_records = inv_res.json()
+            df_inv = pd.DataFrame(inventory_records)
+            if not df_inv.empty:
+                df_scope = df_inv[df_inv["department"] == dept].copy() if "department" in df_inv.columns else df_inv.copy()
+                st.markdown("#### Item Traceability Snapshot")
+                trace_cols = [
+                    "item_name", "department", "current_stock", "par_level", "max_stock",
+                    "lot_number", "udi_code", "barcode", "expiration_date", "recall_status",
+                    "location", "vendor_name", "storage_type", "last_scan_event", "last_scan_at",
+                ]
+                available = [c for c in trace_cols if c in df_scope.columns]
+                st.dataframe(df_scope[available].head(25), use_container_width=True)
+                st.info("This is the first visible upgrade: every supply row now carries lot, UDI, barcode, expiration, PAR, location, vendor, recall, and scan-state fields.")
+            else:
+                st.write("No inventory records available.")
+        else:
+            st.error(f"Inventory API error: {inv_res.status_code}")
     except Exception as e:
-        st.error(f"Stage 6 simulator panel unavailable: {e}")
+        st.error(f"Traceability panel unavailable: {e}")
 
+with stage_tabs[1]:
+    try:
+        alert_res = api_post("/api/compliance-alerts", {"department": dept, "expiration_window_days": 30}, timeout=15)
+        if alert_res.status_code == 200:
+            alerts = alert_res.json()
+            counts = alerts.get("counts", {})
+            a1, a2, a3, a4, a5 = st.columns(5)
+            a1.metric("Below PAR", counts.get("below_par", 0))
+            a2.metric("Expiring < 30d", counts.get("expiring_soon", 0))
+            a3.metric("Expired", counts.get("expired", 0))
+            a4.metric("Recalled", counts.get("recalled", 0))
+            a5.metric("Cold Chain", counts.get("temperature_sensitive", 0))
+            st.warning(alerts.get("control_tower_summary", "No summary returned."))
 
-    stage_tabs = st.tabs([
-        "🧬 Traceability",
-        "🚨 Compliance Alerts",
-        "📱 Scan Simulator",
-        "📐 Dynamic PAR",
-        "✅ Packing Tasks",
-        "🚚 Stage 3 Data",
-        "💰 Stage 4 Finance",
-        "🧭 Stage 5 Playbook",
-        "🌪️ Stage 6 Scenarios",
-    ])
+            alert_buckets = alerts.get("alerts", {})
+            for title, key in [
+                ("Below PAR", "below_par"),
+                ("Expiring Soon", "expiring_soon"),
+                ("Expired", "expired"),
+                ("Recalled", "recalled"),
+                ("Temperature Sensitive", "temperature_sensitive"),
+            ]:
+                bucket = alert_buckets.get(key, [])
+                with st.expander(f"{title} ({len(bucket)})", expanded=key in {"recalled", "expired", "below_par"} and len(bucket) > 0):
+                    if bucket:
+                        show_cols = [
+                            "item_name", "department", "current_stock", "par_level", "lot_number",
+                            "expiration_date", "days_until_expiration", "recall_status", "location", "reason", "severity",
+                        ]
+                        df_bucket = pd.DataFrame(bucket)
+                        st.dataframe(df_bucket[[c for c in show_cols if c in df_bucket.columns]], use_container_width=True)
+                    else:
+                        st.write("No records in this bucket.")
+        else:
+            st.error(f"Compliance API error: {alert_res.status_code} - {alert_res.text}")
+    except Exception as e:
+        st.error(f"Compliance panel unavailable: {e}")
 
-    with stage_tabs[0]:
+with stage_tabs[2]:
+    st.markdown("#### Barcode / UDI Scan Event Simulator")
+    st.caption("Use this to simulate real supply movement. RECEIVED/STOCKED adds stock; PICKED/CONSUMED/WASTED/RECALLED removes stock; PACKED/DELIVERED logs workflow without changing stock.")
+    scan_col1, scan_col2, scan_col3 = st.columns([1.2, 1, 1])
+    with scan_col1:
+        scan_barcode = st.text_input("Barcode optional", value="", placeholder="Paste barcode from Traceability tab or leave blank")
+        scan_operator = st.text_input("Operator", value="Warehouse Team")
+    with scan_col2:
+        scan_event_type = st.selectbox("Scan Event", ["RECEIVED", "STOCKED", "PICKED", "PACKED", "DELIVERED", "CONSUMED", "WASTED_EXPIRED", "RECALLED_REMOVED"], index=2)
+        scan_qty = st.number_input("Quantity", min_value=1, max_value=500, value=1, step=1)
+    with scan_col3:
+        scan_note = st.text_area("Note", value="Stage 1 demo scan", height=110)
+
+    if st.button("Submit Scan Event"):
+        payload = {
+            "barcode": scan_barcode.strip(),
+            "item_name": item,
+            "department": dept,
+            "event_type": scan_event_type,
+            "quantity": int(scan_qty),
+            "operator": scan_operator,
+            "note": scan_note,
+        }
         try:
-            inv_res = api_get("/api/inventory", timeout=15)
-            if inv_res.status_code == 200:
-                inventory_records = inv_res.json()
-                df_inv = pd.DataFrame(inventory_records)
-                if not df_inv.empty:
-                    df_scope = df_inv[df_inv["department"] == dept].copy() if "department" in df_inv.columns else df_inv.copy()
-                    st.markdown("#### Item Traceability Snapshot")
-                    trace_cols = [
-                        "item_name", "department", "current_stock", "par_level", "max_stock",
-                        "lot_number", "udi_code", "barcode", "expiration_date", "recall_status",
-                        "location", "vendor_name", "storage_type", "last_scan_event", "last_scan_at",
-                    ]
-                    available = [c for c in trace_cols if c in df_scope.columns]
-                    st.dataframe(df_scope[available].head(25), use_container_width=True)
-                    st.info("This is the first visible upgrade: every supply row now carries lot, UDI, barcode, expiration, PAR, location, vendor, recall, and scan-state fields.")
-                else:
-                    st.write("No inventory records available.")
+            scan_res = api_post("/api/scan-event", payload, timeout=15)
+            if scan_res.status_code == 200:
+                st.success("Scan event saved and inventory updated.")
+                st.json(scan_res.json().get("event", {}))
             else:
-                st.error(f"Inventory API error: {inv_res.status_code}")
+                st.error(f"Scan failed: {scan_res.text}")
         except Exception as e:
-            st.error(f"Traceability panel unavailable: {e}")
+            st.error(f"Scan event failed: {e}")
 
-    with stage_tabs[1]:
-        try:
-            alert_res = api_post("/api/compliance-alerts", {"department": dept, "expiration_window_days": 30}, timeout=15)
-            if alert_res.status_code == 200:
-                alerts = alert_res.json()
-                counts = alerts.get("counts", {})
-                a1, a2, a3, a4, a5 = st.columns(5)
-                a1.metric("Below PAR", counts.get("below_par", 0))
-                a2.metric("Expiring ≤30d", counts.get("expiring_soon", 0))
-                a3.metric("Expired", counts.get("expired", 0))
-                a4.metric("Recalled", counts.get("recalled", 0))
-                a5.metric("Cold Chain", counts.get("temperature_sensitive", 0))
-                st.warning(alerts.get("control_tower_summary", "No summary returned."))
-
-                alert_buckets = alerts.get("alerts", {})
-                for title, key in [
-                    ("Below PAR", "below_par"),
-                    ("Expiring Soon", "expiring_soon"),
-                    ("Expired", "expired"),
-                    ("Recalled", "recalled"),
-                    ("Temperature Sensitive", "temperature_sensitive"),
-                ]:
-                    bucket = alert_buckets.get(key, [])
-                    with st.expander(f"{title} ({len(bucket)})", expanded=key in {"recalled", "expired", "below_par"} and len(bucket) > 0):
-                        if bucket:
-                            show_cols = [
-                                "item_name", "department", "current_stock", "par_level", "lot_number",
-                                "expiration_date", "days_until_expiration", "recall_status", "location", "reason", "severity",
-                            ]
-                            df_bucket = pd.DataFrame(bucket)
-                            st.dataframe(df_bucket[[c for c in show_cols if c in df_bucket.columns]], use_container_width=True)
-                        else:
-                            st.write("No records in this bucket.")
+    st.markdown("#### Recent Scan Events")
+    try:
+        events_res = api_get("/api/scan-events", params={"limit": 15}, timeout=10)
+        if events_res.status_code == 200:
+            events = events_res.json()
+            if events:
+                df_events = pd.DataFrame(events)
+                display = ["timestamp", "event_type", "quantity", "item_name", "department", "barcode", "lot_number", "stock_before", "stock_after", "operator"]
+                st.dataframe(df_events[[c for c in display if c in df_events.columns]].sort_values("timestamp", ascending=False), use_container_width=True)
             else:
-                st.error(f"Compliance API error: {alert_res.status_code} - {alert_res.text}")
-        except Exception as e:
-            st.error(f"Compliance panel unavailable: {e}")
+                st.write("No scan events yet.")
+    except Exception as e:
+        st.write(f"Recent scans unavailable: {e}")
 
-    with stage_tabs[2]:
-        st.markdown("#### Barcode / UDI Scan Event Simulator")
-        st.caption("Use this to simulate real supply movement. RECEIVED/STOCKED adds stock; PICKED/CONSUMED/WASTED/RECALLED removes stock; PACKED/DELIVERED logs workflow without changing stock.")
-        scan_col1, scan_col2, scan_col3 = st.columns([1.2, 1, 1])
-        with scan_col1:
-            scan_barcode = st.text_input("Barcode optional", value="", placeholder="Paste barcode from Traceability tab or leave blank")
-            scan_operator = st.text_input("Operator", value="Warehouse Team")
-        with scan_col2:
-            scan_event_type = st.selectbox("Scan Event", ["RECEIVED", "STOCKED", "PICKED", "PACKED", "DELIVERED", "CONSUMED", "WASTED_EXPIRED", "RECALLED_REMOVED"], index=2)
-            scan_qty = st.number_input("Quantity", min_value=1, max_value=500, value=1, step=1)
-        with scan_col3:
-            scan_note = st.text_area("Note", value="Stage 1 demo scan", height=110)
+with stage_tabs[3]:
+    st.markdown("#### Dynamic PAR Recommendation")
+    st.caption("This converts forecast + supplier delay + clinical criticality into a recommended PAR and max-stock level.")
+    try:
+        # First get a fresh prediction so the PAR recommendation reflects the current sidebar scenario.
+        pred_res = api_post("/api/predict-supply-demand", telemetry, timeout=20)
+        predicted = None
+        if pred_res.status_code == 200:
+            predicted = pred_res.json().get("predicted_24h_demand")
+        par_payload = dict(telemetry)
+        par_payload["predicted_24h_demand"] = predicted or recent_usage_rate * 24
+        par_payload["par_level"] = reorder_point
+        par_res = api_post("/api/par-recommendation", par_payload, timeout=15)
+        if par_res.status_code == 200:
+            par = par_res.json()
+            p1, p2, p3, p4 = st.columns(4)
+            p1.metric("Current PAR", par.get("current_par"))
+            p2.metric("Recommended PAR", par.get("recommended_par"), delta=par.get("par_delta"))
+            p3.metric("Max Stock", par.get("recommended_max_stock"))
+            p4.metric("Safety Buffer", f"{par.get('safety_buffer_pct')}%")
+            st.success(par.get("recommended_action"))
+            st.caption(par.get("reasoning"))
+            st.json(par)
+        else:
+            st.error(f"PAR API error: {par_res.status_code} - {par_res.text}")
+    except Exception as e:
+        st.error(f"Dynamic PAR panel unavailable: {e}")
 
-        if st.button("📱 Submit Scan Event"):
-            payload = {
-                "barcode": scan_barcode.strip(),
-                "item_name": item,
-                "department": dept,
-                "event_type": scan_event_type,
-                "quantity": int(scan_qty),
-                "operator": scan_operator,
-                "note": scan_note,
-            }
-            try:
-                scan_res = api_post("/api/scan-event", payload, timeout=15)
-                if scan_res.status_code == 200:
-                    st.success("Scan event saved and inventory updated.")
-                    st.json(scan_res.json().get("event", {}))
-                else:
-                    st.error(f"Scan failed: {scan_res.text}")
-            except Exception as e:
-                st.error(f"Scan event failed: {e}")
+with stage_tabs[4]:
+    st.markdown("#### Packing Task Lifecycle")
+    st.caption("Turn a recommendation into an operational task: NEW -> ASSIGNED -> PICKING -> PACKED -> DELIVERED or ESCALATED.")
+    task_col1, task_col2 = st.columns([1, 1])
+    with task_col1:
+        task_assignee = st.text_input("Assign To", value="Warehouse Team")
+        task_qty = st.number_input("Task Quantity", min_value=1, max_value=500, value=max(1, int(current_stock if current_stock < 10 else 10)), step=1)
+    with task_col2:
+        task_risk = st.selectbox("Risk Level", ["Low", "Medium", "High", "Critical"], index=2)
+        task_note = st.text_area("Task Note", value="Stage 1 packing task created from dashboard.", height=100)
 
-        st.markdown("#### Recent Scan Events")
+    if st.button("Create Packing Task"):
+        payload = {
+            "item_name": item,
+            "department": dept,
+            "quantity": int(task_qty),
+            "assigned_to": task_assignee,
+            "risk_level": task_risk,
+            "priority_score": 75 if task_risk == "High" else 95 if task_risk == "Critical" else 50,
+            "recommended_action": f"Pack {int(task_qty)} units of {item} for {dept}.",
+            "note": task_note,
+        }
         try:
-            events_res = api_get("/api/scan-events", params={"limit": 15}, timeout=10)
-            if events_res.status_code == 200:
-                events = events_res.json()
-                if events:
-                    df_events = pd.DataFrame(events)
-                    display = ["timestamp", "event_type", "quantity", "item_name", "department", "barcode", "lot_number", "stock_before", "stock_after", "operator"]
-                    st.dataframe(df_events[[c for c in display if c in df_events.columns]].sort_values("timestamp", ascending=False), use_container_width=True)
-                else:
-                    st.write("No scan events yet.")
-        except Exception as e:
-            st.write(f"Recent scans unavailable: {e}")
-
-    with stage_tabs[3]:
-        st.markdown("#### Dynamic PAR Recommendation")
-        st.caption("This converts forecast + supplier delay + clinical criticality into a recommended PAR and max-stock level.")
-        try:
-            # First get a fresh prediction so the PAR recommendation reflects the current sidebar scenario.
-            pred_res = api_post("/api/predict-supply-demand", telemetry, timeout=20)
-            predicted = None
-            if pred_res.status_code == 200:
-                predicted = pred_res.json().get("predicted_24h_demand")
-            par_payload = dict(telemetry)
-            par_payload["predicted_24h_demand"] = predicted or recent_usage_rate * 24
-            par_payload["par_level"] = reorder_point
-            par_res = api_post("/api/par-recommendation", par_payload, timeout=15)
-            if par_res.status_code == 200:
-                par = par_res.json()
-                p1, p2, p3, p4 = st.columns(4)
-                p1.metric("Current PAR", par.get("current_par"))
-                p2.metric("Recommended PAR", par.get("recommended_par"), delta=par.get("par_delta"))
-                p3.metric("Max Stock", par.get("recommended_max_stock"))
-                p4.metric("Safety Buffer", f"{par.get('safety_buffer_pct')}%")
-                st.success(par.get("recommended_action"))
-                st.caption(par.get("reasoning"))
-                st.json(par)
+            create_res = api_post("/api/packing-tasks", payload, timeout=15)
+            if create_res.status_code == 200:
+                st.success("Packing task created.")
+                st.json(create_res.json().get("task", {}))
             else:
-                st.error(f"PAR API error: {par_res.status_code} - {par_res.text}")
+                st.error(f"Task create failed: {create_res.text}")
         except Exception as e:
-            st.error(f"Dynamic PAR panel unavailable: {e}")
+            st.error(f"Task create failed: {e}")
 
-    with stage_tabs[4]:
-        st.markdown("#### Packing Task Lifecycle")
-        st.caption("Turn a recommendation into an operational task: NEW → ASSIGNED → PICKING → PACKED → DELIVERED or ESCALATED.")
-        task_col1, task_col2 = st.columns([1, 1])
-        with task_col1:
-            task_assignee = st.text_input("Assign To", value="Warehouse Team")
-            task_qty = st.number_input("Task Quantity", min_value=1, max_value=500, value=max(1, int(current_stock if current_stock < 10 else 10)), step=1)
-        with task_col2:
-            task_risk = st.selectbox("Risk Level", ["Low", "Medium", "High", "Critical"], index=2)
-            task_note = st.text_area("Task Note", value="Stage 1 packing task created from dashboard.", height=100)
-
-        if st.button("✅ Create Packing Task"):
-            payload = {
-                "item_name": item,
-                "department": dept,
-                "quantity": int(task_qty),
-                "assigned_to": task_assignee,
-                "risk_level": task_risk,
-                "priority_score": 75 if task_risk == "High" else 95 if task_risk == "Critical" else 50,
-                "recommended_action": f"Pack {int(task_qty)} units of {item} for {dept}.",
-                "note": task_note,
-            }
-            try:
-                create_res = api_post("/api/packing-tasks", payload, timeout=15)
-                if create_res.status_code == 200:
-                    st.success("Packing task created.")
-                    st.json(create_res.json().get("task", {}))
-                else:
-                    st.error(f"Task create failed: {create_res.text}")
-            except Exception as e:
-                st.error(f"Task create failed: {e}")
-
-        try:
-            tasks_res = api_get("/api/packing-tasks", params={"limit": 25}, timeout=10)
-            if tasks_res.status_code == 200:
-                tasks_payload = tasks_res.json()
-                tasks = tasks_payload.get("tasks", [])
-                if tasks:
-                    df_tasks = pd.DataFrame(tasks)
-                    st.markdown("#### Current Tasks")
-                    task_cols = ["task_id", "status", "item_name", "department", "quantity", "assigned_to", "risk_level", "priority_score", "updated_at", "recommended_action"]
-                    st.dataframe(df_tasks[[c for c in task_cols if c in df_tasks.columns]], use_container_width=True)
-                    selected_task = st.selectbox("Update Task", df_tasks["task_id"].tolist())
-                    new_status = st.selectbox("New Status", tasks_payload.get("valid_statuses", ["NEW", "ASSIGNED", "PICKING", "PACKED", "DELIVERED", "ESCALATED", "CANCELLED"]), index=1)
-                    if st.button("🔄 Update Selected Task Status"):
-                        upd_res = requests.patch(f"{MEDPACK_API_BASE_URL}/api/packing-tasks", json={"task_id": selected_task, "status": new_status, "assigned_to": task_assignee, "note": "Updated from Streamlit task lifecycle panel."}, timeout=15)
-                        if upd_res.status_code == 200:
-                            st.success("Task status updated.")
-                            st.json(upd_res.json().get("task", {}))
-                        else:
-                            st.error(f"Task update failed: {upd_res.text}")
-                else:
-                    st.write("No packing tasks yet.")
-        except Exception as e:
-            st.write(f"Task list unavailable: {e}")
-
-    with stage_tabs[5]:
-        st.markdown("#### Stage 3 Reference Data")
-        st.caption("This is the seed data Stage 3 uses for supplier delay risk and substitute-item decisions.")
-        try:
-            ref_res = api_get("/api/stage3-reference-data", timeout=10)
-            if ref_res.status_code == 200:
-                ref = ref_res.json()
-                vendors = (ref.get("vendor_state") or {}).get("vendors", [])
-                rules = (ref.get("substitution_rules") or {}).get("rules", {})
-                if vendors:
-                    st.markdown("##### Vendor Intelligence")
-                    df_vendors = pd.DataFrame(vendors)
-                    show_vendor_cols = ["vendor_id", "vendor_name", "role", "category_focus", "normal_lead_time_days", "current_delay_days", "reliability_score", "backorder_probability", "unit_cost_multiplier", "emergency_order_available"]
-                    st.dataframe(df_vendors[[c for c in show_vendor_cols if c in df_vendors.columns]], use_container_width=True)
-                st.markdown("##### Substitute Rules")
-                rows = []
-                for primary, options in rules.items():
-                    for opt in options:
-                        rows.append({"primary_item": primary, **opt})
-                if rows:
-                    st.dataframe(pd.DataFrame(rows), use_container_width=True)
-                else:
-                    st.write("No substitution rules found.")
+    try:
+        tasks_res = api_get("/api/packing-tasks", params={"limit": 25}, timeout=10)
+        if tasks_res.status_code == 200:
+            tasks_payload = tasks_res.json()
+            tasks = tasks_payload.get("tasks", [])
+            if tasks:
+                df_tasks = pd.DataFrame(tasks)
+                st.markdown("#### Current Tasks")
+                task_cols = ["task_id", "status", "item_name", "department", "quantity", "assigned_to", "risk_level", "priority_score", "updated_at", "recommended_action"]
+                st.dataframe(df_tasks[[c for c in task_cols if c in df_tasks.columns]], use_container_width=True)
+                selected_task = st.selectbox("Update Task", df_tasks["task_id"].tolist())
+                new_status = st.selectbox("New Status", tasks_payload.get("valid_statuses", ["NEW", "ASSIGNED", "PICKING", "PACKED", "DELIVERED", "ESCALATED", "CANCELLED"]), index=1)
+                if st.button("Update Selected Task Status"):
+                    upd_res = requests.patch(f"{MEDPACK_API_BASE_URL}/api/packing-tasks", json={"task_id": selected_task, "status": new_status, "assigned_to": task_assignee, "note": "Updated from Streamlit task lifecycle panel."}, timeout=15)
+                    if upd_res.status_code == 200:
+                        st.success("Task status updated.")
+                        st.json(upd_res.json().get("task", {}))
+                    else:
+                        st.error(f"Task update failed: {upd_res.text}")
             else:
-                st.error(f"Stage 3 reference API error: {ref_res.status_code} - {ref_res.text}")
-        except Exception as e:
-            st.error(f"Stage 3 reference data unavailable: {e}")
+                st.write("No packing tasks yet.")
+    except Exception as e:
+        st.write(f"Task list unavailable: {e}")
 
-    with stage_tabs[6]:
-        st.markdown("#### Stage 4 Financial Assumptions")
-        st.caption("Transparent assumptions used to estimate shortage risk, waste risk, emergency-order premium, labor value, and ROI.")
-        try:
-            cost_ref_res = api_get("/api/stage4-reference-data", timeout=10)
-            if cost_ref_res.status_code == 200:
-                st.json(cost_ref_res.json())
+with stage_tabs[5]:
+    st.markdown("#### Stage 3 Reference Data")
+    st.caption("This is the seed data Stage 3 uses for supplier delay risk and substitute-item decisions.")
+    try:
+        ref_res = api_get("/api/stage3-reference-data", timeout=10)
+        if ref_res.status_code == 200:
+            ref = ref_res.json()
+            vendors = (ref.get("vendor_state") or {}).get("vendors", [])
+            rules = (ref.get("substitution_rules") or {}).get("rules", {})
+            if vendors:
+                st.markdown("##### Vendor Intelligence")
+                df_vendors = pd.DataFrame(vendors)
+                show_vendor_cols = ["vendor_id", "vendor_name", "role", "category_focus", "normal_lead_time_days", "current_delay_days", "reliability_score", "backorder_probability", "unit_cost_multiplier", "emergency_order_available"]
+                st.dataframe(df_vendors[[c for c in show_vendor_cols if c in df_vendors.columns]], use_container_width=True)
+            st.markdown("##### Substitute Rules")
+            rows = []
+            for primary, options in rules.items():
+                for opt in options:
+                    rows.append({"primary_item": primary, **opt})
+            if rows:
+                st.dataframe(pd.DataFrame(rows), use_container_width=True)
             else:
-                st.error(f"Stage 4 reference API error: {cost_ref_res.status_code} - {cost_ref_res.text}")
-        except Exception as e:
-            st.error(f"Stage 4 reference data unavailable: {e}")
+                st.write("No substitution rules found.")
+        else:
+            st.error(f"Stage 3 reference API error: {ref_res.status_code} - {ref_res.text}")
+    except Exception as e:
+        st.error(f"Stage 3 reference data unavailable: {e}")
+
+with stage_tabs[6]:
+    st.markdown("#### Stage 4 Financial Assumptions")
+    st.caption("Transparent assumptions used to estimate shortage risk, waste risk, emergency-order premium, labor value, and ROI.")
+    try:
+        cost_ref_res = api_get("/api/stage4-reference-data", timeout=10)
+        if cost_ref_res.status_code == 200:
+            st.json(cost_ref_res.json())
+        else:
+            st.error(f"Stage 4 reference API error: {cost_ref_res.status_code} - {cost_ref_res.text}")
+    except Exception as e:
+        st.error(f"Stage 4 reference data unavailable: {e}")
 
 
-    with stage_tabs[7]:
-        st.markdown("#### Stage 5 Command Playbook")
-        st.caption("Editable owners, priority codes, response windows, and escalation cadence used by the final command center.")
-        try:
-            playbook_res = api_get("/api/stage5-reference-data", timeout=10)
-            if playbook_res.status_code == 200:
-                st.json(playbook_res.json())
-            else:
-                st.error(f"Stage 5 reference API error: {playbook_res.status_code} - {playbook_res.text}")
-        except Exception as e:
-            st.error(f"Stage 5 reference data unavailable: {e}")
+with stage_tabs[7]:
+    st.markdown("#### Stage 5 Command Playbook")
+    st.caption("Editable owners, priority codes, response windows, and escalation cadence used by the final command center.")
+    try:
+        playbook_res = api_get("/api/stage5-reference-data", timeout=10)
+        if playbook_res.status_code == 200:
+            st.json(playbook_res.json())
+        else:
+            st.error(f"Stage 5 reference API error: {playbook_res.status_code} - {playbook_res.text}")
+    except Exception as e:
+        st.error(f"Stage 5 reference data unavailable: {e}")
 
 
-    with stage_tabs[8]:
-        st.markdown("#### Stage 6 Scenario Playbooks")
-        st.caption("Editable what-if scenarios used by the surge simulator. These modify telemetry and then run the adjusted case through Stages 2-5.")
-        try:
-            scenario_res = api_get("/api/stage6-scenarios", timeout=10)
-            if scenario_res.status_code == 200:
-                scenario_ref = scenario_res.json()
-                scenarios = scenario_ref.get("scenarios", [])
-                if scenarios:
-                    df_scen = pd.DataFrame(scenarios)
-                    cols = ["scenario_id", "scenario_name", "severity", "affected_departments", "affected_categories", "recommended_play"]
-                    st.dataframe(df_scen[[c for c in cols if c in df_scen.columns]], use_container_width=True)
-                with st.expander("Full scenario playbook JSON", expanded=False):
-                    st.json(scenario_ref)
-            else:
-                st.error(f"Stage 6 reference API error: {scenario_res.status_code} - {scenario_res.text}")
-        except Exception as e:
-            st.error(f"Stage 6 reference data unavailable: {e}")
+with stage_tabs[8]:
+    st.markdown("#### Stage 6 Scenario Playbooks")
+    st.caption("Editable what-if scenarios used by the surge simulator. These modify telemetry and then run the adjusted case through Stages 2-5.")
+    try:
+        scenario_res = api_get("/api/stage6-scenarios", timeout=10)
+        if scenario_res.status_code == 200:
+            scenario_ref = scenario_res.json()
+            scenarios = scenario_ref.get("scenarios", [])
+            if scenarios:
+                df_scen = pd.DataFrame(scenarios)
+                cols = ["scenario_id", "scenario_name", "severity", "affected_departments", "affected_categories", "recommended_play"]
+                st.dataframe(df_scen[[c for c in cols if c in df_scen.columns]], use_container_width=True)
+            with st.expander("Full scenario playbook JSON", expanded=False):
+                st.json(scenario_ref)
+        else:
+            st.error(f"Stage 6 reference API error: {scenario_res.status_code} - {scenario_res.text}")
+    except Exception as e:
+        st.error(f"Stage 6 reference data unavailable: {e}")
 
 
 
 if col2 is not None:
     with col2:
-        st.header("🧭 Runtime Status")
+        st.header("Runtime Status")
         try:
             health_res = requests.get(f"{MEDPACK_API_BASE_URL}/health", timeout=5)
             if health_res.status_code == 200:
@@ -2392,21 +2402,21 @@ if col2 is not None:
         except Exception as e:
             st.warning(f"Backend health check unavailable: {e}")
 
-        st.header("💾 Transparent Memory")
+        st.header("Transparent Memory")
         try:
             mem_res = requests.get(f"{MEDPACK_API_BASE_URL}/api/supply-memory", timeout=5)
             if mem_res.status_code == 200:
                 memory_state = mem_res.json()
-                st.markdown("### 🧠 Current Rolling State")
+                st.markdown("### Current Rolling State")
                 st.json(memory_state)
             else:
                 st.write("Error loading memory state.")
         except Exception as e:
             st.write(f"Memory unavailable: {e}")
             
-        st.markdown("### 📥 Log Feedback & Update Memory")
+        st.markdown("### Log Feedback & Update Memory")
         feedback_usage = st.number_input("Actual Usage next 24 Hours", min_value=0.0, value=12.0, step=1.0)
-        update_mem_btn = st.button("🔄 Update Memory with Actual Usage")
+        update_mem_btn = st.button("Update Memory with Actual Usage")
         
         if update_mem_btn:
             try:
@@ -2424,7 +2434,7 @@ if col2 is not None:
             except Exception as e:
                 st.error(f"Error updating memory: {e}")
                 
-        st.markdown("### 📜 Recent Event Logs (supply_memory_events.jsonl)")
+        st.markdown("### Recent Event Logs (supply_memory_events.jsonl)")
         try:
             events_res = requests.get(f"{MEDPACK_API_BASE_URL}/api/supply-memory-events", timeout=5)
             if events_res.status_code == 200:
@@ -2434,7 +2444,7 @@ if col2 is not None:
 
 # Data sources section
 st.markdown("---")
-st.header("🗃️ Data Source Transparency")
+st.header("Data Source Transparency")
 try:
     sources_res = requests.get(f"{MEDPACK_API_BASE_URL}/api/data-sources", timeout=5)
     if sources_res.status_code == 200:
@@ -2444,15 +2454,15 @@ try:
         # Check Kaggle vs Synthetic
         raw_exists = os.path.exists("database/raw/kaggle_hospital_supply_chain.csv")
         if raw_exists:
-            st.success("✅ Primary Kaggle source detected at `database/raw/kaggle_hospital_supply_chain.csv`")
+            st.success("Primary Kaggle source detected at `database/raw/kaggle_hospital_supply_chain.csv`")
         else:
-            st.warning("⚠️ Kaggle source not found. Relying on synthesized, PHI-free operational simulation records.")
+            st.warning("Kaggle source not found. Relying on synthesized, PHI-free operational simulation records.")
 except Exception as e:
     st.write(f"Data sources descriptor unavailable: {e}")
 
 # Architecture Section
 st.markdown("---")
-st.header("🏗️ System Architecture & Workflow")
+st.header("System Architecture & Workflow")
 st.markdown("""
 1. **Machine Learning Pipeline:** An XGBoost Regressor model predicts `actual_usage_next_24h` based on real-time operational telemetry (volumetrics, recent run rates, acuity).
 2. **Deterministic Rules Engine:** Translates predicted demand & current stock levels into structured safety thresholds (`Low`, `Medium`, `High`, `Critical` risk levels).
