@@ -1,4 +1,4 @@
-﻿# MedPack AI: Human-Governed Medication Supply Risk Copilot
+# MedPack AI: Human-Governed Medication Supply Risk Copilot
 
 ## Problem Statement
 Hospitals face constant supply chain disruptions. When critical supplies (like IV-start kits, specialized tubing, or emergency medications) run low, clinical staff lose valuable time searching for alternatives or waiting for transfers, potentially delaying patient care. Traditional inventory systems provide historical data but lack predictive foresight, operational context, and actionable recommendations.
@@ -95,6 +95,14 @@ This script will execute the scenario and output the expected risk analysis and 
 
 ---
 
+### Deterministic Committee and RAG Evidence
+
+MedPack first produces a zero-token, deterministic supply-risk decision using forecast, usable-stock analysis, logistics rules, RAG-retrieved operating procedures, and mandatory human approval. Microsoft Foundry then explains this locked snapshot; it cannot change the decision.
+
+![Deterministic MedPack committee decision with RAG evidence](docs/medpack-deterministic-committee-rag-evidence.png)
+
+---
+
 ## Live Microsoft Foundry Evidence
 
 MedPack Version 1 was tested end-to-end using the deployed `medpack-supply-copilot` agent in Microsoft Foundry.
@@ -116,6 +124,7 @@ Verified results:
 
 ![Foundry explanation output](docs/foundry-explanation-output.png)
 *Figure 2: The deployed medpack-supply-copilot accurately explaining the immutable MedPack risk snapshot.*
+
 
 ---
 
