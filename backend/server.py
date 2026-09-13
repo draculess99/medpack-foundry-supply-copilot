@@ -602,7 +602,10 @@ def foundry_explanation():
             "tokens_used": foundry_result.get("tokens_used", 0),
             "model": foundry_result.get("model", "azure-foundry-agent"),
         })
-    except Exception:
+    except Exception as e:
+        import traceback
+        print(f"FOUNDRY ERROR: {e}", flush=True)
+        traceback.print_exc()
         # Never expose credentials, endpoint URLs, Azure tenant IDs, or stack traces
         # to the frontend. Return a safe, generic failure message only.
         return jsonify({
