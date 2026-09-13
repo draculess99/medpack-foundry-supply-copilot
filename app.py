@@ -118,20 +118,50 @@ def main():
         time.sleep(2)  # give Streamlit a moment to bind
         webbrowser.open(url)
     
-    # Monitor processes
+    # Monitor and auto-restart processes if they crash
+    # (On Railway, a crash here would exit app.py and trigger a full redeploy)
+    frontend_restarts = 0
+    backend_restarts = 0
+    MAX_RESTARTS = 5
+
     try:
         while True:
-            # Check backend output
+            # Check Flask backend
             if backend_proc.poll() is not None:
-                out, _ = backend_proc.communicate()
-                print(f"Backend terminated unexpectedly:\n{out}")
-                break
-                
+                print(f"Backend terminated (restart #{backend_restarts + 1}).")
+                if backend_restarts < MAX_RESTARTS:
+                    backend_restarts += 1
+                    restart_env = env.copy()
+                    if "PORT" in restart_env:
+                        del restart_env["PORT"]
+                    backend_proc = subprocess.Popen(
+                        [sys.executable, "-m", "backend.server"],
+                        env=restart_env
+                    )
+                    print("Backend restarted.")
+                else:
+                    print("Backend exceeded max restarts. Exiting.")
+                    break
+
+            # Check Streamlit frontend
             if frontend_proc.poll() is not None:
-                out, _ = frontend_proc.communicate()
-                print(f"Frontend terminated unexpectedly:\n{out}")
-                break
-                
+                print(f"Frontend terminated (restart #{frontend_restarts + 1}).")
+                if frontend_restarts < MAX_RESTARTS:
+                    frontend_restarts += 1
+                    frontend_proc = subprocess.Popen(
+                        [
+                            sys.executable, "-m", "streamlit", "run", "frontend/dashboard.py",
+                            "--server.port", str(FRONTEND_PORT),
+                            "--server.address", FRONTEND_HOST,
+                            "--server.headless", "true"
+                        ],
+                        env=env
+                    )
+                    print("Frontend restarted.")
+                else:
+                    print("Frontend exceeded max restarts. Exiting.")
+                    break
+
             time.sleep(1)
     except KeyboardInterrupt:
         print("\nStopping services...")
@@ -139,6 +169,7 @@ def main():
         backend_proc.terminate()
         frontend_proc.terminate()
         print("Services stopped.")
+
 
 if __name__ == "__main__":
     main()
