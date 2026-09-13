@@ -211,8 +211,8 @@ tools/a2a-inspector/
 # RAG vector index (generated at runtime)
 data/rag_index/
 
-# Streamlit
-.streamlit/
+# Streamlit — allow config.toml (needed for Railway) but block secrets
+.streamlit/secrets.toml
 
 # Local databases and logs
 database/supply_memory_events.jsonl
