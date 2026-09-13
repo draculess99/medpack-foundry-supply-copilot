@@ -1792,6 +1792,40 @@ if st.session_state.get("medpack_deterministic_result") is not None:
     if st.session_state.get("foundry_result") is not None:
         _fr = st.session_state["foundry_result"]
         if _fr.get("available"):
+            st.markdown(
+                """
+                <style>
+                /* Scope the styles to only affect elements following this specific marker within the same container */
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] {
+                    color: #F8FAFC !important;
+                }
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] p,
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] li,
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] span,
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] div,
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] strong,
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] em {
+                    color: #F8FAFC !important;
+                }
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] h1,
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] h2,
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] h3,
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] h4,
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] h5,
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stAlert"] h6,
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container h4 {
+                    color: #60A5FA !important;
+                }
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stCaptionContainer"],
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stCaptionContainer"] p,
+                div.element-container:has(#foundry-narrative-css-marker) ~ div.element-container div[data-testid="stCaptionContainer"] span {
+                    color: #F8FAFC !important;
+                }
+                </style>
+                <div id="foundry-narrative-css-marker"></div>
+                """,
+                unsafe_allow_html=True,
+            )
             st.markdown("#### \U0001F4AC Foundry Narrative")
             st.info(_fr.get("explanation", ""))
             _tokens = int(_fr.get("tokens_used", 0) or 0)

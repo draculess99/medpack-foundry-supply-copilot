@@ -1,501 +1,501 @@
 timestamp,department,item_name,item_category,current_stock,patient_volume,acuity_level,procedure_count,recent_usage_rate,supplier_delay_days,day_of_week,hour,season,reorder_point,unit_cost,supplier_reliability_score,pack_time_minutes,clinical_criticality,actual_usage_next_24h
-2026-07-09T15:31:10.764771,Outpatient Clinic,Nitrile Gloves Large,PPE,97,7,2.79,3,3.86,4.73,4,1,Autumn,39,32.24,0.75,2.65,2,4.73
-2026-07-09T15:31:10.764771,Med-Surg,PPE Gown,PPE,53,10,1.14,3,6.97,6.89,0,2,Winter,16,25.99,0.72,9.54,3,3.84
-2026-07-09T15:31:10.764771,Med-Surg,Patient Monitoring Leads,Monitoring,13,7,2.83,3,11.82,3.26,5,9,Autumn,38,145.45,0.93,9.46,4,13.44
-2026-07-09T15:31:10.764771,Outpatient Clinic,Blood Draw Kit,Lab Supplies,82,7,1.98,4,9.06,1.42,6,12,Winter,34,148.04,0.93,2.79,2,11.72
-2026-07-09T15:31:10.766276,Outpatient Clinic,Sterile Gauze,Wound Care,85,14,1.29,5,6.98,6.82,2,0,Winter,35,35.78,0.78,1.36,2,6.45
-2026-07-09T15:31:10.766805,Med-Surg,Nasal Cannula,Respiratory,55,8,3.72,3,3.0,2.38,5,1,Spring,15,68.75,0.77,4.75,3,3.97
-2026-07-09T15:31:10.766805,Radiology,Sterile Gauze,Wound Care,96,9,1.82,1,6.58,2.48,5,7,Summer,18,72.98,0.91,3.42,2,5.91
-2026-07-09T15:31:10.766805,Emergency Department,Nitrile Gloves Large,PPE,66,7,1.9,1,9.92,3.77,5,22,Winter,41,136.29,0.77,2.3,2,9.89
-2026-07-09T15:31:10.766805,Med-Surg,Saline Flush,IV Supplies,36,10,1.24,5,12.61,5.69,0,5,Autumn,38,128.82,0.8,2.98,2,15.65
-2026-07-09T15:31:10.767811,Med-Surg,Foley Catheter Kit,Catheterization,56,16,2.55,6,4.27,6.88,3,16,Spring,10,14.42,0.97,9.1,3,5.91
-2026-07-09T15:31:10.767811,Surgery,Foley Catheter Kit,Catheterization,13,8,3.54,11,5.97,3.66,2,15,Winter,45,106.97,0.77,3.93,3,8.11
-2026-07-09T15:31:10.768369,Outpatient Clinic,Nitrile Gloves Medium,PPE,21,8,2.53,6,6.55,4.69,6,0,Winter,28,86.01,0.93,1.39,2,9.74
-2026-07-09T15:31:10.768369,Med-Surg,Surgical Tray,Surgical Supplies,34,9,3.78,7,4.2,4.12,6,21,Spring,12,85.72,0.73,6.54,4,6.74
-2026-07-09T15:31:10.768885,Emergency Department,Blood Draw Kit,Lab Supplies,37,6,2.66,4,2.07,4.58,3,0,Autumn,25,8.09,0.97,1.25,2,2.38
-2026-07-09T15:31:10.769408,ICU,Syringe 10ml,IV Supplies,36,11,2.4,3,2.49,5.85,5,10,Autumn,46,78.58,0.93,2.94,3,1.27
-2026-07-09T15:31:10.769408,Labor and Delivery,Nitrile Gloves Large,PPE,98,10,3.18,5,3.02,0.66,4,22,Summer,18,103.43,0.72,9.24,2,3.75
-2026-07-09T15:31:10.769408,Outpatient Clinic,Syringe 10ml,IV Supplies,52,7,2.91,4,9.36,1.53,5,13,Autumn,14,14.58,0.79,9.82,3,11.69
-2026-07-09T15:31:10.769953,Med-Surg,IV Start Kit,IV Supplies,98,11,3.85,2,14.13,3.76,4,12,Autumn,25,11.05,0.89,1.24,3,16.75
-2026-07-09T15:31:10.770480,Surgery,Nitrile Gloves Large,PPE,28,12,1.39,6,4.79,2.95,4,18,Spring,44,50.81,0.9,4.47,2,3.02
-2026-07-09T15:31:10.770480,Surgery,PPE Gown,PPE,11,8,3.25,8,11.76,5.4,0,16,Winter,29,124.06,0.8,9.06,3,15.5
-2026-07-09T15:31:10.770480,Emergency Department,Nitrile Gloves Large,PPE,16,9,3.03,3,9.83,4.1,4,3,Winter,32,117.3,0.73,9.38,2,14.44
-2026-07-09T15:31:10.770480,Outpatient Clinic,Surgical Tray,Surgical Supplies,13,13,1.3,2,12.68,5.09,4,4,Spring,28,87.41,0.96,8.92,4,14.76
-2026-07-09T15:31:10.771485,Emergency Department,Foley Catheter Kit,Catheterization,93,11,3.12,4,7.65,2.15,1,19,Autumn,17,18.07,0.89,7.71,3,9.4
-2026-07-09T15:31:10.771485,Outpatient Clinic,Surgical Tray,Surgical Supplies,29,14,3.89,0,14.61,0.78,4,15,Spring,30,148.95,0.72,5.98,4,16.25
-2026-07-09T15:31:10.772035,Med-Surg,PPE Gown,PPE,22,6,1.88,6,7.13,1.19,4,7,Spring,37,97.2,0.82,3.06,3,6.25
-2026-07-09T15:31:10.772035,Med-Surg,Sterile Gauze,Wound Care,67,10,3.44,7,14.13,6.13,4,4,Summer,42,116.75,0.84,9.87,2,12.86
-2026-07-09T15:31:10.772035,Surgery,Oxygen Mask,Respiratory,30,10,1.82,6,14.28,6.02,0,20,Spring,18,19.81,0.99,6.46,4,17.13
-2026-07-09T15:31:10.772035,ICU,Surgical Tray,Surgical Supplies,99,10,2.56,5,2.37,5.41,4,13,Spring,20,32.34,0.74,1.13,4,0.36
-2026-07-09T15:31:10.773552,Radiology,Syringe 10ml,IV Supplies,86,9,3.71,7,14.05,3.7,3,19,Autumn,14,147.01,0.85,3.96,3,12.84
-2026-07-09T15:31:10.774205,Surgery,PPE Gown,PPE,27,6,1.42,4,10.68,1.62,1,18,Summer,30,25.76,0.78,2.59,3,13.09
-2026-07-09T15:31:10.774756,Labor and Delivery,Wound Care Pack,Wound Care,5,10,3.68,2,3.2,3.63,5,14,Autumn,39,23.97,0.81,1.02,3,3.88
-2026-07-09T15:31:10.775769,Outpatient Clinic,Blood Draw Kit,Lab Supplies,90,7,2.59,2,3.73,4.97,6,13,Summer,27,67.39,0.86,3.18,2,4.17
-2026-07-09T15:31:10.775769,Emergency Department,Foley Catheter Kit,Catheterization,32,7,1.36,5,8.98,4.31,0,11,Summer,46,54.78,0.89,6.14,3,7.08
-2026-07-09T15:31:10.776767,Radiology,Oxygen Mask,Respiratory,74,9,3.55,2,12.95,0.84,6,7,Winter,45,149.59,0.97,6.18,4,15.37
-2026-07-09T15:31:10.776767,Surgery,Nitrile Gloves Large,PPE,83,13,1.51,6,6.21,3.27,0,19,Winter,21,17.67,0.88,3.6,2,4.55
-2026-07-09T15:31:10.776767,Med-Surg,Nasal Cannula,Respiratory,7,3,1.4,3,5.31,4.93,0,8,Summer,24,71.0,0.82,4.14,3,6.38
-2026-07-09T15:31:10.777769,Emergency Department,Oxygen Mask,Respiratory,66,12,3.8,5,12.16,5.88,4,13,Autumn,39,123.86,0.76,3.12,4,14.86
-2026-07-09T15:31:10.777769,Emergency Department,Nasal Cannula,Respiratory,46,9,2.32,5,13.69,3.0,5,20,Autumn,49,93.82,0.74,9.46,3,15.55
-2026-07-09T15:31:10.777769,Outpatient Clinic,Nitrile Gloves Medium,PPE,76,12,3.64,7,4.66,5.14,4,9,Winter,47,80.7,0.81,5.11,2,5.24
-2026-07-09T15:31:10.777769,Labor and Delivery,Nasal Cannula,Respiratory,51,9,1.04,7,7.51,2.37,2,11,Spring,22,21.3,0.73,3.3,3,13.27
-2026-07-09T15:31:10.777769,Med-Surg,Sterile Gauze,Wound Care,80,13,2.95,3,3.36,5.96,2,22,Winter,46,147.73,0.95,2.12,2,8.77
-2026-07-09T15:31:10.779278,Labor and Delivery,PPE Gown,PPE,57,8,1.01,5,11.59,3.44,2,11,Summer,33,86.86,0.75,1.3,3,13.79
-2026-07-09T15:31:10.779836,Emergency Department,IV Start Kit,IV Supplies,33,11,1.04,3,7.39,1.05,4,7,Winter,16,89.51,0.72,7.75,3,8.53
-2026-07-09T15:31:10.780349,Radiology,Nasal Cannula,Respiratory,53,11,3.33,5,4.37,6.1,6,2,Autumn,19,40.98,0.89,4.68,3,4.51
-2026-07-09T15:31:10.780349,Outpatient Clinic,Foley Catheter Kit,Catheterization,96,9,1.76,4,13.54,4.12,1,2,Autumn,33,108.48,0.96,8.47,3,18.18
-2026-07-09T15:31:10.780349,Labor and Delivery,Patient Monitoring Leads,Monitoring,99,8,2.9,7,6.37,5.86,2,22,Summer,21,124.68,0.8,7.96,4,4.99
-2026-07-09T15:31:10.781357,Emergency Department,Syringe 10ml,IV Supplies,57,13,3.61,4,5.49,4.02,4,6,Winter,31,125.32,1.0,5.73,3,4.96
-2026-07-09T15:31:10.781357,Surgery,Wound Care Pack,Wound Care,22,10,2.49,2,11.36,1.19,5,20,Summer,40,131.15,0.88,6.4,3,10.94
-2026-07-09T15:31:10.781357,Emergency Department,Oxygen Mask,Respiratory,75,11,2.21,5,12.02,0.94,2,7,Summer,45,108.0,0.79,6.1,4,17.39
-2026-07-09T15:31:10.782865,Radiology,Wound Care Pack,Wound Care,73,10,2.62,4,10.1,3.58,0,8,Autumn,26,62.21,0.91,6.38,3,10.5
-2026-07-09T15:31:10.782865,Emergency Department,Foley Catheter Kit,Catheterization,39,12,2.77,3,14.35,3.4,6,11,Spring,25,131.01,0.92,8.26,3,18.36
-2026-07-09T15:31:10.782865,Radiology,Blood Draw Kit,Lab Supplies,29,15,3.08,2,9.65,7.0,1,20,Spring,16,5.57,0.91,3.68,2,12.74
-2026-07-09T15:31:10.783873,ICU,Sterile Gauze,Wound Care,91,10,2.95,6,9.44,5.73,3,21,Winter,22,94.07,0.97,6.54,2,10.55
-2026-07-09T15:31:10.783873,Surgery,Sterile Gauze,Wound Care,43,5,2.44,3,6.37,3.9,0,16,Summer,23,44.9,0.96,7.44,2,9.14
-2026-07-09T15:31:10.783873,Labor and Delivery,PPE Gown,PPE,52,9,3.04,3,7.43,6.21,5,23,Summer,22,148.38,0.92,1.58,3,10.45
-2026-07-09T15:31:10.783873,Radiology,Oxygen Mask,Respiratory,78,3,1.11,7,5.38,3.85,1,16,Autumn,12,122.47,0.77,3.01,4,5.26
-2026-07-09T15:31:10.784871,Outpatient Clinic,PPE Gown,PPE,77,10,1.82,2,2.46,2.64,0,4,Summer,43,61.56,0.81,3.34,3,2.64
-2026-07-09T15:31:10.784871,Radiology,Oxygen Mask,Respiratory,64,14,3.72,7,4.05,1.54,4,10,Winter,34,139.55,0.73,7.29,4,8.04
-2026-07-09T15:31:10.784871,Med-Surg,Foley Catheter Kit,Catheterization,9,6,3.23,4,5.73,4.51,0,8,Winter,49,39.34,0.89,5.86,3,5.69
-2026-07-09T15:31:10.784871,Radiology,Foley Catheter Kit,Catheterization,78,9,2.18,4,14.31,1.58,3,21,Winter,19,71.3,0.72,1.67,3,16.18
-2026-07-09T15:31:10.785872,ICU,Syringe 10ml,IV Supplies,18,12,3.27,1,6.21,3.68,2,10,Spring,32,67.16,0.78,9.97,3,3.93
-2026-07-09T15:31:10.785872,Outpatient Clinic,Foley Catheter Kit,Catheterization,33,12,1.25,4,7.62,6.63,4,19,Spring,28,41.5,1.0,4.68,3,3.98
-2026-07-09T15:31:10.786378,Med-Surg,Wound Care Pack,Wound Care,19,12,3.6,4,4.65,1.09,6,13,Spring,16,94.12,0.74,1.29,3,5.51
-2026-07-09T15:31:10.786378,Radiology,PPE Gown,PPE,98,5,3.06,3,9.57,2.25,2,12,Winter,17,69.96,0.9,4.56,3,11.94
-2026-07-09T15:31:10.786891,Outpatient Clinic,Wound Care Pack,Wound Care,36,11,3.86,4,9.42,0.62,5,21,Autumn,29,52.23,0.93,9.47,3,10.49
-2026-07-09T15:31:10.786891,Emergency Department,Nasal Cannula,Respiratory,34,9,2.7,4,10.27,5.09,5,8,Spring,18,8.27,0.86,7.38,3,9.74
-2026-07-09T15:31:10.787407,ICU,Surgical Tray,Surgical Supplies,66,13,2.45,5,4.13,3.35,1,21,Autumn,32,97.72,0.84,6.54,4,3.84
-2026-07-09T15:31:10.787407,Labor and Delivery,Blood Draw Kit,Lab Supplies,97,13,2.49,6,10.84,0.97,6,14,Winter,16,69.66,0.96,7.54,2,7.87
-2026-07-09T15:31:10.787941,Labor and Delivery,Blood Draw Kit,Lab Supplies,24,11,3.3,4,7.14,4.44,6,1,Autumn,15,98.42,1.0,3.55,2,5.3
-2026-07-09T15:31:10.787941,ICU,Blood Draw Kit,Lab Supplies,25,12,3.15,4,13.11,3.7,5,21,Autumn,23,77.47,0.81,6.34,2,11.32
-2026-07-09T15:31:10.787941,Radiology,IV Start Kit,IV Supplies,93,19,2.97,4,5.07,0.98,5,15,Spring,38,50.88,0.95,4.88,3,6.87
-2026-07-09T15:31:10.787941,Emergency Department,PPE Gown,PPE,68,9,2.82,7,2.44,6.91,0,4,Autumn,35,6.38,0.74,5.07,3,0.0
-2026-07-09T15:31:10.787941,Labor and Delivery,Sterile Gauze,Wound Care,73,5,3.06,3,6.2,6.83,6,23,Summer,32,100.2,0.74,1.27,2,9.04
-2026-07-09T15:31:10.787941,ICU,Surgical Tray,Surgical Supplies,12,19,3.02,7,10.03,6.15,0,11,Summer,17,119.43,0.98,6.41,4,8.96
-2026-07-09T15:31:10.789456,Outpatient Clinic,Patient Monitoring Leads,Monitoring,57,12,2.05,6,5.75,1.21,1,5,Spring,13,100.31,0.94,7.86,4,5.73
-2026-07-09T15:31:10.789993,Surgery,IV Start Kit,IV Supplies,92,8,1.99,6,7.78,0.6,2,2,Autumn,23,93.11,0.84,4.42,3,11.31
-2026-07-09T15:31:10.790535,ICU,Blood Draw Kit,Lab Supplies,52,13,1.45,4,11.71,5.15,2,12,Winter,32,64.91,0.97,1.64,2,13.14
-2026-07-09T15:31:10.791548,Surgery,Nitrile Gloves Large,PPE,25,10,1.5,6,11.33,3.1,4,3,Spring,34,78.61,0.74,8.73,2,13.22
-2026-07-09T15:31:10.792546,Outpatient Clinic,Nasal Cannula,Respiratory,35,12,2.7,5,10.23,6.68,6,21,Spring,30,132.69,0.77,2.91,3,8.45
-2026-07-09T15:31:10.792546,Labor and Delivery,Saline Flush,IV Supplies,76,13,1.77,6,7.51,1.49,0,2,Autumn,43,71.2,0.86,2.61,2,11.76
-2026-07-09T15:31:10.793544,Labor and Delivery,Nitrile Gloves Medium,PPE,96,7,1.77,2,5.57,4.38,1,2,Spring,48,108.82,0.7,4.07,2,6.91
-2026-07-09T15:31:10.793544,Radiology,Saline Flush,IV Supplies,36,8,1.26,3,6.61,0.95,0,1,Autumn,14,10.95,0.89,3.44,2,9.68
-2026-07-09T15:31:10.794543,ICU,Nitrile Gloves Medium,PPE,48,8,3.01,5,9.31,6.72,4,14,Winter,25,61.72,0.83,8.4,2,10.2
-2026-07-09T15:31:10.794543,Radiology,Nasal Cannula,Respiratory,27,9,3.98,5,11.82,1.33,3,5,Autumn,43,9.93,0.74,3.05,3,13.77
-2026-07-09T15:31:10.794543,Labor and Delivery,Syringe 10ml,IV Supplies,89,8,2.53,6,9.37,3.04,3,14,Winter,47,122.71,0.81,8.9,3,10.84
-2026-07-09T15:31:10.795543,Outpatient Clinic,Nitrile Gloves Large,PPE,18,5,1.52,5,13.21,6.5,5,0,Spring,25,114.84,0.75,5.52,2,15.17
-2026-07-09T15:31:10.795543,Emergency Department,Wound Care Pack,Wound Care,29,12,2.43,2,12.1,1.29,3,12,Summer,23,131.48,0.78,8.66,3,9.99
-2026-07-09T15:31:10.796541,Outpatient Clinic,Nitrile Gloves Medium,PPE,9,13,1.17,4,3.85,1.29,5,13,Summer,16,103.98,0.72,5.58,2,6.75
-2026-07-09T15:31:10.796541,Outpatient Clinic,Blood Draw Kit,Lab Supplies,21,7,1.52,7,8.26,1.65,4,21,Winter,11,20.5,0.83,8.11,2,12.59
-2026-07-09T15:31:10.797045,Outpatient Clinic,Oxygen Mask,Respiratory,69,8,2.89,1,2.55,2.91,0,10,Summer,30,126.73,0.73,5.39,4,4.4
-2026-07-09T15:31:10.797045,Med-Surg,Syringe 10ml,IV Supplies,56,7,3.43,5,10.56,6.63,1,15,Winter,42,126.21,0.71,9.12,3,15.93
-2026-07-09T15:31:10.798050,ICU,Blood Draw Kit,Lab Supplies,63,9,3.67,5,2.49,5.35,0,12,Summer,33,16.25,0.71,5.58,2,1.53
-2026-07-09T15:31:10.798050,ICU,Patient Monitoring Leads,Monitoring,15,13,2.24,3,3.07,3.85,0,7,Autumn,49,93.89,0.81,2.85,4,3.94
-2026-07-09T15:31:10.798050,Radiology,PPE Gown,PPE,45,18,3.69,3,8.32,6.48,3,1,Summer,19,51.07,0.98,3.02,3,7.3
-2026-07-09T15:31:10.798050,Emergency Department,Blood Draw Kit,Lab Supplies,63,10,1.49,4,14.9,4.86,5,22,Summer,21,137.88,0.78,7.8,2,18.82
-2026-07-09T15:31:10.799554,Radiology,Foley Catheter Kit,Catheterization,27,11,2.64,3,3.71,5.22,2,17,Summer,24,76.12,0.95,7.6,3,3.8
-2026-07-09T15:31:10.800082,Surgery,Oxygen Mask,Respiratory,65,12,1.32,1,9.5,6.2,4,14,Autumn,25,121.86,0.92,8.93,4,8.74
-2026-07-09T15:31:10.800082,ICU,Syringe 10ml,IV Supplies,93,10,2.85,4,11.89,0.73,0,13,Spring,43,113.92,0.9,7.81,3,11.84
-2026-07-09T15:31:10.800598,Outpatient Clinic,Foley Catheter Kit,Catheterization,74,9,3.17,5,10.05,2.81,0,12,Autumn,26,88.44,0.84,6.78,3,11.31
-2026-07-09T15:31:10.801174,Outpatient Clinic,Nitrile Gloves Large,PPE,8,11,1.07,4,14.77,1.86,3,18,Autumn,45,18.8,0.92,3.12,2,14.87
-2026-07-09T15:31:10.801174,Outpatient Clinic,Nitrile Gloves Large,PPE,96,16,2.26,5,9.43,4.32,0,19,Winter,19,50.51,0.71,1.22,2,9.32
-2026-07-09T15:31:10.802179,Emergency Department,Sterile Gauze,Wound Care,55,16,2.29,6,3.05,5.23,1,2,Winter,33,109.56,0.93,2.43,2,4.9
-2026-07-09T15:31:10.802179,Med-Surg,Surgical Tray,Surgical Supplies,64,9,2.42,0,5.68,0.79,5,6,Summer,37,118.18,0.99,4.34,4,8.56
-2026-07-09T15:31:10.802179,Radiology,Surgical Tray,Surgical Supplies,77,10,1.19,4,13.7,0.64,2,19,Autumn,24,132.38,0.82,8.45,4,14.59
-2026-07-09T15:31:10.803181,Radiology,PPE Gown,PPE,41,11,2.7,4,3.97,1.96,1,6,Spring,42,78.75,0.73,8.74,3,3.77
-2026-07-09T15:31:10.803181,Radiology,IV Start Kit,IV Supplies,21,11,3.54,3,3.27,6.1,2,6,Spring,21,9.81,0.85,8.26,3,3.9
-2026-07-09T15:31:10.804180,ICU,Nitrile Gloves Medium,PPE,68,13,2.02,4,3.64,4.79,3,13,Summer,49,147.76,0.93,1.24,2,3.88
-2026-07-09T15:31:10.804180,Med-Surg,IV Start Kit,IV Supplies,46,10,2.97,6,12.31,4.25,4,7,Summer,18,59.7,0.97,5.8,3,12.07
-2026-07-09T15:31:10.804180,ICU,Surgical Tray,Surgical Supplies,88,10,2.84,4,2.43,2.86,3,15,Summer,46,66.33,0.88,1.75,4,3.06
-2026-07-09T15:31:10.805182,Radiology,Foley Catheter Kit,Catheterization,20,6,1.97,5,2.38,5.85,1,4,Summer,37,128.8,0.95,5.87,3,3.1
-2026-07-09T15:31:10.805182,Surgery,Surgical Tray,Surgical Supplies,48,11,1.76,4,3.13,5.17,2,19,Spring,27,112.45,0.9,6.59,4,5.44
-2026-07-09T15:31:10.805182,Surgery,Patient Monitoring Leads,Monitoring,19,7,3.22,2,10.86,1.59,3,0,Autumn,32,12.02,0.8,8.8,4,11.08
-2026-07-09T15:31:10.806688,Outpatient Clinic,Wound Care Pack,Wound Care,19,7,1.91,10,7.81,3.49,3,20,Autumn,44,62.21,0.94,5.31,3,8.49
-2026-07-09T15:31:10.807223,Radiology,Saline Flush,IV Supplies,91,6,3.92,9,4.84,1.28,3,7,Winter,39,7.4,0.87,3.55,2,4.72
-2026-07-09T15:31:10.807223,Radiology,Sterile Gauze,Wound Care,57,8,3.23,4,13.6,1.7,6,15,Winter,39,64.66,0.78,8.1,2,18.68
-2026-07-09T15:31:10.807223,Med-Surg,Oxygen Mask,Respiratory,71,10,2.58,2,14.43,0.66,6,14,Autumn,21,136.65,0.84,2.24,4,17.59
-2026-07-09T15:31:10.808230,Surgery,Saline Flush,IV Supplies,56,9,2.89,4,7.0,3.67,5,11,Spring,33,90.3,0.92,5.56,2,6.45
-2026-07-09T15:31:10.808230,Emergency Department,Syringe 10ml,IV Supplies,21,15,2.41,5,9.68,3.99,0,13,Winter,17,5.99,0.73,4.05,3,11.04
-2026-07-09T15:31:10.808230,Labor and Delivery,Oxygen Mask,Respiratory,53,7,1.13,6,2.39,4.89,5,18,Summer,22,139.45,0.75,4.51,4,3.78
-2026-07-09T15:31:10.809743,Labor and Delivery,Oxygen Mask,Respiratory,16,12,3.16,3,11.33,5.89,0,14,Autumn,27,38.88,0.9,8.2,4,13.16
-2026-07-09T15:31:10.809743,Med-Surg,Syringe 10ml,IV Supplies,23,11,3.7,5,13.54,4.39,5,17,Summer,18,92.08,0.96,7.52,3,15.02
-2026-07-09T15:31:10.810300,ICU,IV Start Kit,IV Supplies,45,9,2.46,2,9.26,2.73,6,23,Winter,47,126.92,0.91,4.87,3,8.7
-2026-07-09T15:31:10.810300,Surgery,Nasal Cannula,Respiratory,77,8,2.34,7,9.81,5.09,0,23,Summer,43,25.45,0.83,2.28,3,10.18
-2026-07-09T15:31:10.810300,Med-Surg,Nitrile Gloves Medium,PPE,33,10,1.02,4,8.9,5.97,3,5,Winter,40,103.4,0.74,5.37,2,11.35
-2026-07-09T15:31:10.811824,Surgery,Nitrile Gloves Medium,PPE,79,6,1.63,4,8.34,1.35,1,4,Spring,46,71.36,0.83,9.95,2,7.45
-2026-07-09T15:31:10.811824,Surgery,Patient Monitoring Leads,Monitoring,21,9,2.62,5,5.93,2.19,2,16,Winter,30,144.98,0.87,4.13,4,6.71
-2026-07-09T15:31:10.812359,Med-Surg,Blood Draw Kit,Lab Supplies,17,11,2.21,6,2.51,3.59,3,21,Summer,36,136.46,0.92,5.8,2,2.04
-2026-07-09T15:31:10.812359,Emergency Department,Blood Draw Kit,Lab Supplies,24,10,3.91,4,5.93,3.69,2,0,Spring,33,66.46,0.88,9.27,2,7.09
-2026-07-09T15:31:10.813366,Surgery,Syringe 10ml,IV Supplies,85,9,3.29,3,13.1,3.35,0,0,Autumn,17,9.84,0.97,5.03,3,19.08
-2026-07-09T15:31:10.813929,Outpatient Clinic,Foley Catheter Kit,Catheterization,84,10,2.93,6,14.93,1.08,5,6,Summer,10,51.6,0.89,1.62,3,16.81
-2026-07-09T15:31:10.813929,Labor and Delivery,Blood Draw Kit,Lab Supplies,12,11,2.46,2,2.86,2.77,2,13,Autumn,22,142.18,0.72,9.6,2,0.0
-2026-07-09T15:31:10.813929,Emergency Department,Foley Catheter Kit,Catheterization,38,3,2.21,3,14.08,3.13,2,21,Winter,48,71.73,0.77,6.76,3,15.91
-2026-07-09T15:31:10.814933,Labor and Delivery,Nasal Cannula,Respiratory,25,7,3.28,6,8.84,3.51,5,19,Winter,33,43.85,0.87,2.08,3,10.18
-2026-07-09T15:31:10.814933,Med-Surg,Foley Catheter Kit,Catheterization,35,8,2.89,2,2.0,3.82,1,17,Autumn,31,106.19,0.72,8.55,3,3.06
-2026-07-09T15:31:10.815933,Emergency Department,Wound Care Pack,Wound Care,73,16,3.79,7,6.91,6.59,2,4,Winter,32,74.33,0.82,6.69,3,8.64
-2026-07-09T15:31:10.815933,Labor and Delivery,Oxygen Mask,Respiratory,37,8,3.03,5,8.48,3.0,0,2,Summer,27,95.35,0.93,1.03,4,7.7
-2026-07-09T15:31:10.816436,Outpatient Clinic,PPE Gown,PPE,17,9,3.55,4,10.81,4.45,1,8,Autumn,17,97.92,0.92,3.84,3,9.51
-2026-07-09T15:31:10.816952,Radiology,Wound Care Pack,Wound Care,69,15,2.1,1,8.71,2.24,4,9,Spring,22,57.17,0.8,1.17,3,12.86
-2026-07-09T15:31:10.816952,Med-Surg,Patient Monitoring Leads,Monitoring,14,8,3.63,1,11.91,3.46,6,16,Autumn,37,146.41,0.74,1.15,4,14.45
-2026-07-09T15:31:10.816952,ICU,Oxygen Mask,Respiratory,10,9,2.03,6,13.43,4.89,2,7,Winter,32,117.17,0.84,4.58,4,15.96
-2026-07-09T15:31:10.816952,Med-Surg,Blood Draw Kit,Lab Supplies,71,11,1.18,7,12.1,1.83,1,11,Summer,35,127.16,0.79,3.49,2,13.35
-2026-07-09T15:31:10.816952,Med-Surg,Surgical Tray,Surgical Supplies,79,7,3.75,4,3.91,0.55,3,8,Summer,42,143.71,0.86,3.18,4,5.06
-2026-07-09T15:31:10.816952,Labor and Delivery,Saline Flush,IV Supplies,25,18,3.79,5,8.26,6.33,3,0,Winter,20,119.07,0.96,3.18,2,5.89
-2026-07-09T15:31:10.818527,Emergency Department,Syringe 10ml,IV Supplies,23,6,1.04,0,12.78,5.26,4,1,Winter,25,146.61,0.93,2.46,3,14.98
-2026-07-09T15:31:10.818527,Radiology,Nitrile Gloves Large,PPE,98,11,1.49,3,2.12,2.82,3,9,Summer,30,33.7,0.8,8.63,2,1.39
-2026-07-09T15:31:10.819059,Labor and Delivery,Sterile Gauze,Wound Care,97,10,1.36,4,11.89,2.92,3,19,Winter,39,137.8,0.99,6.19,2,13.61
-2026-07-09T15:31:10.819059,Radiology,IV Start Kit,IV Supplies,22,11,3.54,4,11.77,1.99,0,16,Spring,43,102.09,0.77,4.88,3,13.93
-2026-07-09T15:31:10.819059,Labor and Delivery,Nitrile Gloves Medium,PPE,80,13,2.06,7,9.68,1.71,2,15,Summer,37,95.59,0.81,3.66,2,14.06
-2026-07-09T15:31:10.819059,Surgery,Oxygen Mask,Respiratory,5,9,3.51,4,13.39,4.0,3,22,Winter,14,59.08,0.86,5.79,4,13.43
-2026-07-09T15:31:10.820068,Radiology,Oxygen Mask,Respiratory,61,20,1.91,2,11.48,6.78,5,18,Summer,45,111.41,0.95,4.8,4,12.9
-2026-07-09T15:31:10.820574,ICU,Patient Monitoring Leads,Monitoring,66,13,1.81,3,4.87,5.46,5,20,Autumn,25,12.23,0.86,7.38,4,6.31
-2026-07-09T15:31:10.820574,Emergency Department,IV Start Kit,IV Supplies,15,11,2.09,6,14.64,3.42,1,7,Summer,41,15.19,0.94,2.1,3,14.97
-2026-07-09T15:31:10.820574,ICU,Foley Catheter Kit,Catheterization,61,8,1.59,8,6.95,1.56,3,17,Winter,28,117.43,0.74,8.18,3,9.79
-2026-07-09T15:31:10.820574,Outpatient Clinic,Nitrile Gloves Large,PPE,92,10,1.4,3,13.33,4.87,4,7,Summer,23,93.92,0.87,8.5,2,15.39
-2026-07-09T15:31:10.821579,Surgery,Nitrile Gloves Medium,PPE,86,7,1.56,1,4.49,3.18,5,0,Winter,37,60.98,0.72,8.05,2,3.87
-2026-07-09T15:31:10.821579,Surgery,Wound Care Pack,Wound Care,73,4,2.14,8,14.24,6.45,1,9,Winter,11,145.62,0.73,4.63,3,12.25
-2026-07-09T15:31:10.822107,Labor and Delivery,Syringe 10ml,IV Supplies,94,11,2.56,3,10.2,4.07,5,21,Spring,48,26.23,0.98,1.62,3,14.75
-2026-07-09T15:31:10.822107,Surgery,Nitrile Gloves Large,PPE,70,8,3.9,5,9.77,6.13,0,18,Spring,34,23.65,0.98,7.63,2,9.49
-2026-07-09T15:31:10.822107,Labor and Delivery,Sterile Gauze,Wound Care,26,11,1.15,7,11.61,1.9,5,16,Spring,36,65.32,0.73,7.74,2,12.51
-2026-07-09T15:31:10.822107,Outpatient Clinic,Nitrile Gloves Large,PPE,97,10,3.99,4,10.5,5.82,6,19,Summer,42,32.55,0.78,3.23,2,13.2
-2026-07-09T15:31:10.822107,Surgery,Nasal Cannula,Respiratory,54,12,3.02,7,10.02,5.33,2,13,Autumn,26,138.15,0.88,5.84,3,9.45
-2026-07-09T15:31:10.823622,Radiology,Oxygen Mask,Respiratory,13,9,2.91,5,8.5,5.6,1,12,Autumn,31,75.64,0.72,5.42,4,6.59
-2026-07-09T15:31:10.824175,Med-Surg,Surgical Tray,Surgical Supplies,83,8,1.03,4,14.25,5.35,2,12,Summer,29,67.21,0.94,1.07,4,15.47
-2026-07-09T15:31:10.824175,ICU,Foley Catheter Kit,Catheterization,29,9,3.49,6,14.23,6.2,4,8,Spring,44,52.66,0.86,8.15,3,17.22
-2026-07-09T15:31:10.824175,Outpatient Clinic,IV Start Kit,IV Supplies,80,9,1.48,4,4.15,0.51,1,4,Spring,27,44.87,0.86,4.11,3,7.71
-2026-07-09T15:31:10.825183,Surgery,Patient Monitoring Leads,Monitoring,14,11,1.36,2,5.17,2.24,5,14,Spring,37,86.0,1.0,4.73,4,4.52
-2026-07-09T15:31:10.825183,Emergency Department,Patient Monitoring Leads,Monitoring,23,12,3.26,4,14.29,5.03,4,6,Autumn,33,103.97,0.76,4.53,4,15.45
-2026-07-09T15:31:10.825183,Emergency Department,Foley Catheter Kit,Catheterization,57,13,3.57,7,11.78,3.52,5,15,Winter,16,67.97,0.76,8.69,3,13.32
-2026-07-09T15:31:10.826185,Labor and Delivery,Nitrile Gloves Medium,PPE,15,4,3.41,2,13.41,3.03,0,7,Autumn,24,10.45,0.89,1.67,2,17.15
-2026-07-09T15:31:10.826691,Outpatient Clinic,Nitrile Gloves Large,PPE,68,16,2.34,4,6.8,0.79,6,10,Autumn,36,57.19,0.95,8.58,2,6.5
-2026-07-09T15:31:10.826691,Emergency Department,Surgical Tray,Surgical Supplies,35,10,3.3,6,10.07,5.32,6,8,Summer,37,58.92,0.75,3.32,4,8.55
-2026-07-09T15:31:10.826691,ICU,Nitrile Gloves Large,PPE,90,13,2.24,4,13.2,6.15,1,11,Summer,24,83.91,0.88,2.2,2,18.5
-2026-07-09T15:31:10.826691,Surgery,Saline Flush,IV Supplies,27,8,1.79,4,11.03,1.92,3,6,Spring,19,99.46,0.94,8.0,2,10.74
-2026-07-09T15:31:10.827697,Med-Surg,Saline Flush,IV Supplies,88,9,1.09,1,13.43,2.08,4,23,Spring,15,64.63,0.76,5.63,2,15.94
-2026-07-09T15:31:10.827697,Outpatient Clinic,Nasal Cannula,Respiratory,75,14,2.73,1,14.99,2.62,6,9,Summer,36,36.6,0.71,4.7,3,18.91
-2026-07-09T15:31:10.827697,Surgery,Patient Monitoring Leads,Monitoring,52,8,1.05,4,2.07,6.6,4,20,Winter,19,58.89,0.72,6.74,4,1.08
-2026-07-09T15:31:10.827697,Surgery,Sterile Gauze,Wound Care,70,12,1.69,8,12.46,5.15,0,13,Summer,41,68.49,0.9,7.1,2,14.82
-2026-07-09T15:31:10.828699,Labor and Delivery,Surgical Tray,Surgical Supplies,9,20,2.66,4,9.54,3.44,5,13,Spring,29,102.97,0.71,2.54,4,10.17
-2026-07-09T15:31:10.828699,Outpatient Clinic,Surgical Tray,Surgical Supplies,44,10,2.21,4,9.71,2.81,5,19,Autumn,38,63.79,0.73,6.46,4,8.42
-2026-07-09T15:31:10.828699,Labor and Delivery,Sterile Gauze,Wound Care,60,7,1.86,4,14.65,3.52,6,20,Spring,29,52.45,0.83,4.56,2,17.36
-2026-07-09T15:31:10.828699,Emergency Department,Saline Flush,IV Supplies,98,8,3.37,3,14.25,0.99,6,4,Autumn,12,147.8,0.75,2.03,2,16.76
-2026-07-09T15:31:10.828699,Labor and Delivery,Patient Monitoring Leads,Monitoring,60,6,2.07,2,12.52,1.45,5,23,Summer,32,15.24,0.95,7.36,4,11.33
-2026-07-09T15:31:10.828699,Radiology,Patient Monitoring Leads,Monitoring,73,10,1.91,1,4.27,6.19,0,22,Summer,40,59.66,0.91,3.54,4,2.4
-2026-07-09T15:31:10.830204,Emergency Department,Syringe 10ml,IV Supplies,80,8,3.52,6,8.28,5.95,6,2,Autumn,27,18.92,0.91,4.75,3,8.1
-2026-07-09T15:31:10.830204,Radiology,Blood Draw Kit,Lab Supplies,17,10,2.54,6,13.11,1.57,2,2,Winter,43,135.53,0.88,6.19,2,10.33
-2026-07-09T15:31:10.830741,Radiology,Patient Monitoring Leads,Monitoring,36,13,1.26,5,4.84,6.18,6,21,Autumn,22,93.71,0.88,1.48,4,7.18
-2026-07-09T15:31:10.830741,Med-Surg,Nasal Cannula,Respiratory,85,6,2.05,3,5.79,1.85,1,14,Summer,22,70.48,0.84,7.85,3,6.28
-2026-07-09T15:31:10.830741,ICU,IV Start Kit,IV Supplies,34,9,1.51,1,6.43,3.82,3,14,Winter,19,116.15,0.74,6.64,3,4.64
-2026-07-09T15:31:10.831748,Radiology,IV Start Kit,IV Supplies,61,9,1.48,1,5.09,0.82,0,12,Spring,17,42.52,0.75,4.42,3,4.7
-2026-07-09T15:31:10.831748,Surgery,Foley Catheter Kit,Catheterization,47,11,2.67,7,5.68,3.22,0,20,Summer,11,100.35,0.98,3.39,3,8.76
-2026-07-09T15:31:10.831748,Emergency Department,Wound Care Pack,Wound Care,23,7,2.86,5,10.82,4.03,3,22,Autumn,28,47.13,0.8,1.71,3,8.62
-2026-07-09T15:31:10.832748,ICU,Blood Draw Kit,Lab Supplies,67,9,1.49,3,7.83,6.44,2,23,Spring,18,112.8,0.93,6.2,2,7.83
-2026-07-09T15:31:10.832748,Surgery,Blood Draw Kit,Lab Supplies,9,13,3.59,5,5.89,1.2,5,1,Spring,12,51.65,0.83,8.48,2,7.18
-2026-07-09T15:31:10.833257,Emergency Department,Nitrile Gloves Large,PPE,42,6,2.9,3,4.83,0.6,2,17,Winter,37,131.02,0.86,7.3,2,4.18
-2026-07-09T15:31:10.833257,ICU,Saline Flush,IV Supplies,93,16,1.76,2,6.7,1.1,5,4,Winter,11,110.96,0.71,6.93,2,5.47
-2026-07-09T15:31:10.833257,ICU,Nasal Cannula,Respiratory,76,9,1.15,2,4.94,4.49,0,9,Spring,30,111.9,0.72,9.06,3,5.59
-2026-07-09T15:31:10.833257,Radiology,IV Start Kit,IV Supplies,21,10,3.5,4,9.49,5.45,4,16,Summer,44,3.01,0.9,1.69,3,14.12
-2026-07-09T15:31:10.834260,Outpatient Clinic,Oxygen Mask,Respiratory,94,9,2.97,4,3.51,4.48,2,14,Autumn,44,11.98,0.81,5.96,4,1.0
-2026-07-09T15:31:10.834260,ICU,Surgical Tray,Surgical Supplies,28,11,1.77,2,10.79,4.78,6,14,Spring,13,83.67,0.71,9.17,4,10.99
-2026-07-09T15:31:10.834260,Labor and Delivery,Syringe 10ml,IV Supplies,35,5,3.91,3,8.04,2.97,4,15,Summer,39,112.98,0.86,7.1,3,7.77
-2026-07-09T15:31:10.834260,Labor and Delivery,Foley Catheter Kit,Catheterization,64,9,2.97,0,14.26,2.04,3,3,Winter,32,75.32,0.83,3.25,3,12.24
-2026-07-09T15:31:10.834260,ICU,Nitrile Gloves Large,PPE,10,8,1.82,0,14.72,6.78,3,16,Winter,28,52.2,0.9,8.25,2,16.92
-2026-07-09T15:31:10.834260,Radiology,IV Start Kit,IV Supplies,88,9,2.36,5,4.58,0.93,4,14,Winter,32,62.87,0.75,2.54,3,8.02
-2026-07-09T15:31:10.835766,Radiology,Saline Flush,IV Supplies,62,8,1.16,2,5.05,5.9,5,12,Summer,26,35.11,0.96,9.34,2,4.61
-2026-07-09T15:31:10.835766,ICU,Syringe 10ml,IV Supplies,58,7,1.03,7,9.36,0.54,1,14,Summer,17,135.68,0.81,5.95,3,10.1
-2026-07-09T15:31:10.836338,Radiology,Sterile Gauze,Wound Care,21,7,1.78,1,4.51,0.83,6,11,Winter,39,42.32,0.8,6.97,2,3.76
-2026-07-09T15:31:10.836338,Med-Surg,Surgical Tray,Surgical Supplies,41,12,3.08,3,13.84,4.06,0,5,Summer,45,61.45,0.74,2.54,4,15.85
-2026-07-09T15:31:10.836861,Surgery,Foley Catheter Kit,Catheterization,38,7,1.78,5,10.74,5.87,0,3,Spring,27,7.27,0.9,5.82,3,14.24
-2026-07-09T15:31:10.836861,Radiology,Saline Flush,IV Supplies,72,8,3.98,7,8.08,4.53,3,9,Spring,11,49.88,0.87,8.66,2,10.74
-2026-07-09T15:31:10.836861,Outpatient Clinic,Oxygen Mask,Respiratory,8,11,1.76,5,9.83,3.83,2,10,Autumn,20,127.11,0.8,7.09,4,11.9
-2026-07-09T15:31:10.836861,Emergency Department,Wound Care Pack,Wound Care,70,13,1.0,2,8.03,6.63,0,12,Autumn,46,97.74,0.76,2.1,3,7.52
-2026-07-09T15:31:10.837867,ICU,Saline Flush,IV Supplies,93,16,2.4,0,3.06,2.18,3,6,Autumn,11,64.25,0.86,2.57,2,4.05
-2026-07-09T15:31:10.837867,Surgery,Syringe 10ml,IV Supplies,35,13,3.42,2,6.72,4.05,4,17,Autumn,23,120.13,0.96,2.36,3,9.15
-2026-07-09T15:31:10.838510,Labor and Delivery,Nitrile Gloves Large,PPE,60,13,3.04,2,5.54,1.92,3,20,Autumn,23,66.63,0.71,7.16,2,7.49
-2026-07-09T15:31:10.838510,Emergency Department,Nasal Cannula,Respiratory,91,10,1.4,4,7.23,5.24,2,13,Summer,42,2.54,0.8,5.99,3,10.61
-2026-07-09T15:31:10.839031,Outpatient Clinic,Wound Care Pack,Wound Care,70,11,1.72,2,4.3,6.92,2,21,Spring,25,149.34,0.87,8.31,3,5.18
-2026-07-09T15:31:10.839031,ICU,Oxygen Mask,Respiratory,5,9,3.05,3,9.52,5.01,4,19,Winter,48,130.99,0.85,7.57,4,8.11
-2026-07-09T15:31:10.839601,Med-Surg,PPE Gown,PPE,90,8,3.39,3,5.67,2.44,4,8,Autumn,28,124.95,0.99,5.27,3,7.14
-2026-07-09T15:31:10.839601,Outpatient Clinic,Patient Monitoring Leads,Monitoring,15,11,1.12,4,13.67,5.76,2,19,Spring,16,96.32,0.84,2.71,4,16.05
-2026-07-09T15:31:10.840121,Surgery,Nitrile Gloves Medium,PPE,41,12,3.03,5,3.57,4.3,6,21,Winter,28,11.97,0.75,1.55,2,7.52
-2026-07-09T15:31:10.840121,Med-Surg,IV Start Kit,IV Supplies,71,9,2.2,3,10.58,3.37,3,5,Autumn,32,62.54,0.92,2.22,3,10.59
-2026-07-09T15:31:10.840699,Emergency Department,Foley Catheter Kit,Catheterization,54,9,1.38,3,2.76,4.09,5,17,Winter,44,17.91,0.78,3.66,3,2.05
-2026-07-09T15:31:10.841256,Med-Surg,Sterile Gauze,Wound Care,47,9,1.43,3,14.21,5.41,6,8,Autumn,39,12.49,0.84,6.67,2,16.62
-2026-07-09T15:31:10.841256,Labor and Delivery,Foley Catheter Kit,Catheterization,5,8,2.81,4,13.64,1.47,3,21,Spring,36,51.61,0.96,1.12,3,16.14
-2026-07-09T15:31:10.842266,Labor and Delivery,IV Start Kit,IV Supplies,66,8,1.07,1,4.46,3.49,5,4,Spring,42,125.39,0.76,4.97,3,3.63
-2026-07-09T15:31:10.843266,ICU,Nasal Cannula,Respiratory,92,10,2.89,6,10.13,4.22,4,21,Autumn,14,90.85,0.93,5.71,3,9.51
-2026-07-09T15:31:10.843266,ICU,Sterile Gauze,Wound Care,43,9,1.04,3,7.01,6.06,4,18,Summer,17,40.96,0.76,5.27,2,9.82
-2026-07-09T15:31:10.843266,Surgery,PPE Gown,PPE,64,7,3.75,7,7.87,6.59,0,16,Autumn,35,113.64,0.9,2.49,3,14.16
-2026-07-09T15:31:10.844265,Outpatient Clinic,Sterile Gauze,Wound Care,10,6,2.66,1,10.72,4.67,2,14,Winter,49,98.12,0.87,1.2,2,11.89
-2026-07-09T15:31:10.844265,Outpatient Clinic,Patient Monitoring Leads,Monitoring,49,7,1.54,5,5.65,2.77,2,18,Summer,48,36.48,0.96,8.48,4,7.19
-2026-07-09T15:31:10.844265,Med-Surg,Blood Draw Kit,Lab Supplies,69,7,2.0,6,11.0,1.41,2,7,Autumn,47,60.71,0.86,9.97,2,12.89
-2026-07-09T15:31:10.845262,Med-Surg,Nasal Cannula,Respiratory,50,11,1.38,5,14.2,2.77,6,0,Winter,48,83.24,0.87,2.89,3,13.97
-2026-07-09T15:31:10.845262,Surgery,Blood Draw Kit,Lab Supplies,55,9,2.69,6,3.73,2.2,4,16,Autumn,11,43.58,0.7,5.47,2,6.09
-2026-07-09T15:31:10.845262,Labor and Delivery,Sterile Gauze,Wound Care,18,5,2.72,1,11.29,2.85,4,2,Spring,10,29.85,0.71,8.75,2,10.6
-2026-07-09T15:31:10.845262,Surgery,Syringe 10ml,IV Supplies,93,8,3.43,3,4.14,1.68,6,17,Spring,34,83.49,0.88,4.84,3,3.1
-2026-07-09T15:31:10.845262,Outpatient Clinic,Saline Flush,IV Supplies,14,10,1.85,2,10.44,4.85,0,3,Winter,25,50.25,0.87,7.36,2,11.89
-2026-07-09T15:31:10.845262,Labor and Delivery,Nitrile Gloves Large,PPE,83,12,3.8,4,5.0,6.33,4,10,Summer,46,21.15,0.96,5.5,2,3.24
-2026-07-09T15:31:10.846768,Emergency Department,Nitrile Gloves Large,PPE,75,8,1.63,9,10.73,5.24,6,9,Summer,15,55.36,0.74,2.86,2,13.32
-2026-07-09T15:31:10.847305,Med-Surg,Oxygen Mask,Respiratory,87,9,2.57,6,10.55,4.67,5,18,Winter,34,135.54,0.78,8.31,4,11.97
-2026-07-09T15:31:10.847305,Surgery,Saline Flush,IV Supplies,21,8,3.57,5,8.51,4.7,1,18,Spring,43,10.02,0.75,1.05,2,7.84
-2026-07-09T15:31:10.847305,Surgery,Saline Flush,IV Supplies,52,8,3.26,6,10.81,2.14,2,2,Spring,49,129.02,0.99,2.96,2,12.97
-2026-07-09T15:31:10.847305,Emergency Department,Syringe 10ml,IV Supplies,67,12,2.81,6,11.06,2.86,0,23,Autumn,32,92.0,0.79,3.93,3,14.12
-2026-07-09T15:31:10.848311,Outpatient Clinic,Wound Care Pack,Wound Care,31,12,1.81,5,2.14,4.04,0,1,Spring,24,53.9,0.8,5.68,3,4.38
-2026-07-09T15:31:10.848311,Outpatient Clinic,Nasal Cannula,Respiratory,29,7,2.99,4,12.66,4.72,0,10,Winter,25,38.87,0.93,5.62,3,13.61
-2026-07-09T15:31:10.848311,ICU,Patient Monitoring Leads,Monitoring,10,8,1.78,0,6.89,4.21,0,4,Spring,11,0.53,0.97,8.59,4,6.15
-2026-07-09T15:31:10.848311,Radiology,Sterile Gauze,Wound Care,22,12,3.12,2,11.67,5.12,1,8,Summer,45,137.72,0.73,3.09,2,13.88
-2026-07-09T15:31:10.848311,ICU,Saline Flush,IV Supplies,92,13,2.33,4,12.11,3.49,2,6,Autumn,27,148.04,0.93,3.24,2,13.78
-2026-07-09T15:31:10.848311,Med-Surg,Syringe 10ml,IV Supplies,33,12,1.02,5,6.0,2.07,6,6,Summer,31,83.55,0.79,4.76,3,6.64
-2026-07-09T15:31:10.849815,Radiology,Nasal Cannula,Respiratory,26,12,3.52,8,6.24,0.63,1,0,Autumn,30,81.92,0.72,9.6,3,8.04
-2026-07-09T15:31:10.850333,Med-Surg,Sterile Gauze,Wound Care,65,10,1.35,2,12.44,6.88,4,6,Autumn,24,131.82,0.99,7.79,2,12.86
-2026-07-09T15:31:10.850333,Outpatient Clinic,Nitrile Gloves Medium,PPE,6,6,2.51,5,6.91,3.19,6,22,Spring,22,143.37,0.99,4.17,2,8.71
-2026-07-09T15:31:10.850333,Labor and Delivery,Syringe 10ml,IV Supplies,59,13,2.86,6,11.69,5.87,6,17,Summer,16,123.14,0.87,7.04,3,12.6
-2026-07-09T15:31:10.850333,Radiology,Foley Catheter Kit,Catheterization,14,6,3.44,2,5.09,2.45,3,23,Autumn,41,54.69,0.95,2.84,3,8.42
-2026-07-09T15:31:10.851337,ICU,Nitrile Gloves Large,PPE,75,9,2.24,4,3.13,1.81,5,23,Winter,26,35.12,0.95,4.58,2,3.15
-2026-07-09T15:31:10.851337,Med-Surg,Patient Monitoring Leads,Monitoring,92,7,2.64,4,13.91,2.63,0,13,Winter,38,51.15,0.99,7.64,4,17.21
-2026-07-09T15:31:10.851843,Emergency Department,Nasal Cannula,Respiratory,83,10,3.62,3,10.12,5.89,2,1,Winter,28,85.56,0.93,8.31,3,11.61
-2026-07-09T15:31:10.851843,Outpatient Clinic,Nitrile Gloves Medium,PPE,53,14,3.38,6,7.22,4.88,1,7,Winter,48,53.87,0.89,2.68,2,8.54
-2026-07-09T15:31:10.852379,ICU,Patient Monitoring Leads,Monitoring,75,10,2.14,3,12.47,2.45,1,11,Winter,22,92.93,0.9,7.0,4,16.96
-2026-07-09T15:31:10.852379,Labor and Delivery,Surgical Tray,Surgical Supplies,52,10,3.18,7,13.67,1.28,3,19,Summer,39,49.21,0.76,6.0,4,12.33
-2026-07-09T15:31:10.852996,Labor and Delivery,Sterile Gauze,Wound Care,52,9,1.82,4,5.72,3.87,4,10,Spring,17,139.33,0.92,3.76,2,7.07
-2026-07-09T15:31:10.852996,Outpatient Clinic,Patient Monitoring Leads,Monitoring,14,16,1.78,2,5.94,3.96,3,6,Autumn,22,106.26,0.91,9.09,4,4.53
-2026-07-09T15:31:10.853582,Med-Surg,IV Start Kit,IV Supplies,78,11,3.0,5,4.57,5.73,3,9,Autumn,23,128.47,0.92,8.25,3,5.46
-2026-07-09T15:31:10.853582,Med-Surg,Syringe 10ml,IV Supplies,98,10,3.21,1,6.37,6.48,1,5,Winter,47,73.01,0.73,9.75,3,11.79
-2026-07-09T15:31:10.854126,Radiology,Foley Catheter Kit,Catheterization,92,10,3.25,3,12.76,2.96,1,10,Summer,43,60.64,0.83,4.45,3,14.79
-2026-07-09T15:31:10.854126,Outpatient Clinic,Foley Catheter Kit,Catheterization,37,14,2.27,1,9.51,4.21,5,23,Autumn,39,55.34,0.73,7.9,3,11.02
-2026-07-09T15:31:10.854690,Emergency Department,Nitrile Gloves Large,PPE,46,11,2.45,4,8.31,6.43,4,21,Winter,28,51.82,0.96,6.03,2,11.18
-2026-07-09T15:31:10.854690,ICU,Surgical Tray,Surgical Supplies,6,9,1.24,6,13.44,4.72,1,19,Winter,24,30.67,0.97,7.84,4,12.4
-2026-07-09T15:31:10.855223,Med-Surg,Oxygen Mask,Respiratory,74,10,2.85,1,8.09,1.46,2,6,Autumn,22,19.99,0.76,7.92,4,11.01
-2026-07-09T15:31:10.855223,Med-Surg,Blood Draw Kit,Lab Supplies,84,13,1.03,2,8.57,3.12,3,21,Autumn,44,20.49,0.98,7.76,2,9.76
-2026-07-09T15:31:10.855753,Radiology,Sterile Gauze,Wound Care,46,9,1.65,4,6.03,3.09,5,18,Spring,21,143.21,0.98,1.42,2,7.47
-2026-07-09T15:31:10.855753,Med-Surg,PPE Gown,PPE,91,9,2.3,4,11.83,3.06,0,12,Spring,24,44.11,0.98,3.07,3,11.25
-2026-07-09T15:31:10.855753,ICU,IV Start Kit,IV Supplies,95,14,3.02,0,6.41,5.67,3,16,Summer,18,88.0,0.78,9.41,3,4.2
-2026-07-09T15:31:10.856759,Outpatient Clinic,Patient Monitoring Leads,Monitoring,99,10,1.93,6,14.21,2.42,5,3,Summer,31,103.52,0.96,9.97,4,13.72
-2026-07-09T15:31:10.857266,Labor and Delivery,Blood Draw Kit,Lab Supplies,72,14,3.48,3,5.78,3.55,4,18,Spring,27,26.76,0.85,7.44,2,6.0
-2026-07-09T15:31:10.857266,Surgery,Nasal Cannula,Respiratory,48,7,2.0,6,11.23,6.89,2,20,Autumn,10,108.21,0.78,2.66,3,11.39
-2026-07-09T15:31:10.857266,Outpatient Clinic,Nitrile Gloves Large,PPE,65,16,1.87,4,14.83,2.13,6,5,Winter,10,117.89,0.85,9.51,2,17.03
-2026-07-09T15:31:10.858274,Radiology,Foley Catheter Kit,Catheterization,24,10,1.79,7,7.82,5.25,4,5,Winter,29,47.81,0.73,3.73,3,10.2
-2026-07-09T15:31:10.858274,Outpatient Clinic,PPE Gown,PPE,85,12,2.83,2,8.94,4.97,2,16,Winter,48,130.14,0.99,3.13,3,6.12
-2026-07-09T15:31:10.858274,Outpatient Clinic,Nitrile Gloves Large,PPE,44,14,2.81,6,12.04,1.61,0,0,Summer,41,65.06,0.93,5.36,2,13.95
-2026-07-09T15:31:10.858274,Surgery,Nasal Cannula,Respiratory,80,12,3.25,2,4.37,3.83,5,17,Summer,48,130.94,0.77,5.05,3,7.54
-2026-07-09T15:31:10.859278,Outpatient Clinic,Patient Monitoring Leads,Monitoring,38,9,2.37,6,13.64,6.78,0,11,Spring,23,103.32,0.78,7.63,4,11.86
-2026-07-09T15:31:10.859278,Emergency Department,Surgical Tray,Surgical Supplies,9,12,3.29,6,13.05,2.98,6,22,Spring,15,74.07,1.0,3.5,4,11.91
-2026-07-09T15:31:10.859278,ICU,Surgical Tray,Surgical Supplies,19,10,1.4,2,6.52,4.53,1,3,Spring,48,107.45,0.78,7.84,4,4.89
-2026-07-09T15:31:10.860275,Radiology,Nitrile Gloves Large,PPE,28,17,1.72,2,8.58,5.56,3,13,Spring,22,54.27,0.91,3.82,2,9.49
-2026-07-09T15:31:10.860275,Surgery,IV Start Kit,IV Supplies,6,8,3.3,5,14.84,1.96,4,12,Autumn,22,137.31,0.75,7.77,3,13.0
-2026-07-09T15:31:10.860275,Surgery,Blood Draw Kit,Lab Supplies,9,10,1.52,3,7.84,2.43,5,8,Summer,41,98.05,0.72,5.02,2,9.63
-2026-07-09T15:31:10.860275,Med-Surg,Foley Catheter Kit,Catheterization,43,12,3.33,6,7.96,3.94,6,17,Spring,46,65.53,0.79,5.91,3,9.56
-2026-07-09T15:31:10.860275,ICU,Foley Catheter Kit,Catheterization,20,5,3.63,3,13.28,5.88,4,12,Summer,35,38.99,0.74,3.34,3,13.07
-2026-07-09T15:31:10.861819,Radiology,Oxygen Mask,Respiratory,91,9,2.72,6,10.5,6.99,2,0,Winter,48,146.18,0.99,1.59,4,12.53
-2026-07-09T15:31:10.861819,Emergency Department,Nitrile Gloves Medium,PPE,39,15,1.12,4,7.55,3.55,4,9,Spring,21,60.0,0.98,4.04,2,10.45
-2026-07-09T15:31:10.862410,Emergency Department,Nitrile Gloves Medium,PPE,78,12,1.92,2,3.33,0.58,2,19,Summer,40,145.93,0.99,5.45,2,4.45
-2026-07-09T15:31:10.862410,ICU,Saline Flush,IV Supplies,66,9,3.63,3,13.84,5.83,3,7,Spring,40,94.97,0.86,6.24,2,16.45
-2026-07-09T15:31:10.862410,Radiology,Saline Flush,IV Supplies,14,11,1.56,1,9.64,5.96,5,15,Spring,40,123.01,0.8,4.15,2,7.5
-2026-07-09T15:31:10.862410,ICU,Nasal Cannula,Respiratory,55,12,3.68,6,8.67,2.73,4,2,Spring,15,116.65,0.72,6.94,3,10.86
-2026-07-09T15:31:10.863417,ICU,Surgical Tray,Surgical Supplies,26,8,1.94,3,11.26,1.64,5,11,Winter,35,72.79,0.7,9.29,4,13.71
-2026-07-09T15:31:10.863417,Surgery,Wound Care Pack,Wound Care,83,6,2.78,5,5.83,2.8,6,6,Summer,48,137.34,0.78,9.06,3,4.89
-2026-07-09T15:31:10.863417,Labor and Delivery,Syringe 10ml,IV Supplies,75,7,3.05,3,12.64,2.68,6,15,Spring,28,119.44,0.74,2.17,3,11.61
-2026-07-09T15:31:10.863417,Labor and Delivery,Nitrile Gloves Large,PPE,40,5,1.49,2,4.84,0.86,6,6,Winter,35,68.61,0.97,6.13,2,6.41
-2026-07-09T15:31:10.863417,Emergency Department,Patient Monitoring Leads,Monitoring,53,6,3.02,5,12.15,6.42,3,11,Winter,16,33.05,0.72,6.16,4,13.13
-2026-07-09T15:31:10.863417,Surgery,IV Start Kit,IV Supplies,73,14,1.76,1,13.86,4.62,5,14,Spring,38,102.24,0.79,5.12,3,13.42
-2026-07-09T15:31:10.864924,Emergency Department,Surgical Tray,Surgical Supplies,84,14,1.14,3,12.47,1.0,6,13,Winter,37,35.9,0.73,7.93,4,12.7
-2026-07-09T15:31:10.864924,Emergency Department,Patient Monitoring Leads,Monitoring,71,5,3.45,2,14.76,4.59,0,18,Winter,48,147.93,0.95,3.53,4,15.87
-2026-07-09T15:31:10.865461,Labor and Delivery,Wound Care Pack,Wound Care,45,11,3.36,3,9.94,6.89,6,1,Winter,39,11.07,0.81,5.81,3,10.92
-2026-07-09T15:31:10.865461,Radiology,Blood Draw Kit,Lab Supplies,57,8,3.67,5,2.37,4.68,4,17,Summer,39,76.15,0.75,9.64,2,2.93
-2026-07-09T15:31:10.865461,Med-Surg,Blood Draw Kit,Lab Supplies,29,12,1.06,6,11.7,1.45,4,18,Winter,25,122.06,0.88,2.9,2,14.15
-2026-07-09T15:31:10.865461,Labor and Delivery,IV Start Kit,IV Supplies,30,11,1.09,3,13.85,5.06,0,15,Winter,47,44.0,0.96,9.14,3,12.61
-2026-07-09T15:31:10.866467,ICU,Blood Draw Kit,Lab Supplies,22,11,1.58,5,10.21,4.03,6,15,Summer,49,15.32,0.89,5.02,2,9.85
-2026-07-09T15:31:10.866974,Outpatient Clinic,Nitrile Gloves Large,PPE,6,16,2.15,2,10.2,5.15,1,6,Winter,21,97.38,0.77,7.46,2,12.6
-2026-07-09T15:31:10.866974,Labor and Delivery,IV Start Kit,IV Supplies,95,5,1.07,7,4.69,6.51,1,16,Autumn,41,51.56,0.8,1.06,3,7.06
-2026-07-09T15:31:10.866974,ICU,Nasal Cannula,Respiratory,71,11,1.09,4,3.5,5.99,2,5,Summer,45,12.56,0.9,7.2,3,4.91
-2026-07-09T15:31:10.866974,ICU,Nitrile Gloves Large,PPE,7,7,3.55,2,3.95,3.99,0,6,Spring,46,147.44,0.86,5.52,2,6.08
-2026-07-09T15:31:10.866974,Surgery,Nitrile Gloves Medium,PPE,6,10,1.22,5,4.24,6.17,3,15,Winter,44,78.0,0.72,6.64,2,2.57
-2026-07-09T15:31:10.866974,Labor and Delivery,PPE Gown,PPE,51,16,3.21,6,14.52,6.46,5,23,Autumn,18,15.73,0.7,6.55,3,14.79
-2026-07-09T15:31:10.868529,Labor and Delivery,Wound Care Pack,Wound Care,84,6,2.78,2,11.1,5.43,5,14,Winter,42,122.29,0.98,5.62,3,12.79
-2026-07-09T15:31:10.868529,Emergency Department,Saline Flush,IV Supplies,18,10,3.39,3,9.2,4.32,4,21,Winter,28,36.13,0.94,5.38,2,8.66
-2026-07-09T15:31:10.869067,ICU,Blood Draw Kit,Lab Supplies,89,6,1.63,3,5.88,4.87,2,3,Autumn,26,28.07,0.85,3.48,2,5.85
-2026-07-09T15:31:10.869067,Emergency Department,Syringe 10ml,IV Supplies,13,12,2.26,5,13.08,1.79,5,6,Spring,40,48.22,0.97,2.14,3,14.33
-2026-07-09T15:31:10.869067,ICU,Blood Draw Kit,Lab Supplies,67,16,1.81,5,3.48,0.53,6,10,Summer,48,76.7,0.79,2.36,2,1.17
-2026-07-09T15:31:10.869067,Outpatient Clinic,Sterile Gauze,Wound Care,41,13,1.23,0,3.33,3.17,1,5,Summer,35,80.16,0.84,9.83,2,2.58
-2026-07-09T15:31:10.870076,ICU,Foley Catheter Kit,Catheterization,54,12,3.17,6,14.0,0.6,6,12,Winter,13,9.72,0.84,2.84,3,16.08
-2026-07-09T15:31:10.870076,Surgery,Oxygen Mask,Respiratory,25,6,2.88,3,9.3,1.61,4,1,Spring,24,89.23,0.76,2.05,4,11.4
-2026-07-09T15:31:10.870583,Surgery,Blood Draw Kit,Lab Supplies,10,7,1.3,2,10.3,1.42,1,11,Autumn,37,91.83,0.7,9.05,2,12.56
-2026-07-09T15:31:10.870583,Surgery,Wound Care Pack,Wound Care,39,10,3.37,5,5.48,3.88,6,14,Spring,46,119.87,0.91,2.71,3,4.41
-2026-07-09T15:31:10.870583,Radiology,Oxygen Mask,Respiratory,8,4,2.51,1,8.52,2.99,1,19,Summer,20,63.21,0.82,6.99,4,8.82
-2026-07-09T15:31:10.870583,Outpatient Clinic,Patient Monitoring Leads,Monitoring,38,10,3.27,4,8.03,1.63,2,7,Spring,13,82.71,0.89,6.97,4,7.91
-2026-07-09T15:31:10.870583,ICU,Nitrile Gloves Medium,PPE,34,10,2.39,3,13.69,6.62,1,8,Summer,11,68.19,0.95,9.65,2,16.15
-2026-07-09T15:31:10.870583,Labor and Delivery,Wound Care Pack,Wound Care,64,11,2.62,3,7.78,1.42,0,7,Winter,43,45.79,0.92,9.68,3,6.4
-2026-07-09T15:31:10.872101,Radiology,Foley Catheter Kit,Catheterization,50,12,3.35,5,6.78,3.92,3,16,Winter,25,47.81,0.8,2.75,3,9.52
-2026-07-09T15:31:10.872647,Labor and Delivery,Oxygen Mask,Respiratory,62,11,2.85,3,4.51,6.68,2,10,Autumn,19,8.38,0.71,7.45,4,6.39
-2026-07-09T15:31:10.872647,ICU,Patient Monitoring Leads,Monitoring,60,6,2.38,5,2.95,2.28,2,23,Winter,38,149.9,0.75,1.09,4,9.47
-2026-07-09T15:31:10.872647,Surgery,Foley Catheter Kit,Catheterization,66,12,2.4,4,4.14,3.77,3,9,Autumn,46,51.09,0.98,9.21,3,6.01
-2026-07-09T15:31:10.873695,ICU,Sterile Gauze,Wound Care,58,11,1.08,5,9.34,1.07,0,19,Summer,42,104.16,1.0,3.5,2,11.36
-2026-07-09T15:31:10.874255,Radiology,Sterile Gauze,Wound Care,12,9,3.05,3,13.55,2.64,5,5,Winter,38,141.13,0.71,4.17,2,14.3
-2026-07-09T15:31:10.874255,Emergency Department,Foley Catheter Kit,Catheterization,46,14,3.21,4,9.63,1.17,4,17,Autumn,17,117.77,0.85,2.63,3,12.68
-2026-07-09T15:31:10.874255,Outpatient Clinic,Sterile Gauze,Wound Care,14,14,3.32,3,8.88,2.25,2,19,Summer,23,89.49,0.86,9.72,2,8.3
-2026-07-09T15:31:10.875264,Radiology,Surgical Tray,Surgical Supplies,38,3,1.1,3,5.0,4.95,0,11,Autumn,39,142.34,0.78,8.3,4,5.44
-2026-07-09T15:31:10.875264,ICU,Nasal Cannula,Respiratory,95,13,3.91,5,9.7,3.64,2,18,Summer,15,17.3,0.78,5.43,3,10.04
-2026-07-09T15:31:10.875264,Emergency Department,Surgical Tray,Surgical Supplies,14,12,2.17,4,14.52,4.45,6,23,Summer,18,13.17,0.94,7.94,4,16.6
-2026-07-09T15:31:10.876265,Emergency Department,Nasal Cannula,Respiratory,27,14,3.24,6,13.8,5.24,3,18,Summer,47,54.24,0.96,3.09,3,14.5
-2026-07-09T15:31:10.876265,ICU,Foley Catheter Kit,Catheterization,87,10,1.57,4,9.27,3.77,1,9,Autumn,20,50.45,0.86,6.27,3,8.69
-2026-07-09T15:31:10.876265,Med-Surg,Nitrile Gloves Medium,PPE,86,10,1.85,5,12.64,1.26,5,4,Summer,34,112.25,0.86,5.07,2,14.79
-2026-07-09T15:31:10.876265,Radiology,Patient Monitoring Leads,Monitoring,20,4,3.78,7,5.73,2.12,0,13,Autumn,12,57.91,0.96,7.74,4,4.17
-2026-07-09T15:31:10.877772,Outpatient Clinic,Patient Monitoring Leads,Monitoring,16,11,2.79,3,3.68,3.99,3,10,Summer,32,13.47,0.88,1.51,4,4.76
-2026-07-09T15:31:10.877772,Emergency Department,Blood Draw Kit,Lab Supplies,29,9,3.18,3,12.64,1.62,3,5,Summer,21,83.6,0.91,4.71,2,17.93
-2026-07-09T15:31:10.878319,Med-Surg,IV Start Kit,IV Supplies,17,10,2.01,4,12.32,3.71,2,23,Summer,20,61.88,0.97,9.07,3,15.19
-2026-07-09T15:31:10.878319,Outpatient Clinic,Syringe 10ml,IV Supplies,86,8,1.72,3,5.85,4.22,0,18,Spring,30,112.09,0.97,7.81,3,7.28
-2026-07-09T15:31:10.879327,Outpatient Clinic,Surgical Tray,Surgical Supplies,26,9,1.84,4,9.9,3.9,5,1,Autumn,47,98.49,0.77,8.78,4,13.11
-2026-07-09T15:31:10.879327,ICU,Wound Care Pack,Wound Care,43,8,1.62,5,11.35,2.83,4,9,Spring,26,85.9,0.92,4.41,3,10.3
-2026-07-09T15:31:10.879327,Emergency Department,Wound Care Pack,Wound Care,38,8,1.68,3,3.7,0.58,5,18,Autumn,16,70.56,0.88,8.98,3,4.68
-2026-07-09T15:31:10.880326,Labor and Delivery,IV Start Kit,IV Supplies,68,5,1.27,6,9.32,6.63,1,23,Spring,42,114.76,0.94,6.75,3,11.23
-2026-07-09T15:31:10.880326,Outpatient Clinic,Nasal Cannula,Respiratory,14,9,2.67,2,7.84,5.94,6,1,Summer,18,43.38,0.78,2.44,3,7.6
-2026-07-09T15:31:10.880836,Emergency Department,Patient Monitoring Leads,Monitoring,97,11,2.83,4,9.84,5.74,5,9,Winter,38,47.25,0.88,2.24,4,9.23
-2026-07-09T15:31:10.880836,Emergency Department,Foley Catheter Kit,Catheterization,25,10,3.19,8,8.08,2.36,6,22,Autumn,26,79.26,0.72,1.99,3,8.5
-2026-07-09T15:31:10.880836,Surgery,IV Start Kit,IV Supplies,77,9,1.95,2,12.34,3.6,4,0,Autumn,45,139.91,0.96,7.39,3,10.58
-2026-07-09T15:31:10.880836,Outpatient Clinic,Surgical Tray,Surgical Supplies,78,12,1.18,3,13.09,3.02,3,7,Spring,14,23.9,0.81,6.57,4,11.74
-2026-07-09T15:31:10.882344,Labor and Delivery,Wound Care Pack,Wound Care,82,14,2.16,4,14.9,4.59,6,23,Spring,34,143.69,0.72,5.79,3,12.03
-2026-07-09T15:31:10.882879,Outpatient Clinic,Nasal Cannula,Respiratory,93,6,3.87,3,13.13,3.33,1,5,Autumn,49,105.77,0.71,1.09,3,14.57
-2026-07-09T15:31:10.882879,Radiology,Saline Flush,IV Supplies,51,16,2.07,5,8.39,6.33,1,7,Spring,27,63.56,0.77,2.8,2,7.64
-2026-07-09T15:31:10.882879,Med-Surg,Blood Draw Kit,Lab Supplies,99,9,3.4,3,14.05,4.71,5,10,Autumn,17,101.01,0.86,1.89,2,16.05
-2026-07-09T15:31:10.882879,Surgery,Oxygen Mask,Respiratory,56,11,1.12,5,7.55,1.34,2,16,Winter,22,47.93,0.93,5.48,4,8.82
-2026-07-09T15:31:10.883887,Radiology,Nasal Cannula,Respiratory,62,11,1.01,3,11.24,6.83,1,16,Autumn,17,14.42,0.84,8.99,3,10.17
-2026-07-09T15:31:10.883887,Emergency Department,Patient Monitoring Leads,Monitoring,53,10,3.86,4,10.59,3.56,3,9,Spring,47,96.57,0.95,3.63,4,15.23
-2026-07-09T15:31:10.883887,Labor and Delivery,Patient Monitoring Leads,Monitoring,93,8,3.02,5,2.52,5.73,5,15,Winter,24,52.64,0.91,2.44,4,2.35
-2026-07-09T15:31:10.883887,ICU,Nitrile Gloves Medium,PPE,14,8,1.12,4,8.94,0.5,3,19,Winter,12,2.82,0.75,6.46,2,11.59
-2026-07-09T15:31:10.884888,Outpatient Clinic,Foley Catheter Kit,Catheterization,89,7,1.93,4,10.02,0.52,2,8,Spring,45,88.07,0.88,5.01,3,10.0
-2026-07-09T15:31:10.884888,Med-Surg,Oxygen Mask,Respiratory,67,9,1.45,3,4.67,3.67,4,4,Winter,44,70.43,0.78,5.17,4,6.59
-2026-07-09T15:31:10.884888,Emergency Department,Syringe 10ml,IV Supplies,18,10,2.38,0,5.69,3.34,4,23,Summer,24,5.63,0.85,2.39,3,5.3
-2026-07-09T15:31:10.884888,Med-Surg,Foley Catheter Kit,Catheterization,72,20,3.42,4,5.35,3.14,4,1,Autumn,28,3.24,0.9,6.57,3,3.64
-2026-07-09T15:31:10.885885,Outpatient Clinic,Saline Flush,IV Supplies,45,13,1.13,4,14.58,2.59,5,11,Summer,19,29.09,0.79,5.37,2,16.75
-2026-07-09T15:31:10.885885,Labor and Delivery,Foley Catheter Kit,Catheterization,32,9,2.55,5,3.59,3.97,2,0,Autumn,31,42.08,0.8,9.51,3,8.09
-2026-07-09T15:31:10.886455,Outpatient Clinic,Syringe 10ml,IV Supplies,94,10,3.29,0,13.93,1.78,6,6,Winter,22,116.25,0.9,5.24,3,14.17
-2026-07-09T15:31:10.886455,Emergency Department,Nitrile Gloves Medium,PPE,19,13,2.33,5,12.7,3.87,6,5,Autumn,18,87.35,0.92,4.7,2,14.15
-2026-07-09T15:31:10.886969,Med-Surg,Nasal Cannula,Respiratory,55,12,3.58,3,13.53,2.96,2,18,Autumn,35,144.3,0.9,5.1,3,11.6
-2026-07-09T15:31:10.886969,Med-Surg,Surgical Tray,Surgical Supplies,65,8,2.43,2,5.31,6.44,2,17,Spring,10,26.87,0.94,5.88,4,3.93
-2026-07-09T15:31:10.887506,Emergency Department,Oxygen Mask,Respiratory,55,10,3.2,4,8.38,3.35,2,19,Spring,48,68.72,0.75,3.4,4,6.85
-2026-07-09T15:31:10.887506,Med-Surg,Sterile Gauze,Wound Care,79,5,1.03,7,9.4,2.73,2,15,Winter,38,114.81,0.79,8.99,2,10.4
-2026-07-09T15:31:10.887506,Med-Surg,Surgical Tray,Surgical Supplies,7,12,3.26,2,9.8,5.02,4,5,Spring,36,72.28,0.86,2.52,4,9.51
-2026-07-09T15:31:10.887506,Surgery,Syringe 10ml,IV Supplies,90,11,1.76,9,2.63,3.41,6,4,Spring,45,18.93,0.74,1.27,3,0.0
-2026-07-09T15:31:10.888520,ICU,Syringe 10ml,IV Supplies,85,8,3.28,3,10.09,1.85,5,16,Autumn,17,142.5,0.87,4.07,3,11.21
-2026-07-09T15:31:10.888520,Emergency Department,PPE Gown,PPE,5,6,2.09,3,13.54,0.76,3,17,Summer,13,60.66,0.75,4.98,3,15.98
-2026-07-09T15:31:10.888520,Emergency Department,Sterile Gauze,Wound Care,24,7,2.45,2,4.79,5.3,2,11,Spring,40,32.68,0.96,9.48,2,0.9
-2026-07-09T15:31:10.889514,ICU,Foley Catheter Kit,Catheterization,8,8,2.6,5,7.91,3.56,2,15,Summer,36,49.73,0.71,5.47,3,9.25
-2026-07-09T15:31:10.889514,Labor and Delivery,Saline Flush,IV Supplies,23,7,3.11,6,4.46,6.36,1,9,Autumn,17,15.37,0.88,2.09,2,5.01
-2026-07-09T15:31:10.890019,Med-Surg,Nasal Cannula,Respiratory,23,12,2.51,6,6.53,5.19,6,15,Spring,23,42.09,0.72,2.46,3,5.54
-2026-07-09T15:31:10.890019,Surgery,Saline Flush,IV Supplies,10,12,2.88,4,8.44,2.66,0,16,Summer,35,65.35,0.81,5.65,2,11.46
-2026-07-09T15:31:10.890019,Surgery,Nitrile Gloves Large,PPE,71,7,3.14,4,6.78,1.15,2,9,Summer,32,43.29,0.84,2.74,2,5.2
-2026-07-09T15:31:10.891030,Outpatient Clinic,Sterile Gauze,Wound Care,5,15,1.68,3,3.74,4.69,5,15,Summer,32,83.83,0.78,6.86,2,4.31
-2026-07-09T15:31:10.891030,Emergency Department,Saline Flush,IV Supplies,42,9,1.77,5,12.88,4.73,5,6,Winter,42,122.78,0.71,8.84,2,12.13
-2026-07-09T15:31:10.891030,Emergency Department,Patient Monitoring Leads,Monitoring,81,14,2.63,0,3.24,0.85,0,18,Summer,41,37.82,0.96,8.32,4,1.77
-2026-07-09T15:31:10.892545,Med-Surg,Syringe 10ml,IV Supplies,60,11,3.6,6,10.86,2.15,1,0,Winter,17,125.62,1.0,1.2,3,12.99
-2026-07-09T15:31:10.893152,Outpatient Clinic,Saline Flush,IV Supplies,91,10,2.65,9,13.0,3.28,6,20,Summer,34,34.08,0.85,8.56,2,16.24
-2026-07-09T15:31:10.893152,Med-Surg,Blood Draw Kit,Lab Supplies,46,14,3.62,7,3.37,4.22,3,7,Winter,40,38.66,0.9,5.88,2,5.06
-2026-07-09T15:31:10.894161,Med-Surg,Wound Care Pack,Wound Care,94,13,2.89,3,12.82,2.29,3,21,Spring,28,142.73,0.89,7.36,3,12.66
-2026-07-09T15:31:10.894161,Med-Surg,Sterile Gauze,Wound Care,96,12,2.18,0,3.56,3.97,0,12,Autumn,25,109.74,0.86,1.67,2,0.6
-2026-07-09T15:31:10.894161,Radiology,PPE Gown,PPE,59,13,1.69,4,13.89,5.96,6,15,Summer,25,132.19,0.94,6.42,3,16.56
-2026-07-09T15:31:10.895160,Radiology,Wound Care Pack,Wound Care,20,9,3.23,6,10.46,6.28,0,17,Spring,38,112.73,0.85,6.43,3,10.83
-2026-07-09T15:31:10.895160,ICU,Patient Monitoring Leads,Monitoring,71,15,1.39,4,4.77,5.41,0,22,Spring,45,72.79,0.91,8.01,4,7.86
-2026-07-09T15:31:10.895160,Emergency Department,IV Start Kit,IV Supplies,16,12,2.43,2,12.11,3.75,0,5,Winter,28,96.6,0.91,8.84,3,13.9
-2026-07-09T15:31:10.895160,Outpatient Clinic,Nasal Cannula,Respiratory,81,6,3.92,6,4.24,4.27,6,7,Summer,38,75.14,0.78,2.52,3,7.58
-2026-07-09T15:31:10.895160,Labor and Delivery,Saline Flush,IV Supplies,96,14,2.78,5,14.96,5.38,2,22,Spring,49,7.85,0.71,5.99,2,18.06
-2026-07-09T15:31:10.895160,Med-Surg,Patient Monitoring Leads,Monitoring,87,8,1.84,2,11.04,1.42,4,12,Summer,28,27.02,0.73,6.1,4,15.51
-2026-07-09T15:31:10.896666,Surgery,Sterile Gauze,Wound Care,64,10,1.0,4,10.65,1.01,3,4,Autumn,35,120.98,1.0,4.4,2,10.44
-2026-07-09T15:31:10.896666,ICU,PPE Gown,PPE,65,8,1.47,3,11.73,2.2,4,17,Spring,27,29.87,0.88,1.79,3,15.96
-2026-07-09T15:31:10.897204,Emergency Department,Foley Catheter Kit,Catheterization,21,10,3.52,6,11.74,4.6,5,2,Winter,22,139.93,0.89,3.59,3,11.36
-2026-07-09T15:31:10.897204,Med-Surg,Surgical Tray,Surgical Supplies,51,17,2.03,2,9.14,1.93,3,9,Summer,36,109.21,0.7,9.43,4,9.07
-2026-07-09T15:31:10.897204,Radiology,IV Start Kit,IV Supplies,20,13,3.01,4,12.98,2.05,6,16,Summer,27,65.01,0.77,5.64,3,13.04
-2026-07-09T15:31:10.897204,Med-Surg,Syringe 10ml,IV Supplies,43,15,2.06,6,9.29,1.12,3,17,Summer,13,5.85,0.86,6.96,3,10.01
-2026-07-09T15:31:10.898209,Emergency Department,Patient Monitoring Leads,Monitoring,39,9,2.39,5,5.94,5.04,6,7,Summer,46,63.46,0.82,3.08,4,9.01
-2026-07-09T15:31:10.898209,Emergency Department,Sterile Gauze,Wound Care,99,7,2.88,4,2.11,5.95,2,6,Winter,49,133.87,0.86,5.89,2,0.0
-2026-07-09T15:31:10.898209,Med-Surg,PPE Gown,PPE,10,10,1.31,4,3.96,3.77,6,2,Autumn,44,127.39,0.91,5.41,3,7.52
-2026-07-09T15:31:10.898209,Outpatient Clinic,Oxygen Mask,Respiratory,56,9,3.35,2,6.02,2.4,6,22,Autumn,25,132.16,0.82,5.84,4,8.21
-2026-07-09T15:31:10.898209,Outpatient Clinic,Nasal Cannula,Respiratory,97,9,3.14,1,14.23,2.19,0,17,Summer,49,25.74,0.95,7.92,3,13.41
-2026-07-09T15:31:10.898209,Labor and Delivery,Surgical Tray,Surgical Supplies,83,8,2.53,6,6.96,1.42,5,11,Spring,19,139.82,0.78,9.55,4,7.96
-2026-07-09T15:31:10.899714,Radiology,Nitrile Gloves Medium,PPE,84,6,3.64,3,2.4,2.29,5,18,Spring,46,147.41,0.89,2.45,2,1.36
-2026-07-09T15:31:10.900229,Surgery,Saline Flush,IV Supplies,47,15,2.23,1,12.46,4.5,2,7,Autumn,29,72.68,0.8,8.55,2,15.73
-2026-07-09T15:31:10.900229,Outpatient Clinic,PPE Gown,PPE,34,7,1.94,2,7.92,6.4,3,17,Spring,20,14.82,0.98,6.12,3,6.16
-2026-07-09T15:31:10.900229,Med-Surg,Nitrile Gloves Large,PPE,6,12,3.52,5,10.03,3.47,4,9,Spring,32,126.35,0.94,4.69,2,10.05
-2026-07-09T15:31:10.900229,Labor and Delivery,Nitrile Gloves Large,PPE,65,4,2.13,7,7.94,6.62,1,14,Summer,42,15.56,0.91,1.28,2,5.91
-2026-07-09T15:31:10.901234,Med-Surg,Sterile Gauze,Wound Care,87,9,1.7,5,14.55,0.6,2,6,Winter,25,67.64,0.87,4.92,2,19.16
-2026-07-09T15:31:10.901234,Labor and Delivery,Foley Catheter Kit,Catheterization,45,7,2.76,3,4.78,1.19,3,15,Summer,42,62.66,0.96,3.07,3,4.11
-2026-07-09T15:31:10.901234,Radiology,Wound Care Pack,Wound Care,81,9,3.93,3,7.73,4.3,2,11,Spring,34,7.59,0.94,6.44,3,8.45
-2026-07-09T15:31:10.902235,ICU,Saline Flush,IV Supplies,54,10,3.92,4,4.23,3.94,1,22,Winter,30,18.13,0.9,3.55,2,1.81
-2026-07-09T15:31:10.902235,Radiology,Nasal Cannula,Respiratory,94,14,2.56,4,6.04,4.5,4,21,Summer,19,131.37,0.82,4.62,3,6.76
-2026-07-09T15:31:10.902235,Labor and Delivery,Saline Flush,IV Supplies,74,8,2.6,4,11.26,3.0,2,13,Autumn,28,19.44,0.83,5.33,2,11.34
-2026-07-09T15:31:10.902235,Outpatient Clinic,Patient Monitoring Leads,Monitoring,58,9,3.45,5,11.5,0.76,0,14,Summer,28,33.96,0.8,9.92,4,9.76
-2026-07-09T15:31:10.903237,Labor and Delivery,Saline Flush,IV Supplies,14,12,1.69,6,14.1,1.22,1,4,Spring,26,19.49,0.72,3.75,2,15.74
-2026-07-09T15:31:10.903237,ICU,Nitrile Gloves Large,PPE,11,13,2.67,4,11.53,6.16,5,1,Summer,44,51.61,0.75,6.23,2,13.25
-2026-07-09T15:31:10.903744,Labor and Delivery,Nasal Cannula,Respiratory,36,5,1.02,5,10.68,0.76,2,19,Summer,37,146.79,0.7,6.6,3,7.84
-2026-07-09T15:31:10.903744,Emergency Department,Saline Flush,IV Supplies,52,11,1.26,2,12.62,0.59,6,11,Autumn,46,91.92,0.91,4.08,2,15.06
-2026-07-09T15:31:10.903744,ICU,Nitrile Gloves Medium,PPE,60,9,1.08,7,2.97,3.82,1,19,Spring,45,11.1,0.76,7.94,2,8.35
-2026-07-09T15:31:10.903744,Med-Surg,Saline Flush,IV Supplies,44,12,1.06,3,9.62,5.47,2,18,Autumn,40,119.15,0.88,9.87,2,12.47
-2026-07-09T15:31:10.904752,Surgery,Saline Flush,IV Supplies,91,9,1.52,1,4.4,2.72,0,13,Winter,39,32.03,0.9,7.34,2,5.58
-2026-07-09T15:31:10.904752,Labor and Delivery,Nitrile Gloves Large,PPE,44,10,2.86,8,9.21,1.67,6,20,Winter,40,7.24,0.92,8.85,2,9.85
-2026-07-09T15:31:10.904752,Surgery,Nitrile Gloves Large,PPE,77,10,3.5,7,10.14,5.08,3,5,Winter,37,129.51,0.83,1.57,2,9.36
-2026-07-09T15:31:10.905752,Labor and Delivery,Nitrile Gloves Large,PPE,99,9,2.74,2,9.48,3.25,1,12,Winter,33,99.6,0.96,3.32,2,11.32
-2026-07-09T15:31:10.905752,Labor and Delivery,PPE Gown,PPE,55,17,3.91,2,9.51,2.83,4,23,Autumn,14,75.11,0.98,6.25,3,10.44
-2026-07-09T15:31:10.906759,ICU,Patient Monitoring Leads,Monitoring,33,7,1.72,5,3.74,0.81,3,7,Autumn,25,112.01,0.81,5.26,4,5.61
-2026-07-09T15:31:10.906759,Radiology,Sterile Gauze,Wound Care,62,8,3.96,2,9.64,0.92,3,13,Winter,12,50.41,0.92,7.02,2,11.08
-2026-07-09T15:31:10.907268,Outpatient Clinic,Patient Monitoring Leads,Monitoring,31,7,2.25,4,12.21,4.88,0,18,Summer,22,141.78,0.74,6.79,4,14.37
-2026-07-09T15:31:10.907268,Labor and Delivery,Foley Catheter Kit,Catheterization,49,15,3.41,4,2.2,1.93,1,15,Autumn,29,26.08,0.96,7.34,3,2.18
-2026-07-09T15:31:10.907268,ICU,Wound Care Pack,Wound Care,51,9,1.33,2,3.78,5.47,0,13,Spring,21,13.42,0.94,9.09,3,2.22
-2026-07-09T15:31:10.908283,Labor and Delivery,IV Start Kit,IV Supplies,11,10,3.78,4,14.59,6.5,2,17,Summer,16,103.36,0.8,3.27,3,13.58
-2026-07-09T15:31:10.908283,Emergency Department,Oxygen Mask,Respiratory,86,8,1.49,4,11.07,3.94,4,20,Autumn,34,136.48,0.71,6.01,4,12.6
-2026-07-09T15:31:10.908283,Outpatient Clinic,Surgical Tray,Surgical Supplies,65,12,3.45,4,12.43,6.0,4,11,Autumn,24,143.96,0.81,1.59,4,16.6
-2026-07-09T15:31:10.909278,Outpatient Clinic,Patient Monitoring Leads,Monitoring,46,12,2.78,7,13.95,6.35,2,8,Autumn,25,66.88,0.75,2.79,4,13.58
-2026-07-09T15:31:10.909278,Med-Surg,Oxygen Mask,Respiratory,13,4,3.31,6,10.72,6.01,2,5,Autumn,33,136.13,0.92,5.89,4,9.4
-2026-07-09T15:31:10.910278,Labor and Delivery,IV Start Kit,IV Supplies,13,9,1.0,6,8.34,1.51,0,14,Summer,10,85.96,0.97,4.55,3,13.62
-2026-07-09T15:31:10.910278,Labor and Delivery,IV Start Kit,IV Supplies,64,6,3.55,1,5.6,6.11,6,7,Summer,31,134.24,0.86,9.81,3,6.52
-2026-07-09T15:31:10.910785,Surgery,Sterile Gauze,Wound Care,71,17,3.66,4,8.45,2.49,6,0,Autumn,21,97.85,0.93,9.65,2,7.28
-2026-07-09T15:31:10.910785,Emergency Department,Nasal Cannula,Respiratory,8,10,1.47,3,8.47,4.1,1,2,Spring,38,27.03,0.78,8.3,3,9.32
-2026-07-09T15:31:10.911791,Med-Surg,Saline Flush,IV Supplies,14,10,1.1,3,7.18,6.38,4,12,Summer,20,132.31,0.82,7.18,2,11.52
-2026-07-09T15:31:10.912301,Outpatient Clinic,Oxygen Mask,Respiratory,43,7,2.97,1,8.75,4.44,2,6,Autumn,17,70.94,0.87,9.35,4,7.59
-2026-07-09T15:31:10.912301,ICU,Wound Care Pack,Wound Care,61,11,3.72,7,13.01,0.92,3,4,Autumn,34,123.64,0.9,7.31,3,14.57
-2026-07-09T15:31:10.912835,Med-Surg,Surgical Tray,Surgical Supplies,55,9,2.07,3,7.9,3.01,6,13,Autumn,11,12.46,0.73,6.32,4,8.83
-2026-07-09T15:31:10.912835,Med-Surg,Nitrile Gloves Medium,PPE,27,8,3.2,2,8.25,6.56,2,1,Autumn,46,29.94,0.93,8.49,2,6.66
-2026-07-09T15:31:10.913355,Radiology,Blood Draw Kit,Lab Supplies,67,7,1.06,6,7.18,1.61,4,6,Summer,31,62.01,0.98,2.14,2,6.73
-2026-07-09T15:31:10.913355,ICU,Oxygen Mask,Respiratory,77,8,2.05,4,2.21,1.26,6,20,Summer,41,51.56,0.99,5.58,4,0.0
-2026-07-09T15:31:10.913892,Med-Surg,Blood Draw Kit,Lab Supplies,70,10,1.47,4,11.79,2.33,5,4,Winter,49,23.72,0.9,6.45,2,15.56
-2026-07-09T15:31:10.913892,Outpatient Clinic,Sterile Gauze,Wound Care,82,8,3.13,4,14.91,1.33,6,21,Spring,19,62.8,0.82,5.81,2,16.96
-2026-07-09T15:31:10.913892,Surgery,Surgical Tray,Surgical Supplies,60,12,3.83,2,13.96,0.82,3,12,Spring,45,36.67,0.96,1.17,4,17.66
-2026-07-09T15:31:10.914898,ICU,Oxygen Mask,Respiratory,23,11,2.58,5,9.9,1.18,5,6,Summer,35,129.22,0.88,1.11,4,9.46
-2026-07-09T15:31:10.914898,Surgery,Surgical Tray,Surgical Supplies,33,6,1.01,2,6.33,2.93,4,13,Winter,34,5.61,0.8,8.29,4,10.38
-2026-07-09T15:31:10.914898,ICU,Blood Draw Kit,Lab Supplies,10,12,1.3,4,3.82,2.59,5,0,Summer,30,141.53,0.81,9.21,2,5.62
-2026-07-09T15:31:10.914898,Surgery,Sterile Gauze,Wound Care,82,11,2.66,5,8.28,3.84,3,16,Winter,28,17.02,0.96,8.55,2,10.66
-2026-07-09T15:31:10.915898,Emergency Department,PPE Gown,PPE,42,12,2.78,3,11.45,1.2,5,17,Spring,49,9.9,0.91,4.3,3,11.91
-2026-07-09T15:31:10.915898,Outpatient Clinic,Blood Draw Kit,Lab Supplies,49,16,2.73,2,9.34,2.7,3,1,Spring,31,127.8,0.88,8.68,2,8.85
-2026-07-09T15:31:10.916402,Med-Surg,Sterile Gauze,Wound Care,77,10,2.28,5,11.02,4.7,4,6,Autumn,37,39.73,0.93,7.96,2,16.56
-2026-07-09T15:31:10.916402,Med-Surg,Surgical Tray,Surgical Supplies,99,9,3.45,3,8.2,2.42,3,20,Winter,26,56.4,0.87,1.43,4,7.26
-2026-07-09T15:31:10.916917,ICU,Surgical Tray,Surgical Supplies,65,11,2.21,2,14.06,3.48,2,0,Winter,22,13.97,0.93,6.55,4,12.28
-2026-07-09T15:31:10.916917,ICU,Nitrile Gloves Medium,PPE,23,14,1.92,3,14.96,3.27,1,19,Spring,35,54.9,0.95,5.09,2,17.97
-2026-07-09T15:31:10.917445,Labor and Delivery,Syringe 10ml,IV Supplies,84,11,2.9,4,10.63,3.68,4,3,Spring,43,139.17,0.79,2.0,3,9.82
-2026-07-09T15:31:10.917445,Radiology,Foley Catheter Kit,Catheterization,66,8,3.83,5,14.09,2.87,6,1,Winter,36,77.42,0.73,6.94,3,12.77
-2026-07-09T15:31:10.917445,Outpatient Clinic,Syringe 10ml,IV Supplies,52,10,3.8,9,6.93,0.73,4,21,Spring,33,131.14,0.74,5.06,3,10.73
-2026-07-09T15:31:10.918452,Radiology,Surgical Tray,Surgical Supplies,99,8,1.41,3,11.33,6.63,4,11,Summer,12,6.75,0.89,6.06,4,12.68
-2026-07-09T15:31:10.918452,Med-Surg,Nitrile Gloves Medium,PPE,63,15,2.97,7,11.7,3.89,3,9,Spring,37,83.06,0.9,3.91,2,17.6
-2026-07-09T15:31:10.918959,Med-Surg,Saline Flush,IV Supplies,73,11,2.52,3,10.25,5.82,3,12,Autumn,20,98.59,0.76,3.86,2,10.52
-2026-07-09T15:31:10.918959,Med-Surg,Oxygen Mask,Respiratory,38,15,3.31,5,5.71,2.26,4,23,Autumn,26,41.45,0.76,3.09,4,6.87
-2026-07-09T15:31:10.918959,Surgery,IV Start Kit,IV Supplies,77,9,3.03,3,14.4,5.79,6,3,Autumn,19,121.56,0.95,1.84,3,18.6
-2026-07-09T15:31:10.918959,Med-Surg,Patient Monitoring Leads,Monitoring,56,6,2.24,5,11.11,6.52,2,11,Spring,14,83.45,0.94,1.03,4,14.73
-2026-07-09T15:31:10.919966,Radiology,Blood Draw Kit,Lab Supplies,39,6,2.77,6,11.58,3.59,2,19,Autumn,32,68.39,0.92,4.3,2,16.15
-2026-07-09T15:31:10.919966,Radiology,Nitrile Gloves Large,PPE,15,8,2.24,0,12.93,3.84,3,20,Spring,27,67.47,0.76,3.42,2,16.75
-2026-07-09T15:31:10.920471,Med-Surg,Surgical Tray,Surgical Supplies,27,7,3.31,2,12.07,1.34,6,14,Summer,12,49.95,0.75,7.89,4,13.54
-2026-07-09T15:31:10.920471,Surgery,Sterile Gauze,Wound Care,52,8,1.87,5,5.77,4.02,6,3,Spring,25,62.99,0.98,7.49,2,7.76
-2026-07-09T15:31:10.920471,Med-Surg,Blood Draw Kit,Lab Supplies,46,11,3.91,5,9.04,1.08,0,3,Winter,40,39.17,0.8,1.58,2,12.88
-2026-07-09T15:31:10.920471,Radiology,Saline Flush,IV Supplies,70,12,2.05,4,3.3,5.73,0,7,Summer,36,37.86,0.88,5.49,2,3.59
-2026-07-09T15:31:10.921480,Radiology,IV Start Kit,IV Supplies,84,13,2.01,6,10.22,6.84,1,5,Spring,13,104.24,0.97,5.25,3,11.8
-2026-07-09T15:31:10.921480,Surgery,Saline Flush,IV Supplies,52,14,3.57,3,3.02,5.62,3,11,Spring,17,110.39,0.76,2.02,2,6.91
-2026-07-09T15:31:10.922013,Med-Surg,Surgical Tray,Surgical Supplies,87,7,2.33,4,9.33,4.75,2,17,Winter,45,4.91,0.75,9.88,4,11.07
-2026-07-09T15:31:10.922013,Outpatient Clinic,IV Start Kit,IV Supplies,75,10,3.74,5,11.45,2.96,0,21,Winter,13,73.51,0.71,7.18,3,13.62
-2026-07-09T15:31:10.922013,Emergency Department,Saline Flush,IV Supplies,53,9,2.6,2,10.72,5.4,1,6,Winter,38,96.39,0.93,2.27,2,8.26
-2026-07-09T15:31:10.922013,Radiology,Nasal Cannula,Respiratory,75,16,2.75,8,11.11,2.39,0,15,Winter,31,108.97,0.77,1.01,3,10.58
-2026-07-09T15:31:10.922013,ICU,Patient Monitoring Leads,Monitoring,52,9,1.13,6,4.46,6.09,3,9,Winter,40,130.76,0.9,4.08,4,5.98
-2026-07-09T15:31:10.923531,ICU,Saline Flush,IV Supplies,25,9,2.37,5,11.43,1.29,0,22,Autumn,47,89.28,0.89,4.57,2,12.16
-2026-07-09T15:31:10.924126,ICU,Nitrile Gloves Medium,PPE,28,6,3.26,1,2.04,3.31,4,7,Autumn,29,6.99,0.8,2.61,2,0.88
-2026-07-09T15:31:10.924126,Surgery,Patient Monitoring Leads,Monitoring,73,11,1.22,5,14.35,1.67,5,17,Winter,47,88.33,0.72,9.63,4,14.92
-2026-07-09T15:31:10.924657,Emergency Department,IV Start Kit,IV Supplies,65,7,3.16,6,7.99,6.29,3,1,Winter,43,12.2,0.98,4.27,3,7.2
-2026-07-09T15:31:10.924657,Surgery,Sterile Gauze,Wound Care,52,12,1.21,1,5.77,5.61,5,17,Autumn,14,22.27,0.71,5.23,2,9.13
-2026-07-09T15:31:10.925666,Labor and Delivery,IV Start Kit,IV Supplies,46,8,3.36,6,7.71,5.98,0,14,Spring,10,15.81,0.72,1.46,3,11.11
-2026-07-09T15:31:10.925666,Radiology,Wound Care Pack,Wound Care,22,6,1.47,3,3.99,3.24,3,23,Summer,13,53.67,0.94,5.59,3,5.15
-2026-07-09T15:31:10.925666,Emergency Department,Wound Care Pack,Wound Care,91,9,2.03,2,12.04,1.61,1,6,Winter,14,124.26,0.71,3.19,3,12.07
+2026-09-12T20:08:46.188989,Outpatient Clinic,Nitrile Gloves Large,PPE,97,7,2.79,3,3.86,4.73,4,1,Autumn,39,32.24,0.75,2.65,2,4.73
+2026-09-12T20:08:46.189623,Med-Surg,PPE Gown,PPE,53,10,1.14,3,6.97,6.89,0,2,Winter,16,25.99,0.72,9.54,3,3.84
+2026-09-12T20:08:46.190149,Med-Surg,Patient Monitoring Leads,Monitoring,13,7,2.83,3,11.82,3.26,5,9,Autumn,38,145.45,0.93,9.46,4,13.44
+2026-09-12T20:08:46.190149,Outpatient Clinic,Blood Draw Kit,Lab Supplies,82,7,1.98,4,9.06,1.42,6,12,Winter,34,148.04,0.93,2.79,2,11.72
+2026-09-12T20:08:46.190149,Outpatient Clinic,Sterile Gauze,Wound Care,85,14,1.29,5,6.98,6.82,2,0,Winter,35,35.78,0.78,1.36,2,6.45
+2026-09-12T20:08:46.191160,Med-Surg,Nasal Cannula,Respiratory,55,8,3.72,3,3.0,2.38,5,1,Spring,15,68.75,0.77,4.75,3,3.97
+2026-09-12T20:08:46.191160,Radiology,Sterile Gauze,Wound Care,96,9,1.82,1,6.58,2.48,5,7,Summer,18,72.98,0.91,3.42,2,5.91
+2026-09-12T20:08:46.191160,Emergency Department,Nitrile Gloves Large,PPE,66,7,1.9,1,9.92,3.77,5,22,Winter,41,136.29,0.77,2.3,2,9.89
+2026-09-12T20:08:46.192163,Med-Surg,Saline Flush,IV Supplies,36,10,1.24,5,12.61,5.69,0,5,Autumn,38,128.82,0.8,2.98,2,15.65
+2026-09-12T20:08:46.192163,Med-Surg,Foley Catheter Kit,Catheterization,56,16,2.55,6,4.27,6.88,3,16,Spring,10,14.42,0.97,9.1,3,5.91
+2026-09-12T20:08:46.192163,Surgery,Foley Catheter Kit,Catheterization,13,8,3.54,11,5.97,3.66,2,15,Winter,45,106.97,0.77,3.93,3,8.11
+2026-09-12T20:08:46.193161,Outpatient Clinic,Nitrile Gloves Medium,PPE,21,8,2.53,6,6.55,4.69,6,0,Winter,28,86.01,0.93,1.39,2,9.74
+2026-09-12T20:08:46.193161,Med-Surg,Surgical Tray,Surgical Supplies,34,9,3.78,7,4.2,4.12,6,21,Spring,12,85.72,0.73,6.54,4,6.74
+2026-09-12T20:08:46.193161,Emergency Department,Blood Draw Kit,Lab Supplies,37,6,2.66,4,2.07,4.58,3,0,Autumn,25,8.09,0.97,1.25,2,2.38
+2026-09-12T20:08:46.193161,ICU,Syringe 10ml,IV Supplies,36,11,2.4,3,2.49,5.85,5,10,Autumn,46,78.58,0.93,2.94,3,1.27
+2026-09-12T20:08:46.194160,Labor and Delivery,Nitrile Gloves Large,PPE,98,10,3.18,5,3.02,0.66,4,22,Summer,18,103.43,0.72,9.24,2,3.75
+2026-09-12T20:08:46.194671,Outpatient Clinic,Syringe 10ml,IV Supplies,52,7,2.91,4,9.36,1.53,5,13,Autumn,14,14.58,0.79,9.82,3,11.69
+2026-09-12T20:08:46.194671,Med-Surg,IV Start Kit,IV Supplies,98,11,3.85,2,14.13,3.76,4,12,Autumn,25,11.05,0.89,1.24,3,16.75
+2026-09-12T20:08:46.194671,Surgery,Nitrile Gloves Large,PPE,28,12,1.39,6,4.79,2.95,4,18,Spring,44,50.81,0.9,4.47,2,3.02
+2026-09-12T20:08:46.194671,Surgery,PPE Gown,PPE,11,8,3.25,8,11.76,5.4,0,16,Winter,29,124.06,0.8,9.06,3,15.5
+2026-09-12T20:08:46.194671,Emergency Department,Nitrile Gloves Large,PPE,16,9,3.03,3,9.83,4.1,4,3,Winter,32,117.3,0.73,9.38,2,14.44
+2026-09-12T20:08:46.196179,Outpatient Clinic,Surgical Tray,Surgical Supplies,13,13,1.3,2,12.68,5.09,4,4,Spring,28,87.41,0.96,8.92,4,14.76
+2026-09-12T20:08:46.196828,Emergency Department,Foley Catheter Kit,Catheterization,93,11,3.12,4,7.65,2.15,1,19,Autumn,17,18.07,0.89,7.71,3,9.4
+2026-09-12T20:08:46.196828,Outpatient Clinic,Surgical Tray,Surgical Supplies,29,14,3.89,0,14.61,0.78,4,15,Spring,30,148.95,0.72,5.98,4,16.25
+2026-09-12T20:08:46.197361,Med-Surg,PPE Gown,PPE,22,6,1.88,6,7.13,1.19,4,7,Spring,37,97.2,0.82,3.06,3,6.25
+2026-09-12T20:08:46.197921,Med-Surg,Sterile Gauze,Wound Care,67,10,3.44,7,14.13,6.13,4,4,Summer,42,116.75,0.84,9.87,2,12.86
+2026-09-12T20:08:46.197921,Surgery,Oxygen Mask,Respiratory,30,10,1.82,6,14.28,6.02,0,20,Spring,18,19.81,0.99,6.46,4,17.13
+2026-09-12T20:08:46.197921,ICU,Surgical Tray,Surgical Supplies,99,10,2.56,5,2.37,5.41,4,13,Spring,20,32.34,0.74,1.13,4,0.36
+2026-09-12T20:08:46.197921,Radiology,Syringe 10ml,IV Supplies,86,9,3.71,7,14.05,3.7,3,19,Autumn,14,147.01,0.85,3.96,3,12.84
+2026-09-12T20:08:46.197921,Surgery,PPE Gown,PPE,27,6,1.42,4,10.68,1.62,1,18,Summer,30,25.76,0.78,2.59,3,13.09
+2026-09-12T20:08:46.199776,Labor and Delivery,Wound Care Pack,Wound Care,5,10,3.68,2,3.2,3.63,5,14,Autumn,39,23.97,0.81,1.02,3,3.88
+2026-09-12T20:08:46.200284,Outpatient Clinic,Blood Draw Kit,Lab Supplies,90,7,2.59,2,3.73,4.97,6,13,Summer,27,67.39,0.86,3.18,2,4.17
+2026-09-12T20:08:46.200284,Emergency Department,Foley Catheter Kit,Catheterization,32,7,1.36,5,8.98,4.31,0,11,Summer,46,54.78,0.89,6.14,3,7.08
+2026-09-12T20:08:46.200284,Radiology,Oxygen Mask,Respiratory,74,9,3.55,2,12.95,0.84,6,7,Winter,45,149.59,0.97,6.18,4,15.37
+2026-09-12T20:08:46.201290,Surgery,Nitrile Gloves Large,PPE,83,13,1.51,6,6.21,3.27,0,19,Winter,21,17.67,0.88,3.6,2,4.55
+2026-09-12T20:08:46.201290,Med-Surg,Nasal Cannula,Respiratory,7,3,1.4,3,5.31,4.93,0,8,Summer,24,71.0,0.82,4.14,3,6.38
+2026-09-12T20:08:46.201290,Emergency Department,Oxygen Mask,Respiratory,66,12,3.8,5,12.16,5.88,4,13,Autumn,39,123.86,0.76,3.12,4,14.86
+2026-09-12T20:08:46.202291,Emergency Department,Nasal Cannula,Respiratory,46,9,2.32,5,13.69,3.0,5,20,Autumn,49,93.82,0.74,9.46,3,15.55
+2026-09-12T20:08:46.202291,Outpatient Clinic,Nitrile Gloves Medium,PPE,76,12,3.64,7,4.66,5.14,4,9,Winter,47,80.7,0.81,5.11,2,5.24
+2026-09-12T20:08:46.202291,Labor and Delivery,Nasal Cannula,Respiratory,51,9,1.04,7,7.51,2.37,2,11,Spring,22,21.3,0.73,3.3,3,13.27
+2026-09-12T20:08:46.203289,Med-Surg,Sterile Gauze,Wound Care,80,13,2.95,3,3.36,5.96,2,22,Winter,46,147.73,0.95,2.12,2,8.77
+2026-09-12T20:08:46.203289,Labor and Delivery,PPE Gown,PPE,57,8,1.01,5,11.59,3.44,2,11,Summer,33,86.86,0.75,1.3,3,13.79
+2026-09-12T20:08:46.203289,Emergency Department,IV Start Kit,IV Supplies,33,11,1.04,3,7.39,1.05,4,7,Winter,16,89.51,0.72,7.75,3,8.53
+2026-09-12T20:08:46.203289,Radiology,Nasal Cannula,Respiratory,53,11,3.33,5,4.37,6.1,6,2,Autumn,19,40.98,0.89,4.68,3,4.51
+2026-09-12T20:08:46.204292,Outpatient Clinic,Foley Catheter Kit,Catheterization,96,9,1.76,4,13.54,4.12,1,2,Autumn,33,108.48,0.96,8.47,3,18.18
+2026-09-12T20:08:46.204292,Labor and Delivery,Patient Monitoring Leads,Monitoring,99,8,2.9,7,6.37,5.86,2,22,Summer,21,124.68,0.8,7.96,4,4.99
+2026-09-12T20:08:46.204292,Emergency Department,Syringe 10ml,IV Supplies,57,13,3.61,4,5.49,4.02,4,6,Winter,31,125.32,1.0,5.73,3,4.96
+2026-09-12T20:08:46.205290,Surgery,Wound Care Pack,Wound Care,22,10,2.49,2,11.36,1.19,5,20,Summer,40,131.15,0.88,6.4,3,10.94
+2026-09-12T20:08:46.205290,Emergency Department,Oxygen Mask,Respiratory,75,11,2.21,5,12.02,0.94,2,7,Summer,45,108.0,0.79,6.1,4,17.39
+2026-09-12T20:08:46.205290,Radiology,Wound Care Pack,Wound Care,73,10,2.62,4,10.1,3.58,0,8,Autumn,26,62.21,0.91,6.38,3,10.5
+2026-09-12T20:08:46.205290,Emergency Department,Foley Catheter Kit,Catheterization,39,12,2.77,3,14.35,3.4,6,11,Spring,25,131.01,0.92,8.26,3,18.36
+2026-09-12T20:08:46.206290,Radiology,Blood Draw Kit,Lab Supplies,29,15,3.08,2,9.65,7.0,1,20,Spring,16,5.57,0.91,3.68,2,12.74
+2026-09-12T20:08:46.206290,ICU,Sterile Gauze,Wound Care,91,10,2.95,6,9.44,5.73,3,21,Winter,22,94.07,0.97,6.54,2,10.55
+2026-09-12T20:08:46.206290,Surgery,Sterile Gauze,Wound Care,43,5,2.44,3,6.37,3.9,0,16,Summer,23,44.9,0.96,7.44,2,9.14
+2026-09-12T20:08:46.206290,Labor and Delivery,PPE Gown,PPE,52,9,3.04,3,7.43,6.21,5,23,Summer,22,148.38,0.92,1.58,3,10.45
+2026-09-12T20:08:46.206290,Radiology,Oxygen Mask,Respiratory,78,3,1.11,7,5.38,3.85,1,16,Autumn,12,122.47,0.77,3.01,4,5.26
+2026-09-12T20:08:46.207797,Outpatient Clinic,PPE Gown,PPE,77,10,1.82,2,2.46,2.64,0,4,Summer,43,61.56,0.81,3.34,3,2.64
+2026-09-12T20:08:46.207797,Radiology,Oxygen Mask,Respiratory,64,14,3.72,7,4.05,1.54,4,10,Winter,34,139.55,0.73,7.29,4,8.04
+2026-09-12T20:08:46.207797,Med-Surg,Foley Catheter Kit,Catheterization,9,6,3.23,4,5.73,4.51,0,8,Winter,49,39.34,0.89,5.86,3,5.69
+2026-09-12T20:08:46.207797,Radiology,Foley Catheter Kit,Catheterization,78,9,2.18,4,14.31,1.58,3,21,Winter,19,71.3,0.72,1.67,3,16.18
+2026-09-12T20:08:46.208808,ICU,Syringe 10ml,IV Supplies,18,12,3.27,1,6.21,3.68,2,10,Spring,32,67.16,0.78,9.97,3,3.93
+2026-09-12T20:08:46.208808,Outpatient Clinic,Foley Catheter Kit,Catheterization,33,12,1.25,4,7.62,6.63,4,19,Spring,28,41.5,1.0,4.68,3,3.98
+2026-09-12T20:08:46.210317,Med-Surg,Wound Care Pack,Wound Care,19,12,3.6,4,4.65,1.09,6,13,Spring,16,94.12,0.74,1.29,3,5.51
+2026-09-12T20:08:46.210852,Radiology,PPE Gown,PPE,98,5,3.06,3,9.57,2.25,2,12,Winter,17,69.96,0.9,4.56,3,11.94
+2026-09-12T20:08:46.210852,Outpatient Clinic,Wound Care Pack,Wound Care,36,11,3.86,4,9.42,0.62,5,21,Autumn,29,52.23,0.93,9.47,3,10.49
+2026-09-12T20:08:46.210852,Emergency Department,Nasal Cannula,Respiratory,34,9,2.7,4,10.27,5.09,5,8,Spring,18,8.27,0.86,7.38,3,9.74
+2026-09-12T20:08:46.210852,ICU,Surgical Tray,Surgical Supplies,66,13,2.45,5,4.13,3.35,1,21,Autumn,32,97.72,0.84,6.54,4,3.84
+2026-09-12T20:08:46.211862,Labor and Delivery,Blood Draw Kit,Lab Supplies,97,13,2.49,6,10.84,0.97,6,14,Winter,16,69.66,0.96,7.54,2,7.87
+2026-09-12T20:08:46.211862,Labor and Delivery,Blood Draw Kit,Lab Supplies,24,11,3.3,4,7.14,4.44,6,1,Autumn,15,98.42,1.0,3.55,2,5.3
+2026-09-12T20:08:46.211862,ICU,Blood Draw Kit,Lab Supplies,25,12,3.15,4,13.11,3.7,5,21,Autumn,23,77.47,0.81,6.34,2,11.32
+2026-09-12T20:08:46.212861,Radiology,IV Start Kit,IV Supplies,93,19,2.97,4,5.07,0.98,5,15,Spring,38,50.88,0.95,4.88,3,6.87
+2026-09-12T20:08:46.212861,Emergency Department,PPE Gown,PPE,68,9,2.82,7,2.44,6.91,0,4,Autumn,35,6.38,0.74,5.07,3,0.0
+2026-09-12T20:08:46.214048,Labor and Delivery,Sterile Gauze,Wound Care,73,5,3.06,3,6.2,6.83,6,23,Summer,32,100.2,0.74,1.27,2,9.04
+2026-09-12T20:08:46.214048,ICU,Surgical Tray,Surgical Supplies,12,19,3.02,7,10.03,6.15,0,11,Summer,17,119.43,0.98,6.41,4,8.96
+2026-09-12T20:08:46.214590,Outpatient Clinic,Patient Monitoring Leads,Monitoring,57,12,2.05,6,5.75,1.21,1,5,Spring,13,100.31,0.94,7.86,4,5.73
+2026-09-12T20:08:46.214590,Surgery,IV Start Kit,IV Supplies,92,8,1.99,6,7.78,0.6,2,2,Autumn,23,93.11,0.84,4.42,3,11.31
+2026-09-12T20:08:46.214590,ICU,Blood Draw Kit,Lab Supplies,52,13,1.45,4,11.71,5.15,2,12,Winter,32,64.91,0.97,1.64,2,13.14
+2026-09-12T20:08:46.215599,Surgery,Nitrile Gloves Large,PPE,25,10,1.5,6,11.33,3.1,4,3,Spring,34,78.61,0.74,8.73,2,13.22
+2026-09-12T20:08:46.215599,Outpatient Clinic,Nasal Cannula,Respiratory,35,12,2.7,5,10.23,6.68,6,21,Spring,30,132.69,0.77,2.91,3,8.45
+2026-09-12T20:08:46.215599,Labor and Delivery,Saline Flush,IV Supplies,76,13,1.77,6,7.51,1.49,0,2,Autumn,43,71.2,0.86,2.61,2,11.76
+2026-09-12T20:08:46.216601,Labor and Delivery,Nitrile Gloves Medium,PPE,96,7,1.77,2,5.57,4.38,1,2,Spring,48,108.82,0.7,4.07,2,6.91
+2026-09-12T20:08:46.216601,Radiology,Saline Flush,IV Supplies,36,8,1.26,3,6.61,0.95,0,1,Autumn,14,10.95,0.89,3.44,2,9.68
+2026-09-12T20:08:46.216601,ICU,Nitrile Gloves Medium,PPE,48,8,3.01,5,9.31,6.72,4,14,Winter,25,61.72,0.83,8.4,2,10.2
+2026-09-12T20:08:46.216601,Radiology,Nasal Cannula,Respiratory,27,9,3.98,5,11.82,1.33,3,5,Autumn,43,9.93,0.74,3.05,3,13.77
+2026-09-12T20:08:46.216601,Labor and Delivery,Syringe 10ml,IV Supplies,89,8,2.53,6,9.37,3.04,3,14,Winter,47,122.71,0.81,8.9,3,10.84
+2026-09-12T20:08:46.216601,Outpatient Clinic,Nitrile Gloves Large,PPE,18,5,1.52,5,13.21,6.5,5,0,Spring,25,114.84,0.75,5.52,2,15.17
+2026-09-12T20:08:46.218108,Emergency Department,Wound Care Pack,Wound Care,29,12,2.43,2,12.1,1.29,3,12,Summer,23,131.48,0.78,8.66,3,9.99
+2026-09-12T20:08:46.218108,Outpatient Clinic,Nitrile Gloves Medium,PPE,9,13,1.17,4,3.85,1.29,5,13,Summer,16,103.98,0.72,5.58,2,6.75
+2026-09-12T20:08:46.218108,Outpatient Clinic,Blood Draw Kit,Lab Supplies,21,7,1.52,7,8.26,1.65,4,21,Winter,11,20.5,0.83,8.11,2,12.59
+2026-09-12T20:08:46.219115,Outpatient Clinic,Oxygen Mask,Respiratory,69,8,2.89,1,2.55,2.91,0,10,Summer,30,126.73,0.73,5.39,4,4.4
+2026-09-12T20:08:46.219115,Med-Surg,Syringe 10ml,IV Supplies,56,7,3.43,5,10.56,6.63,1,15,Winter,42,126.21,0.71,9.12,3,15.93
+2026-09-12T20:08:46.219115,ICU,Blood Draw Kit,Lab Supplies,63,9,3.67,5,2.49,5.35,0,12,Summer,33,16.25,0.71,5.58,2,1.53
+2026-09-12T20:08:46.219115,ICU,Patient Monitoring Leads,Monitoring,15,13,2.24,3,3.07,3.85,0,7,Autumn,49,93.89,0.81,2.85,4,3.94
+2026-09-12T20:08:46.220625,Radiology,PPE Gown,PPE,45,18,3.69,3,8.32,6.48,3,1,Summer,19,51.07,0.98,3.02,3,7.3
+2026-09-12T20:08:46.221180,Emergency Department,Blood Draw Kit,Lab Supplies,63,10,1.49,4,14.9,4.86,5,22,Summer,21,137.88,0.78,7.8,2,18.82
+2026-09-12T20:08:46.221694,Radiology,Foley Catheter Kit,Catheterization,27,11,2.64,3,3.71,5.22,2,17,Summer,24,76.12,0.95,7.6,3,3.8
+2026-09-12T20:08:46.221694,Surgery,Oxygen Mask,Respiratory,65,12,1.32,1,9.5,6.2,4,14,Autumn,25,121.86,0.92,8.93,4,8.74
+2026-09-12T20:08:46.222714,ICU,Syringe 10ml,IV Supplies,93,10,2.85,4,11.89,0.73,0,13,Spring,43,113.92,0.9,7.81,3,11.84
+2026-09-12T20:08:46.222714,Outpatient Clinic,Foley Catheter Kit,Catheterization,74,9,3.17,5,10.05,2.81,0,12,Autumn,26,88.44,0.84,6.78,3,11.31
+2026-09-12T20:08:46.223358,Outpatient Clinic,Nitrile Gloves Large,PPE,8,11,1.07,4,14.77,1.86,3,18,Autumn,45,18.8,0.92,3.12,2,14.87
+2026-09-12T20:08:46.223907,Outpatient Clinic,Nitrile Gloves Large,PPE,96,16,2.26,5,9.43,4.32,0,19,Winter,19,50.51,0.71,1.22,2,9.32
+2026-09-12T20:08:46.224452,Emergency Department,Sterile Gauze,Wound Care,55,16,2.29,6,3.05,5.23,1,2,Winter,33,109.56,0.93,2.43,2,4.9
+2026-09-12T20:08:46.224993,Med-Surg,Surgical Tray,Surgical Supplies,64,9,2.42,0,5.68,0.79,5,6,Summer,37,118.18,0.99,4.34,4,8.56
+2026-09-12T20:08:46.225533,Radiology,Surgical Tray,Surgical Supplies,77,10,1.19,4,13.7,0.64,2,19,Autumn,24,132.38,0.82,8.45,4,14.59
+2026-09-12T20:08:46.225533,Radiology,PPE Gown,PPE,41,11,2.7,4,3.97,1.96,1,6,Spring,42,78.75,0.73,8.74,3,3.77
+2026-09-12T20:08:46.226540,Radiology,IV Start Kit,IV Supplies,21,11,3.54,3,3.27,6.1,2,6,Spring,21,9.81,0.85,8.26,3,3.9
+2026-09-12T20:08:46.226540,ICU,Nitrile Gloves Medium,PPE,68,13,2.02,4,3.64,4.79,3,13,Summer,49,147.76,0.93,1.24,2,3.88
+2026-09-12T20:08:46.227543,Med-Surg,IV Start Kit,IV Supplies,46,10,2.97,6,12.31,4.25,4,7,Summer,18,59.7,0.97,5.8,3,12.07
+2026-09-12T20:08:46.227543,ICU,Surgical Tray,Surgical Supplies,88,10,2.84,4,2.43,2.86,3,15,Summer,46,66.33,0.88,1.75,4,3.06
+2026-09-12T20:08:46.228054,Radiology,Foley Catheter Kit,Catheterization,20,6,1.97,5,2.38,5.85,1,4,Summer,37,128.8,0.95,5.87,3,3.1
+2026-09-12T20:08:46.228054,Surgery,Surgical Tray,Surgical Supplies,48,11,1.76,4,3.13,5.17,2,19,Spring,27,112.45,0.9,6.59,4,5.44
+2026-09-12T20:08:46.228054,Surgery,Patient Monitoring Leads,Monitoring,19,7,3.22,2,10.86,1.59,3,0,Autumn,32,12.02,0.8,8.8,4,11.08
+2026-09-12T20:08:46.228054,Outpatient Clinic,Wound Care Pack,Wound Care,19,7,1.91,10,7.81,3.49,3,20,Autumn,44,62.21,0.94,5.31,3,8.49
+2026-09-12T20:08:46.229569,Radiology,Saline Flush,IV Supplies,91,6,3.92,9,4.84,1.28,3,7,Winter,39,7.4,0.87,3.55,2,4.72
+2026-09-12T20:08:46.230281,Radiology,Sterile Gauze,Wound Care,57,8,3.23,4,13.6,1.7,6,15,Winter,39,64.66,0.78,8.1,2,18.68
+2026-09-12T20:08:46.230281,Med-Surg,Oxygen Mask,Respiratory,71,10,2.58,2,14.43,0.66,6,14,Autumn,21,136.65,0.84,2.24,4,17.59
+2026-09-12T20:08:46.231298,Surgery,Saline Flush,IV Supplies,56,9,2.89,4,7.0,3.67,5,11,Spring,33,90.3,0.92,5.56,2,6.45
+2026-09-12T20:08:46.231808,Emergency Department,Syringe 10ml,IV Supplies,21,15,2.41,5,9.68,3.99,0,13,Winter,17,5.99,0.73,4.05,3,11.04
+2026-09-12T20:08:46.231808,Labor and Delivery,Oxygen Mask,Respiratory,53,7,1.13,6,2.39,4.89,5,18,Summer,22,139.45,0.75,4.51,4,3.78
+2026-09-12T20:08:46.232817,Labor and Delivery,Oxygen Mask,Respiratory,16,12,3.16,3,11.33,5.89,0,14,Autumn,27,38.88,0.9,8.2,4,13.16
+2026-09-12T20:08:46.232817,Med-Surg,Syringe 10ml,IV Supplies,23,11,3.7,5,13.54,4.39,5,17,Summer,18,92.08,0.96,7.52,3,15.02
+2026-09-12T20:08:46.232817,ICU,IV Start Kit,IV Supplies,45,9,2.46,2,9.26,2.73,6,23,Winter,47,126.92,0.91,4.87,3,8.7
+2026-09-12T20:08:46.234328,Surgery,Nasal Cannula,Respiratory,77,8,2.34,7,9.81,5.09,0,23,Summer,43,25.45,0.83,2.28,3,10.18
+2026-09-12T20:08:46.234328,Med-Surg,Nitrile Gloves Medium,PPE,33,10,1.02,4,8.9,5.97,3,5,Winter,40,103.4,0.74,5.37,2,11.35
+2026-09-12T20:08:46.235337,Surgery,Nitrile Gloves Medium,PPE,79,6,1.63,4,8.34,1.35,1,4,Spring,46,71.36,0.83,9.95,2,7.45
+2026-09-12T20:08:46.235337,Surgery,Patient Monitoring Leads,Monitoring,21,9,2.62,5,5.93,2.19,2,16,Winter,30,144.98,0.87,4.13,4,6.71
+2026-09-12T20:08:46.236335,Med-Surg,Blood Draw Kit,Lab Supplies,17,11,2.21,6,2.51,3.59,3,21,Summer,36,136.46,0.92,5.8,2,2.04
+2026-09-12T20:08:46.236335,Emergency Department,Blood Draw Kit,Lab Supplies,24,10,3.91,4,5.93,3.69,2,0,Spring,33,66.46,0.88,9.27,2,7.09
+2026-09-12T20:08:46.237339,Surgery,Syringe 10ml,IV Supplies,85,9,3.29,3,13.1,3.35,0,0,Autumn,17,9.84,0.97,5.03,3,19.08
+2026-09-12T20:08:46.237846,Outpatient Clinic,Foley Catheter Kit,Catheterization,84,10,2.93,6,14.93,1.08,5,6,Summer,10,51.6,0.89,1.62,3,16.81
+2026-09-12T20:08:46.237846,Labor and Delivery,Blood Draw Kit,Lab Supplies,12,11,2.46,2,2.86,2.77,2,13,Autumn,22,142.18,0.72,9.6,2,0.0
+2026-09-12T20:08:46.238853,Emergency Department,Foley Catheter Kit,Catheterization,38,3,2.21,3,14.08,3.13,2,21,Winter,48,71.73,0.77,6.76,3,15.91
+2026-09-12T20:08:46.238853,Labor and Delivery,Nasal Cannula,Respiratory,25,7,3.28,6,8.84,3.51,5,19,Winter,33,43.85,0.87,2.08,3,10.18
+2026-09-12T20:08:46.238853,Med-Surg,Foley Catheter Kit,Catheterization,35,8,2.89,2,2.0,3.82,1,17,Autumn,31,106.19,0.72,8.55,3,3.06
+2026-09-12T20:08:46.239857,Emergency Department,Wound Care Pack,Wound Care,73,16,3.79,7,6.91,6.59,2,4,Winter,32,74.33,0.82,6.69,3,8.64
+2026-09-12T20:08:46.239857,Labor and Delivery,Oxygen Mask,Respiratory,37,8,3.03,5,8.48,3.0,0,2,Summer,27,95.35,0.93,1.03,4,7.7
+2026-09-12T20:08:46.239857,Outpatient Clinic,PPE Gown,PPE,17,9,3.55,4,10.81,4.45,1,8,Autumn,17,97.92,0.92,3.84,3,9.51
+2026-09-12T20:08:46.240859,Radiology,Wound Care Pack,Wound Care,69,15,2.1,1,8.71,2.24,4,9,Spring,22,57.17,0.8,1.17,3,12.86
+2026-09-12T20:08:46.240859,Med-Surg,Patient Monitoring Leads,Monitoring,14,8,3.63,1,11.91,3.46,6,16,Autumn,37,146.41,0.74,1.15,4,14.45
+2026-09-12T20:08:46.240859,ICU,Oxygen Mask,Respiratory,10,9,2.03,6,13.43,4.89,2,7,Winter,32,117.17,0.84,4.58,4,15.96
+2026-09-12T20:08:46.240859,Med-Surg,Blood Draw Kit,Lab Supplies,71,11,1.18,7,12.1,1.83,1,11,Summer,35,127.16,0.79,3.49,2,13.35
+2026-09-12T20:08:46.241856,Med-Surg,Surgical Tray,Surgical Supplies,79,7,3.75,4,3.91,0.55,3,8,Summer,42,143.71,0.86,3.18,4,5.06
+2026-09-12T20:08:46.242361,Labor and Delivery,Saline Flush,IV Supplies,25,18,3.79,5,8.26,6.33,3,0,Winter,20,119.07,0.96,3.18,2,5.89
+2026-09-12T20:08:46.242361,Emergency Department,Syringe 10ml,IV Supplies,23,6,1.04,0,12.78,5.26,4,1,Winter,25,146.61,0.93,2.46,3,14.98
+2026-09-12T20:08:46.242361,Radiology,Nitrile Gloves Large,PPE,98,11,1.49,3,2.12,2.82,3,9,Summer,30,33.7,0.8,8.63,2,1.39
+2026-09-12T20:08:46.242361,Labor and Delivery,Sterile Gauze,Wound Care,97,10,1.36,4,11.89,2.92,3,19,Winter,39,137.8,0.99,6.19,2,13.61
+2026-09-12T20:08:46.243367,Radiology,IV Start Kit,IV Supplies,22,11,3.54,4,11.77,1.99,0,16,Spring,43,102.09,0.77,4.88,3,13.93
+2026-09-12T20:08:46.243367,Labor and Delivery,Nitrile Gloves Medium,PPE,80,13,2.06,7,9.68,1.71,2,15,Summer,37,95.59,0.81,3.66,2,14.06
+2026-09-12T20:08:46.243367,Surgery,Oxygen Mask,Respiratory,5,9,3.51,4,13.39,4.0,3,22,Winter,14,59.08,0.86,5.79,4,13.43
+2026-09-12T20:08:46.243367,Radiology,Oxygen Mask,Respiratory,61,20,1.91,2,11.48,6.78,5,18,Summer,45,111.41,0.95,4.8,4,12.9
+2026-09-12T20:08:46.244367,ICU,Patient Monitoring Leads,Monitoring,66,13,1.81,3,4.87,5.46,5,20,Autumn,25,12.23,0.86,7.38,4,6.31
+2026-09-12T20:08:46.244367,Emergency Department,IV Start Kit,IV Supplies,15,11,2.09,6,14.64,3.42,1,7,Summer,41,15.19,0.94,2.1,3,14.97
+2026-09-12T20:08:46.244367,ICU,Foley Catheter Kit,Catheterization,61,8,1.59,8,6.95,1.56,3,17,Winter,28,117.43,0.74,8.18,3,9.79
+2026-09-12T20:08:46.244367,Outpatient Clinic,Nitrile Gloves Large,PPE,92,10,1.4,3,13.33,4.87,4,7,Summer,23,93.92,0.87,8.5,2,15.39
+2026-09-12T20:08:46.245433,Surgery,Nitrile Gloves Medium,PPE,86,7,1.56,1,4.49,3.18,5,0,Winter,37,60.98,0.72,8.05,2,3.87
+2026-09-12T20:08:46.245433,Surgery,Wound Care Pack,Wound Care,73,4,2.14,8,14.24,6.45,1,9,Winter,11,145.62,0.73,4.63,3,12.25
+2026-09-12T20:08:46.245433,Labor and Delivery,Syringe 10ml,IV Supplies,94,11,2.56,3,10.2,4.07,5,21,Spring,48,26.23,0.98,1.62,3,14.75
+2026-09-12T20:08:46.246433,Surgery,Nitrile Gloves Large,PPE,70,8,3.9,5,9.77,6.13,0,18,Spring,34,23.65,0.98,7.63,2,9.49
+2026-09-12T20:08:46.246941,Labor and Delivery,Sterile Gauze,Wound Care,26,11,1.15,7,11.61,1.9,5,16,Spring,36,65.32,0.73,7.74,2,12.51
+2026-09-12T20:08:46.246941,Outpatient Clinic,Nitrile Gloves Large,PPE,97,10,3.99,4,10.5,5.82,6,19,Summer,42,32.55,0.78,3.23,2,13.2
+2026-09-12T20:08:46.246941,Surgery,Nasal Cannula,Respiratory,54,12,3.02,7,10.02,5.33,2,13,Autumn,26,138.15,0.88,5.84,3,9.45
+2026-09-12T20:08:46.247951,Radiology,Oxygen Mask,Respiratory,13,9,2.91,5,8.5,5.6,1,12,Autumn,31,75.64,0.72,5.42,4,6.59
+2026-09-12T20:08:46.247951,Med-Surg,Surgical Tray,Surgical Supplies,83,8,1.03,4,14.25,5.35,2,12,Summer,29,67.21,0.94,1.07,4,15.47
+2026-09-12T20:08:46.247951,ICU,Foley Catheter Kit,Catheterization,29,9,3.49,6,14.23,6.2,4,8,Spring,44,52.66,0.86,8.15,3,17.22
+2026-09-12T20:08:46.249073,Outpatient Clinic,IV Start Kit,IV Supplies,80,9,1.48,4,4.15,0.51,1,4,Spring,27,44.87,0.86,4.11,3,7.71
+2026-09-12T20:08:46.249073,Surgery,Patient Monitoring Leads,Monitoring,14,11,1.36,2,5.17,2.24,5,14,Spring,37,86.0,1.0,4.73,4,4.52
+2026-09-12T20:08:46.249073,Emergency Department,Patient Monitoring Leads,Monitoring,23,12,3.26,4,14.29,5.03,4,6,Autumn,33,103.97,0.76,4.53,4,15.45
+2026-09-12T20:08:46.250071,Emergency Department,Foley Catheter Kit,Catheterization,57,13,3.57,7,11.78,3.52,5,15,Winter,16,67.97,0.76,8.69,3,13.32
+2026-09-12T20:08:46.250071,Labor and Delivery,Nitrile Gloves Medium,PPE,15,4,3.41,2,13.41,3.03,0,7,Autumn,24,10.45,0.89,1.67,2,17.15
+2026-09-12T20:08:46.250071,Outpatient Clinic,Nitrile Gloves Large,PPE,68,16,2.34,4,6.8,0.79,6,10,Autumn,36,57.19,0.95,8.58,2,6.5
+2026-09-12T20:08:46.250071,Emergency Department,Surgical Tray,Surgical Supplies,35,10,3.3,6,10.07,5.32,6,8,Summer,37,58.92,0.75,3.32,4,8.55
+2026-09-12T20:08:46.251070,ICU,Nitrile Gloves Large,PPE,90,13,2.24,4,13.2,6.15,1,11,Summer,24,83.91,0.88,2.2,2,18.5
+2026-09-12T20:08:46.251070,Surgery,Saline Flush,IV Supplies,27,8,1.79,4,11.03,1.92,3,6,Spring,19,99.46,0.94,8.0,2,10.74
+2026-09-12T20:08:46.251070,Med-Surg,Saline Flush,IV Supplies,88,9,1.09,1,13.43,2.08,4,23,Spring,15,64.63,0.76,5.63,2,15.94
+2026-09-12T20:08:46.252073,Outpatient Clinic,Nasal Cannula,Respiratory,75,14,2.73,1,14.99,2.62,6,9,Summer,36,36.6,0.71,4.7,3,18.91
+2026-09-12T20:08:46.252073,Surgery,Patient Monitoring Leads,Monitoring,52,8,1.05,4,2.07,6.6,4,20,Winter,19,58.89,0.72,6.74,4,1.08
+2026-09-12T20:08:46.252582,Surgery,Sterile Gauze,Wound Care,70,12,1.69,8,12.46,5.15,0,13,Summer,41,68.49,0.9,7.1,2,14.82
+2026-09-12T20:08:46.252582,Labor and Delivery,Surgical Tray,Surgical Supplies,9,20,2.66,4,9.54,3.44,5,13,Spring,29,102.97,0.71,2.54,4,10.17
+2026-09-12T20:08:46.252582,Outpatient Clinic,Surgical Tray,Surgical Supplies,44,10,2.21,4,9.71,2.81,5,19,Autumn,38,63.79,0.73,6.46,4,8.42
+2026-09-12T20:08:46.253589,Labor and Delivery,Sterile Gauze,Wound Care,60,7,1.86,4,14.65,3.52,6,20,Spring,29,52.45,0.83,4.56,2,17.36
+2026-09-12T20:08:46.253589,Emergency Department,Saline Flush,IV Supplies,98,8,3.37,3,14.25,0.99,6,4,Autumn,12,147.8,0.75,2.03,2,16.76
+2026-09-12T20:08:46.253589,Labor and Delivery,Patient Monitoring Leads,Monitoring,60,6,2.07,2,12.52,1.45,5,23,Summer,32,15.24,0.95,7.36,4,11.33
+2026-09-12T20:08:46.253589,Radiology,Patient Monitoring Leads,Monitoring,73,10,1.91,1,4.27,6.19,0,22,Summer,40,59.66,0.91,3.54,4,2.4
+2026-09-12T20:08:46.254589,Emergency Department,Syringe 10ml,IV Supplies,80,8,3.52,6,8.28,5.95,6,2,Autumn,27,18.92,0.91,4.75,3,8.1
+2026-09-12T20:08:46.254589,Radiology,Blood Draw Kit,Lab Supplies,17,10,2.54,6,13.11,1.57,2,2,Winter,43,135.53,0.88,6.19,2,10.33
+2026-09-12T20:08:46.254589,Radiology,Patient Monitoring Leads,Monitoring,36,13,1.26,5,4.84,6.18,6,21,Autumn,22,93.71,0.88,1.48,4,7.18
+2026-09-12T20:08:46.255588,Med-Surg,Nasal Cannula,Respiratory,85,6,2.05,3,5.79,1.85,1,14,Summer,22,70.48,0.84,7.85,3,6.28
+2026-09-12T20:08:46.255588,ICU,IV Start Kit,IV Supplies,34,9,1.51,1,6.43,3.82,3,14,Winter,19,116.15,0.74,6.64,3,4.64
+2026-09-12T20:08:46.255588,Radiology,IV Start Kit,IV Supplies,61,9,1.48,1,5.09,0.82,0,12,Spring,17,42.52,0.75,4.42,3,4.7
+2026-09-12T20:08:46.255588,Surgery,Foley Catheter Kit,Catheterization,47,11,2.67,7,5.68,3.22,0,20,Summer,11,100.35,0.98,3.39,3,8.76
+2026-09-12T20:08:46.256589,Emergency Department,Wound Care Pack,Wound Care,23,7,2.86,5,10.82,4.03,3,22,Autumn,28,47.13,0.8,1.71,3,8.62
+2026-09-12T20:08:46.256589,ICU,Blood Draw Kit,Lab Supplies,67,9,1.49,3,7.83,6.44,2,23,Spring,18,112.8,0.93,6.2,2,7.83
+2026-09-12T20:08:46.256589,Surgery,Blood Draw Kit,Lab Supplies,9,13,3.59,5,5.89,1.2,5,1,Spring,12,51.65,0.83,8.48,2,7.18
+2026-09-12T20:08:46.256589,Emergency Department,Nitrile Gloves Large,PPE,42,6,2.9,3,4.83,0.6,2,17,Winter,37,131.02,0.86,7.3,2,4.18
+2026-09-12T20:08:46.256589,ICU,Saline Flush,IV Supplies,93,16,1.76,2,6.7,1.1,5,4,Winter,11,110.96,0.71,6.93,2,5.47
+2026-09-12T20:08:46.256589,ICU,Nasal Cannula,Respiratory,76,9,1.15,2,4.94,4.49,0,9,Spring,30,111.9,0.72,9.06,3,5.59
+2026-09-12T20:08:46.258094,Radiology,IV Start Kit,IV Supplies,21,10,3.5,4,9.49,5.45,4,16,Summer,44,3.01,0.9,1.69,3,14.12
+2026-09-12T20:08:46.258094,Outpatient Clinic,Oxygen Mask,Respiratory,94,9,2.97,4,3.51,4.48,2,14,Autumn,44,11.98,0.81,5.96,4,1.0
+2026-09-12T20:08:46.258094,ICU,Surgical Tray,Surgical Supplies,28,11,1.77,2,10.79,4.78,6,14,Spring,13,83.67,0.71,9.17,4,10.99
+2026-09-12T20:08:46.258094,Labor and Delivery,Syringe 10ml,IV Supplies,35,5,3.91,3,8.04,2.97,4,15,Summer,39,112.98,0.86,7.1,3,7.77
+2026-09-12T20:08:46.259105,Labor and Delivery,Foley Catheter Kit,Catheterization,64,9,2.97,0,14.26,2.04,3,3,Winter,32,75.32,0.83,3.25,3,12.24
+2026-09-12T20:08:46.259105,ICU,Nitrile Gloves Large,PPE,10,8,1.82,0,14.72,6.78,3,16,Winter,28,52.2,0.9,8.25,2,16.92
+2026-09-12T20:08:46.259105,Radiology,IV Start Kit,IV Supplies,88,9,2.36,5,4.58,0.93,4,14,Winter,32,62.87,0.75,2.54,3,8.02
+2026-09-12T20:08:46.259105,Radiology,Saline Flush,IV Supplies,62,8,1.16,2,5.05,5.9,5,12,Summer,26,35.11,0.96,9.34,2,4.61
+2026-09-12T20:08:46.260613,ICU,Syringe 10ml,IV Supplies,58,7,1.03,7,9.36,0.54,1,14,Summer,17,135.68,0.81,5.95,3,10.1
+2026-09-12T20:08:46.260613,Radiology,Sterile Gauze,Wound Care,21,7,1.78,1,4.51,0.83,6,11,Winter,39,42.32,0.8,6.97,2,3.76
+2026-09-12T20:08:46.260613,Med-Surg,Surgical Tray,Surgical Supplies,41,12,3.08,3,13.84,4.06,0,5,Summer,45,61.45,0.74,2.54,4,15.85
+2026-09-12T20:08:46.261620,Surgery,Foley Catheter Kit,Catheterization,38,7,1.78,5,10.74,5.87,0,3,Spring,27,7.27,0.9,5.82,3,14.24
+2026-09-12T20:08:46.261620,Radiology,Saline Flush,IV Supplies,72,8,3.98,7,8.08,4.53,3,9,Spring,11,49.88,0.87,8.66,2,10.74
+2026-09-12T20:08:46.261620,Outpatient Clinic,Oxygen Mask,Respiratory,8,11,1.76,5,9.83,3.83,2,10,Autumn,20,127.11,0.8,7.09,4,11.9
+2026-09-12T20:08:46.262621,Emergency Department,Wound Care Pack,Wound Care,70,13,1.0,2,8.03,6.63,0,12,Autumn,46,97.74,0.76,2.1,3,7.52
+2026-09-12T20:08:46.262621,ICU,Saline Flush,IV Supplies,93,16,2.4,0,3.06,2.18,3,6,Autumn,11,64.25,0.86,2.57,2,4.05
+2026-09-12T20:08:46.263651,Surgery,Syringe 10ml,IV Supplies,35,13,3.42,2,6.72,4.05,4,17,Autumn,23,120.13,0.96,2.36,3,9.15
+2026-09-12T20:08:46.263651,Labor and Delivery,Nitrile Gloves Large,PPE,60,13,3.04,2,5.54,1.92,3,20,Autumn,23,66.63,0.71,7.16,2,7.49
+2026-09-12T20:08:46.264662,Emergency Department,Nasal Cannula,Respiratory,91,10,1.4,4,7.23,5.24,2,13,Summer,42,2.54,0.8,5.99,3,10.61
+2026-09-12T20:08:46.264662,Outpatient Clinic,Wound Care Pack,Wound Care,70,11,1.72,2,4.3,6.92,2,21,Spring,25,149.34,0.87,8.31,3,5.18
+2026-09-12T20:08:46.264662,ICU,Oxygen Mask,Respiratory,5,9,3.05,3,9.52,5.01,4,19,Winter,48,130.99,0.85,7.57,4,8.11
+2026-09-12T20:08:46.265662,Med-Surg,PPE Gown,PPE,90,8,3.39,3,5.67,2.44,4,8,Autumn,28,124.95,0.99,5.27,3,7.14
+2026-09-12T20:08:46.265662,Outpatient Clinic,Patient Monitoring Leads,Monitoring,15,11,1.12,4,13.67,5.76,2,19,Spring,16,96.32,0.84,2.71,4,16.05
+2026-09-12T20:08:46.265662,Surgery,Nitrile Gloves Medium,PPE,41,12,3.03,5,3.57,4.3,6,21,Winter,28,11.97,0.75,1.55,2,7.52
+2026-09-12T20:08:46.266662,Med-Surg,IV Start Kit,IV Supplies,71,9,2.2,3,10.58,3.37,3,5,Autumn,32,62.54,0.92,2.22,3,10.59
+2026-09-12T20:08:46.266662,Emergency Department,Foley Catheter Kit,Catheterization,54,9,1.38,3,2.76,4.09,5,17,Winter,44,17.91,0.78,3.66,3,2.05
+2026-09-12T20:08:46.266662,Med-Surg,Sterile Gauze,Wound Care,47,9,1.43,3,14.21,5.41,6,8,Autumn,39,12.49,0.84,6.67,2,16.62
+2026-09-12T20:08:46.266662,Labor and Delivery,Foley Catheter Kit,Catheterization,5,8,2.81,4,13.64,1.47,3,21,Spring,36,51.61,0.96,1.12,3,16.14
+2026-09-12T20:08:46.266662,Labor and Delivery,IV Start Kit,IV Supplies,66,8,1.07,1,4.46,3.49,5,4,Spring,42,125.39,0.76,4.97,3,3.63
+2026-09-12T20:08:46.268173,ICU,Nasal Cannula,Respiratory,92,10,2.89,6,10.13,4.22,4,21,Autumn,14,90.85,0.93,5.71,3,9.51
+2026-09-12T20:08:46.268173,ICU,Sterile Gauze,Wound Care,43,9,1.04,3,7.01,6.06,4,18,Summer,17,40.96,0.76,5.27,2,9.82
+2026-09-12T20:08:46.268173,Surgery,PPE Gown,PPE,64,7,3.75,7,7.87,6.59,0,16,Autumn,35,113.64,0.9,2.49,3,14.16
+2026-09-12T20:08:46.269179,Outpatient Clinic,Sterile Gauze,Wound Care,10,6,2.66,1,10.72,4.67,2,14,Winter,49,98.12,0.87,1.2,2,11.89
+2026-09-12T20:08:46.269179,Outpatient Clinic,Patient Monitoring Leads,Monitoring,49,7,1.54,5,5.65,2.77,2,18,Summer,48,36.48,0.96,8.48,4,7.19
+2026-09-12T20:08:46.270181,Med-Surg,Blood Draw Kit,Lab Supplies,69,7,2.0,6,11.0,1.41,2,7,Autumn,47,60.71,0.86,9.97,2,12.89
+2026-09-12T20:08:46.270181,Med-Surg,Nasal Cannula,Respiratory,50,11,1.38,5,14.2,2.77,6,0,Winter,48,83.24,0.87,2.89,3,13.97
+2026-09-12T20:08:46.271193,Surgery,Blood Draw Kit,Lab Supplies,55,9,2.69,6,3.73,2.2,4,16,Autumn,11,43.58,0.7,5.47,2,6.09
+2026-09-12T20:08:46.271193,Labor and Delivery,Sterile Gauze,Wound Care,18,5,2.72,1,11.29,2.85,4,2,Spring,10,29.85,0.71,8.75,2,10.6
+2026-09-12T20:08:46.271193,Surgery,Syringe 10ml,IV Supplies,93,8,3.43,3,4.14,1.68,6,17,Spring,34,83.49,0.88,4.84,3,3.1
+2026-09-12T20:08:46.272183,Outpatient Clinic,Saline Flush,IV Supplies,14,10,1.85,2,10.44,4.85,0,3,Winter,25,50.25,0.87,7.36,2,11.89
+2026-09-12T20:08:46.272183,Labor and Delivery,Nitrile Gloves Large,PPE,83,12,3.8,4,5.0,6.33,4,10,Summer,46,21.15,0.96,5.5,2,3.24
+2026-09-12T20:08:46.272183,Emergency Department,Nitrile Gloves Large,PPE,75,8,1.63,9,10.73,5.24,6,9,Summer,15,55.36,0.74,2.86,2,13.32
+2026-09-12T20:08:46.272183,Med-Surg,Oxygen Mask,Respiratory,87,9,2.57,6,10.55,4.67,5,18,Winter,34,135.54,0.78,8.31,4,11.97
+2026-09-12T20:08:46.273183,Surgery,Saline Flush,IV Supplies,21,8,3.57,5,8.51,4.7,1,18,Spring,43,10.02,0.75,1.05,2,7.84
+2026-09-12T20:08:46.273183,Surgery,Saline Flush,IV Supplies,52,8,3.26,6,10.81,2.14,2,2,Spring,49,129.02,0.99,2.96,2,12.97
+2026-09-12T20:08:46.273811,Emergency Department,Syringe 10ml,IV Supplies,67,12,2.81,6,11.06,2.86,0,23,Autumn,32,92.0,0.79,3.93,3,14.12
+2026-09-12T20:08:46.273811,Outpatient Clinic,Wound Care Pack,Wound Care,31,12,1.81,5,2.14,4.04,0,1,Spring,24,53.9,0.8,5.68,3,4.38
+2026-09-12T20:08:46.273811,Outpatient Clinic,Nasal Cannula,Respiratory,29,7,2.99,4,12.66,4.72,0,10,Winter,25,38.87,0.93,5.62,3,13.61
+2026-09-12T20:08:46.274820,ICU,Patient Monitoring Leads,Monitoring,10,8,1.78,0,6.89,4.21,0,4,Spring,11,0.53,0.97,8.59,4,6.15
+2026-09-12T20:08:46.274820,Radiology,Sterile Gauze,Wound Care,22,12,3.12,2,11.67,5.12,1,8,Summer,45,137.72,0.73,3.09,2,13.88
+2026-09-12T20:08:46.274820,ICU,Saline Flush,IV Supplies,92,13,2.33,4,12.11,3.49,2,6,Autumn,27,148.04,0.93,3.24,2,13.78
+2026-09-12T20:08:46.275818,Med-Surg,Syringe 10ml,IV Supplies,33,12,1.02,5,6.0,2.07,6,6,Summer,31,83.55,0.79,4.76,3,6.64
+2026-09-12T20:08:46.275818,Radiology,Nasal Cannula,Respiratory,26,12,3.52,8,6.24,0.63,1,0,Autumn,30,81.92,0.72,9.6,3,8.04
+2026-09-12T20:08:46.275818,Med-Surg,Sterile Gauze,Wound Care,65,10,1.35,2,12.44,6.88,4,6,Autumn,24,131.82,0.99,7.79,2,12.86
+2026-09-12T20:08:46.275818,Outpatient Clinic,Nitrile Gloves Medium,PPE,6,6,2.51,5,6.91,3.19,6,22,Spring,22,143.37,0.99,4.17,2,8.71
+2026-09-12T20:08:46.275818,Labor and Delivery,Syringe 10ml,IV Supplies,59,13,2.86,6,11.69,5.87,6,17,Summer,16,123.14,0.87,7.04,3,12.6
+2026-09-12T20:08:46.275818,Radiology,Foley Catheter Kit,Catheterization,14,6,3.44,2,5.09,2.45,3,23,Autumn,41,54.69,0.95,2.84,3,8.42
+2026-09-12T20:08:46.277323,ICU,Nitrile Gloves Large,PPE,75,9,2.24,4,3.13,1.81,5,23,Winter,26,35.12,0.95,4.58,2,3.15
+2026-09-12T20:08:46.277862,Med-Surg,Patient Monitoring Leads,Monitoring,92,7,2.64,4,13.91,2.63,0,13,Winter,38,51.15,0.99,7.64,4,17.21
+2026-09-12T20:08:46.277862,Emergency Department,Nasal Cannula,Respiratory,83,10,3.62,3,10.12,5.89,2,1,Winter,28,85.56,0.93,8.31,3,11.61
+2026-09-12T20:08:46.278373,Outpatient Clinic,Nitrile Gloves Medium,PPE,53,14,3.38,6,7.22,4.88,1,7,Winter,48,53.87,0.89,2.68,2,8.54
+2026-09-12T20:08:46.278373,ICU,Patient Monitoring Leads,Monitoring,75,10,2.14,3,12.47,2.45,1,11,Winter,22,92.93,0.9,7.0,4,16.96
+2026-09-12T20:08:46.278373,Labor and Delivery,Surgical Tray,Surgical Supplies,52,10,3.18,7,13.67,1.28,3,19,Summer,39,49.21,0.76,6.0,4,12.33
+2026-09-12T20:08:46.278373,Labor and Delivery,Sterile Gauze,Wound Care,52,9,1.82,4,5.72,3.87,4,10,Spring,17,139.33,0.92,3.76,2,7.07
+2026-09-12T20:08:46.279911,Outpatient Clinic,Patient Monitoring Leads,Monitoring,14,16,1.78,2,5.94,3.96,3,6,Autumn,22,106.26,0.91,9.09,4,4.53
+2026-09-12T20:08:46.279911,Med-Surg,IV Start Kit,IV Supplies,78,11,3.0,5,4.57,5.73,3,9,Autumn,23,128.47,0.92,8.25,3,5.46
+2026-09-12T20:08:46.280533,Med-Surg,Syringe 10ml,IV Supplies,98,10,3.21,1,6.37,6.48,1,5,Winter,47,73.01,0.73,9.75,3,11.79
+2026-09-12T20:08:46.280533,Radiology,Foley Catheter Kit,Catheterization,92,10,3.25,3,12.76,2.96,1,10,Summer,43,60.64,0.83,4.45,3,14.79
+2026-09-12T20:08:46.280533,Outpatient Clinic,Foley Catheter Kit,Catheterization,37,14,2.27,1,9.51,4.21,5,23,Autumn,39,55.34,0.73,7.9,3,11.02
+2026-09-12T20:08:46.281542,Emergency Department,Nitrile Gloves Large,PPE,46,11,2.45,4,8.31,6.43,4,21,Winter,28,51.82,0.96,6.03,2,11.18
+2026-09-12T20:08:46.281542,ICU,Surgical Tray,Surgical Supplies,6,9,1.24,6,13.44,4.72,1,19,Winter,24,30.67,0.97,7.84,4,12.4
+2026-09-12T20:08:46.281542,Med-Surg,Oxygen Mask,Respiratory,74,10,2.85,1,8.09,1.46,2,6,Autumn,22,19.99,0.76,7.92,4,11.01
+2026-09-12T20:08:46.282564,Med-Surg,Blood Draw Kit,Lab Supplies,84,13,1.03,2,8.57,3.12,3,21,Autumn,44,20.49,0.98,7.76,2,9.76
+2026-09-12T20:08:46.282564,Radiology,Sterile Gauze,Wound Care,46,9,1.65,4,6.03,3.09,5,18,Spring,21,143.21,0.98,1.42,2,7.47
+2026-09-12T20:08:46.283542,Med-Surg,PPE Gown,PPE,91,9,2.3,4,11.83,3.06,0,12,Spring,24,44.11,0.98,3.07,3,11.25
+2026-09-12T20:08:46.284047,ICU,IV Start Kit,IV Supplies,95,14,3.02,0,6.41,5.67,3,16,Summer,18,88.0,0.78,9.41,3,4.2
+2026-09-12T20:08:46.284047,Outpatient Clinic,Patient Monitoring Leads,Monitoring,99,10,1.93,6,14.21,2.42,5,3,Summer,31,103.52,0.96,9.97,4,13.72
+2026-09-12T20:08:46.284047,Labor and Delivery,Blood Draw Kit,Lab Supplies,72,14,3.48,3,5.78,3.55,4,18,Spring,27,26.76,0.85,7.44,2,6.0
+2026-09-12T20:08:46.285060,Surgery,Nasal Cannula,Respiratory,48,7,2.0,6,11.23,6.89,2,20,Autumn,10,108.21,0.78,2.66,3,11.39
+2026-09-12T20:08:46.285060,Outpatient Clinic,Nitrile Gloves Large,PPE,65,16,1.87,4,14.83,2.13,6,5,Winter,10,117.89,0.85,9.51,2,17.03
+2026-09-12T20:08:46.285060,Radiology,Foley Catheter Kit,Catheterization,24,10,1.79,7,7.82,5.25,4,5,Winter,29,47.81,0.73,3.73,3,10.2
+2026-09-12T20:08:46.286054,Outpatient Clinic,PPE Gown,PPE,85,12,2.83,2,8.94,4.97,2,16,Winter,48,130.14,0.99,3.13,3,6.12
+2026-09-12T20:08:46.286054,Outpatient Clinic,Nitrile Gloves Large,PPE,44,14,2.81,6,12.04,1.61,0,0,Summer,41,65.06,0.93,5.36,2,13.95
+2026-09-12T20:08:46.286054,Surgery,Nasal Cannula,Respiratory,80,12,3.25,2,4.37,3.83,5,17,Summer,48,130.94,0.77,5.05,3,7.54
+2026-09-12T20:08:46.287055,Outpatient Clinic,Patient Monitoring Leads,Monitoring,38,9,2.37,6,13.64,6.78,0,11,Spring,23,103.32,0.78,7.63,4,11.86
+2026-09-12T20:08:46.287055,Emergency Department,Surgical Tray,Surgical Supplies,9,12,3.29,6,13.05,2.98,6,22,Spring,15,74.07,1.0,3.5,4,11.91
+2026-09-12T20:08:46.287055,ICU,Surgical Tray,Surgical Supplies,19,10,1.4,2,6.52,4.53,1,3,Spring,48,107.45,0.78,7.84,4,4.89
+2026-09-12T20:08:46.288058,Radiology,Nitrile Gloves Large,PPE,28,17,1.72,2,8.58,5.56,3,13,Spring,22,54.27,0.91,3.82,2,9.49
+2026-09-12T20:08:46.288569,Surgery,IV Start Kit,IV Supplies,6,8,3.3,5,14.84,1.96,4,12,Autumn,22,137.31,0.75,7.77,3,13.0
+2026-09-12T20:08:46.288569,Surgery,Blood Draw Kit,Lab Supplies,9,10,1.52,3,7.84,2.43,5,8,Summer,41,98.05,0.72,5.02,2,9.63
+2026-09-12T20:08:46.288569,Med-Surg,Foley Catheter Kit,Catheterization,43,12,3.33,6,7.96,3.94,6,17,Spring,46,65.53,0.79,5.91,3,9.56
+2026-09-12T20:08:46.289571,ICU,Foley Catheter Kit,Catheterization,20,5,3.63,3,13.28,5.88,4,12,Summer,35,38.99,0.74,3.34,3,13.07
+2026-09-12T20:08:46.289571,Radiology,Oxygen Mask,Respiratory,91,9,2.72,6,10.5,6.99,2,0,Winter,48,146.18,0.99,1.59,4,12.53
+2026-09-12T20:08:46.289571,Emergency Department,Nitrile Gloves Medium,PPE,39,15,1.12,4,7.55,3.55,4,9,Spring,21,60.0,0.98,4.04,2,10.45
+2026-09-12T20:08:46.290580,Emergency Department,Nitrile Gloves Medium,PPE,78,12,1.92,2,3.33,0.58,2,19,Summer,40,145.93,0.99,5.45,2,4.45
+2026-09-12T20:08:46.290580,ICU,Saline Flush,IV Supplies,66,9,3.63,3,13.84,5.83,3,7,Spring,40,94.97,0.86,6.24,2,16.45
+2026-09-12T20:08:46.290580,Radiology,Saline Flush,IV Supplies,14,11,1.56,1,9.64,5.96,5,15,Spring,40,123.01,0.8,4.15,2,7.5
+2026-09-12T20:08:46.290580,ICU,Nasal Cannula,Respiratory,55,12,3.68,6,8.67,2.73,4,2,Spring,15,116.65,0.72,6.94,3,10.86
+2026-09-12T20:08:46.291580,ICU,Surgical Tray,Surgical Supplies,26,8,1.94,3,11.26,1.64,5,11,Winter,35,72.79,0.7,9.29,4,13.71
+2026-09-12T20:08:46.291580,Surgery,Wound Care Pack,Wound Care,83,6,2.78,5,5.83,2.8,6,6,Summer,48,137.34,0.78,9.06,3,4.89
+2026-09-12T20:08:46.291580,Labor and Delivery,Syringe 10ml,IV Supplies,75,7,3.05,3,12.64,2.68,6,15,Spring,28,119.44,0.74,2.17,3,11.61
+2026-09-12T20:08:46.291580,Labor and Delivery,Nitrile Gloves Large,PPE,40,5,1.49,2,4.84,0.86,6,6,Winter,35,68.61,0.97,6.13,2,6.41
+2026-09-12T20:08:46.292579,Emergency Department,Patient Monitoring Leads,Monitoring,53,6,3.02,5,12.15,6.42,3,11,Winter,16,33.05,0.72,6.16,4,13.13
+2026-09-12T20:08:46.292579,Surgery,IV Start Kit,IV Supplies,73,14,1.76,1,13.86,4.62,5,14,Spring,38,102.24,0.79,5.12,3,13.42
+2026-09-12T20:08:46.292579,Emergency Department,Surgical Tray,Surgical Supplies,84,14,1.14,3,12.47,1.0,6,13,Winter,37,35.9,0.73,7.93,4,12.7
+2026-09-12T20:08:46.293589,Emergency Department,Patient Monitoring Leads,Monitoring,71,5,3.45,2,14.76,4.59,0,18,Winter,48,147.93,0.95,3.53,4,15.87
+2026-09-12T20:08:46.294099,Labor and Delivery,Wound Care Pack,Wound Care,45,11,3.36,3,9.94,6.89,6,1,Winter,39,11.07,0.81,5.81,3,10.92
+2026-09-12T20:08:46.294099,Radiology,Blood Draw Kit,Lab Supplies,57,8,3.67,5,2.37,4.68,4,17,Summer,39,76.15,0.75,9.64,2,2.93
+2026-09-12T20:08:46.295108,Med-Surg,Blood Draw Kit,Lab Supplies,29,12,1.06,6,11.7,1.45,4,18,Winter,25,122.06,0.88,2.9,2,14.15
+2026-09-12T20:08:46.295108,Labor and Delivery,IV Start Kit,IV Supplies,30,11,1.09,3,13.85,5.06,0,15,Winter,47,44.0,0.96,9.14,3,12.61
+2026-09-12T20:08:46.296772,ICU,Blood Draw Kit,Lab Supplies,22,11,1.58,5,10.21,4.03,6,15,Summer,49,15.32,0.89,5.02,2,9.85
+2026-09-12T20:08:46.297306,Outpatient Clinic,Nitrile Gloves Large,PPE,6,16,2.15,2,10.2,5.15,1,6,Winter,21,97.38,0.77,7.46,2,12.6
+2026-09-12T20:08:46.297837,Labor and Delivery,IV Start Kit,IV Supplies,95,5,1.07,7,4.69,6.51,1,16,Autumn,41,51.56,0.8,1.06,3,7.06
+2026-09-12T20:08:46.297837,ICU,Nasal Cannula,Respiratory,71,11,1.09,4,3.5,5.99,2,5,Summer,45,12.56,0.9,7.2,3,4.91
+2026-09-12T20:08:46.298847,ICU,Nitrile Gloves Large,PPE,7,7,3.55,2,3.95,3.99,0,6,Spring,46,147.44,0.86,5.52,2,6.08
+2026-09-12T20:08:46.299845,Surgery,Nitrile Gloves Medium,PPE,6,10,1.22,5,4.24,6.17,3,15,Winter,44,78.0,0.72,6.64,2,2.57
+2026-09-12T20:08:46.299845,Labor and Delivery,PPE Gown,PPE,51,16,3.21,6,14.52,6.46,5,23,Autumn,18,15.73,0.7,6.55,3,14.79
+2026-09-12T20:08:46.299845,Labor and Delivery,Wound Care Pack,Wound Care,84,6,2.78,2,11.1,5.43,5,14,Winter,42,122.29,0.98,5.62,3,12.79
+2026-09-12T20:08:46.300872,Emergency Department,Saline Flush,IV Supplies,18,10,3.39,3,9.2,4.32,4,21,Winter,28,36.13,0.94,5.38,2,8.66
+2026-09-12T20:08:46.300872,ICU,Blood Draw Kit,Lab Supplies,89,6,1.63,3,5.88,4.87,2,3,Autumn,26,28.07,0.85,3.48,2,5.85
+2026-09-12T20:08:46.300872,Emergency Department,Syringe 10ml,IV Supplies,13,12,2.26,5,13.08,1.79,5,6,Spring,40,48.22,0.97,2.14,3,14.33
+2026-09-12T20:08:46.301850,ICU,Blood Draw Kit,Lab Supplies,67,16,1.81,5,3.48,0.53,6,10,Summer,48,76.7,0.79,2.36,2,1.17
+2026-09-12T20:08:46.301850,Outpatient Clinic,Sterile Gauze,Wound Care,41,13,1.23,0,3.33,3.17,1,5,Summer,35,80.16,0.84,9.83,2,2.58
+2026-09-12T20:08:46.301850,ICU,Foley Catheter Kit,Catheterization,54,12,3.17,6,14.0,0.6,6,12,Winter,13,9.72,0.84,2.84,3,16.08
+2026-09-12T20:08:46.302850,Surgery,Oxygen Mask,Respiratory,25,6,2.88,3,9.3,1.61,4,1,Spring,24,89.23,0.76,2.05,4,11.4
+2026-09-12T20:08:46.302850,Surgery,Blood Draw Kit,Lab Supplies,10,7,1.3,2,10.3,1.42,1,11,Autumn,37,91.83,0.7,9.05,2,12.56
+2026-09-12T20:08:46.302850,Surgery,Wound Care Pack,Wound Care,39,10,3.37,5,5.48,3.88,6,14,Spring,46,119.87,0.91,2.71,3,4.41
+2026-09-12T20:08:46.303854,Radiology,Oxygen Mask,Respiratory,8,4,2.51,1,8.52,2.99,1,19,Summer,20,63.21,0.82,6.99,4,8.82
+2026-09-12T20:08:46.303854,Outpatient Clinic,Patient Monitoring Leads,Monitoring,38,10,3.27,4,8.03,1.63,2,7,Spring,13,82.71,0.89,6.97,4,7.91
+2026-09-12T20:08:46.304361,ICU,Nitrile Gloves Medium,PPE,34,10,2.39,3,13.69,6.62,1,8,Summer,11,68.19,0.95,9.65,2,16.15
+2026-09-12T20:08:46.304361,Labor and Delivery,Wound Care Pack,Wound Care,64,11,2.62,3,7.78,1.42,0,7,Winter,43,45.79,0.92,9.68,3,6.4
+2026-09-12T20:08:46.304361,Radiology,Foley Catheter Kit,Catheterization,50,12,3.35,5,6.78,3.92,3,16,Winter,25,47.81,0.8,2.75,3,9.52
+2026-09-12T20:08:46.305369,Labor and Delivery,Oxygen Mask,Respiratory,62,11,2.85,3,4.51,6.68,2,10,Autumn,19,8.38,0.71,7.45,4,6.39
+2026-09-12T20:08:46.305369,ICU,Patient Monitoring Leads,Monitoring,60,6,2.38,5,2.95,2.28,2,23,Winter,38,149.9,0.75,1.09,4,9.47
+2026-09-12T20:08:46.305369,Surgery,Foley Catheter Kit,Catheterization,66,12,2.4,4,4.14,3.77,3,9,Autumn,46,51.09,0.98,9.21,3,6.01
+2026-09-12T20:08:46.305369,ICU,Sterile Gauze,Wound Care,58,11,1.08,5,9.34,1.07,0,19,Summer,42,104.16,1.0,3.5,2,11.36
+2026-09-12T20:08:46.306374,Radiology,Sterile Gauze,Wound Care,12,9,3.05,3,13.55,2.64,5,5,Winter,38,141.13,0.71,4.17,2,14.3
+2026-09-12T20:08:46.306374,Emergency Department,Foley Catheter Kit,Catheterization,46,14,3.21,4,9.63,1.17,4,17,Autumn,17,117.77,0.85,2.63,3,12.68
+2026-09-12T20:08:46.306374,Outpatient Clinic,Sterile Gauze,Wound Care,14,14,3.32,3,8.88,2.25,2,19,Summer,23,89.49,0.86,9.72,2,8.3
+2026-09-12T20:08:46.307367,Radiology,Surgical Tray,Surgical Supplies,38,3,1.1,3,5.0,4.95,0,11,Autumn,39,142.34,0.78,8.3,4,5.44
+2026-09-12T20:08:46.307870,ICU,Nasal Cannula,Respiratory,95,13,3.91,5,9.7,3.64,2,18,Summer,15,17.3,0.78,5.43,3,10.04
+2026-09-12T20:08:46.307870,Emergency Department,Surgical Tray,Surgical Supplies,14,12,2.17,4,14.52,4.45,6,23,Summer,18,13.17,0.94,7.94,4,16.6
+2026-09-12T20:08:46.307870,Emergency Department,Nasal Cannula,Respiratory,27,14,3.24,6,13.8,5.24,3,18,Summer,47,54.24,0.96,3.09,3,14.5
+2026-09-12T20:08:46.308875,ICU,Foley Catheter Kit,Catheterization,87,10,1.57,4,9.27,3.77,1,9,Autumn,20,50.45,0.86,6.27,3,8.69
+2026-09-12T20:08:46.308875,Med-Surg,Nitrile Gloves Medium,PPE,86,10,1.85,5,12.64,1.26,5,4,Summer,34,112.25,0.86,5.07,2,14.79
+2026-09-12T20:08:46.309878,Radiology,Patient Monitoring Leads,Monitoring,20,4,3.78,7,5.73,2.12,0,13,Autumn,12,57.91,0.96,7.74,4,4.17
+2026-09-12T20:08:46.309878,Outpatient Clinic,Patient Monitoring Leads,Monitoring,16,11,2.79,3,3.68,3.99,3,10,Summer,32,13.47,0.88,1.51,4,4.76
+2026-09-12T20:08:46.309878,Emergency Department,Blood Draw Kit,Lab Supplies,29,9,3.18,3,12.64,1.62,3,5,Summer,21,83.6,0.91,4.71,2,17.93
+2026-09-12T20:08:46.310932,Med-Surg,IV Start Kit,IV Supplies,17,10,2.01,4,12.32,3.71,2,23,Summer,20,61.88,0.97,9.07,3,15.19
+2026-09-12T20:08:46.310932,Outpatient Clinic,Syringe 10ml,IV Supplies,86,8,1.72,3,5.85,4.22,0,18,Spring,30,112.09,0.97,7.81,3,7.28
+2026-09-12T20:08:46.310932,Outpatient Clinic,Surgical Tray,Surgical Supplies,26,9,1.84,4,9.9,3.9,5,1,Autumn,47,98.49,0.77,8.78,4,13.11
+2026-09-12T20:08:46.310932,ICU,Wound Care Pack,Wound Care,43,8,1.62,5,11.35,2.83,4,9,Spring,26,85.9,0.92,4.41,3,10.3
+2026-09-12T20:08:46.311939,Emergency Department,Wound Care Pack,Wound Care,38,8,1.68,3,3.7,0.58,5,18,Autumn,16,70.56,0.88,8.98,3,4.68
+2026-09-12T20:08:46.311939,Labor and Delivery,IV Start Kit,IV Supplies,68,5,1.27,6,9.32,6.63,1,23,Spring,42,114.76,0.94,6.75,3,11.23
+2026-09-12T20:08:46.311939,Outpatient Clinic,Nasal Cannula,Respiratory,14,9,2.67,2,7.84,5.94,6,1,Summer,18,43.38,0.78,2.44,3,7.6
+2026-09-12T20:08:46.312939,Emergency Department,Patient Monitoring Leads,Monitoring,97,11,2.83,4,9.84,5.74,5,9,Winter,38,47.25,0.88,2.24,4,9.23
+2026-09-12T20:08:46.313447,Emergency Department,Foley Catheter Kit,Catheterization,25,10,3.19,8,8.08,2.36,6,22,Autumn,26,79.26,0.72,1.99,3,8.5
+2026-09-12T20:08:46.313447,Surgery,IV Start Kit,IV Supplies,77,9,1.95,2,12.34,3.6,4,0,Autumn,45,139.91,0.96,7.39,3,10.58
+2026-09-12T20:08:46.313447,Outpatient Clinic,Surgical Tray,Surgical Supplies,78,12,1.18,3,13.09,3.02,3,7,Spring,14,23.9,0.81,6.57,4,11.74
+2026-09-12T20:08:46.314473,Labor and Delivery,Wound Care Pack,Wound Care,82,14,2.16,4,14.9,4.59,6,23,Spring,34,143.69,0.72,5.79,3,12.03
+2026-09-12T20:08:46.314977,Outpatient Clinic,Nasal Cannula,Respiratory,93,6,3.87,3,13.13,3.33,1,5,Autumn,49,105.77,0.71,1.09,3,14.57
+2026-09-12T20:08:46.314977,Radiology,Saline Flush,IV Supplies,51,16,2.07,5,8.39,6.33,1,7,Spring,27,63.56,0.77,2.8,2,7.64
+2026-09-12T20:08:46.314977,Med-Surg,Blood Draw Kit,Lab Supplies,99,9,3.4,3,14.05,4.71,5,10,Autumn,17,101.01,0.86,1.89,2,16.05
+2026-09-12T20:08:46.315985,Surgery,Oxygen Mask,Respiratory,56,11,1.12,5,7.55,1.34,2,16,Winter,22,47.93,0.93,5.48,4,8.82
+2026-09-12T20:08:46.315985,Radiology,Nasal Cannula,Respiratory,62,11,1.01,3,11.24,6.83,1,16,Autumn,17,14.42,0.84,8.99,3,10.17
+2026-09-12T20:08:46.315985,Emergency Department,Patient Monitoring Leads,Monitoring,53,10,3.86,4,10.59,3.56,3,9,Spring,47,96.57,0.95,3.63,4,15.23
+2026-09-12T20:08:46.315985,Labor and Delivery,Patient Monitoring Leads,Monitoring,93,8,3.02,5,2.52,5.73,5,15,Winter,24,52.64,0.91,2.44,4,2.35
+2026-09-12T20:08:46.316985,ICU,Nitrile Gloves Medium,PPE,14,8,1.12,4,8.94,0.5,3,19,Winter,12,2.82,0.75,6.46,2,11.59
+2026-09-12T20:08:46.316985,Outpatient Clinic,Foley Catheter Kit,Catheterization,89,7,1.93,4,10.02,0.52,2,8,Spring,45,88.07,0.88,5.01,3,10.0
+2026-09-12T20:08:46.316985,Med-Surg,Oxygen Mask,Respiratory,67,9,1.45,3,4.67,3.67,4,4,Winter,44,70.43,0.78,5.17,4,6.59
+2026-09-12T20:08:46.316985,Emergency Department,Syringe 10ml,IV Supplies,18,10,2.38,0,5.69,3.34,4,23,Summer,24,5.63,0.85,2.39,3,5.3
+2026-09-12T20:08:46.317985,Med-Surg,Foley Catheter Kit,Catheterization,72,20,3.42,4,5.35,3.14,4,1,Autumn,28,3.24,0.9,6.57,3,3.64
+2026-09-12T20:08:46.318494,Outpatient Clinic,Saline Flush,IV Supplies,45,13,1.13,4,14.58,2.59,5,11,Summer,19,29.09,0.79,5.37,2,16.75
+2026-09-12T20:08:46.318494,Labor and Delivery,Foley Catheter Kit,Catheterization,32,9,2.55,5,3.59,3.97,2,0,Autumn,31,42.08,0.8,9.51,3,8.09
+2026-09-12T20:08:46.318494,Outpatient Clinic,Syringe 10ml,IV Supplies,94,10,3.29,0,13.93,1.78,6,6,Winter,22,116.25,0.9,5.24,3,14.17
+2026-09-12T20:08:46.318494,Emergency Department,Nitrile Gloves Medium,PPE,19,13,2.33,5,12.7,3.87,6,5,Autumn,18,87.35,0.92,4.7,2,14.15
+2026-09-12T20:08:46.319496,Med-Surg,Nasal Cannula,Respiratory,55,12,3.58,3,13.53,2.96,2,18,Autumn,35,144.3,0.9,5.1,3,11.6
+2026-09-12T20:08:46.319496,Med-Surg,Surgical Tray,Surgical Supplies,65,8,2.43,2,5.31,6.44,2,17,Spring,10,26.87,0.94,5.88,4,3.93
+2026-09-12T20:08:46.320497,Emergency Department,Oxygen Mask,Respiratory,55,10,3.2,4,8.38,3.35,2,19,Spring,48,68.72,0.75,3.4,4,6.85
+2026-09-12T20:08:46.320497,Med-Surg,Sterile Gauze,Wound Care,79,5,1.03,7,9.4,2.73,2,15,Winter,38,114.81,0.79,8.99,2,10.4
+2026-09-12T20:08:46.320497,Med-Surg,Surgical Tray,Surgical Supplies,7,12,3.26,2,9.8,5.02,4,5,Spring,36,72.28,0.86,2.52,4,9.51
+2026-09-12T20:08:46.320497,Surgery,Syringe 10ml,IV Supplies,90,11,1.76,9,2.63,3.41,6,4,Spring,45,18.93,0.74,1.27,3,0.0
+2026-09-12T20:08:46.320497,ICU,Syringe 10ml,IV Supplies,85,8,3.28,3,10.09,1.85,5,16,Autumn,17,142.5,0.87,4.07,3,11.21
+2026-09-12T20:08:46.320497,Emergency Department,PPE Gown,PPE,5,6,2.09,3,13.54,0.76,3,17,Summer,13,60.66,0.75,4.98,3,15.98
+2026-09-12T20:08:46.322002,Emergency Department,Sterile Gauze,Wound Care,24,7,2.45,2,4.79,5.3,2,11,Spring,40,32.68,0.96,9.48,2,0.9
+2026-09-12T20:08:46.322002,ICU,Foley Catheter Kit,Catheterization,8,8,2.6,5,7.91,3.56,2,15,Summer,36,49.73,0.71,5.47,3,9.25
+2026-09-12T20:08:46.322583,Labor and Delivery,Saline Flush,IV Supplies,23,7,3.11,6,4.46,6.36,1,9,Autumn,17,15.37,0.88,2.09,2,5.01
+2026-09-12T20:08:46.322583,Med-Surg,Nasal Cannula,Respiratory,23,12,2.51,6,6.53,5.19,6,15,Spring,23,42.09,0.72,2.46,3,5.54
+2026-09-12T20:08:46.323236,Surgery,Saline Flush,IV Supplies,10,12,2.88,4,8.44,2.66,0,16,Summer,35,65.35,0.81,5.65,2,11.46
+2026-09-12T20:08:46.323236,Surgery,Nitrile Gloves Large,PPE,71,7,3.14,4,6.78,1.15,2,9,Summer,32,43.29,0.84,2.74,2,5.2
+2026-09-12T20:08:46.323236,Outpatient Clinic,Sterile Gauze,Wound Care,5,15,1.68,3,3.74,4.69,5,15,Summer,32,83.83,0.78,6.86,2,4.31
+2026-09-12T20:08:46.324253,Emergency Department,Saline Flush,IV Supplies,42,9,1.77,5,12.88,4.73,5,6,Winter,42,122.78,0.71,8.84,2,12.13
+2026-09-12T20:08:46.324762,Emergency Department,Patient Monitoring Leads,Monitoring,81,14,2.63,0,3.24,0.85,0,18,Summer,41,37.82,0.96,8.32,4,1.77
+2026-09-12T20:08:46.325345,Med-Surg,Syringe 10ml,IV Supplies,60,11,3.6,6,10.86,2.15,1,0,Winter,17,125.62,1.0,1.2,3,12.99
+2026-09-12T20:08:46.325345,Outpatient Clinic,Saline Flush,IV Supplies,91,10,2.65,9,13.0,3.28,6,20,Summer,34,34.08,0.85,8.56,2,16.24
+2026-09-12T20:08:46.325889,Med-Surg,Blood Draw Kit,Lab Supplies,46,14,3.62,7,3.37,4.22,3,7,Winter,40,38.66,0.9,5.88,2,5.06
+2026-09-12T20:08:46.325889,Med-Surg,Wound Care Pack,Wound Care,94,13,2.89,3,12.82,2.29,3,21,Spring,28,142.73,0.89,7.36,3,12.66
+2026-09-12T20:08:46.326461,Med-Surg,Sterile Gauze,Wound Care,96,12,2.18,0,3.56,3.97,0,12,Autumn,25,109.74,0.86,1.67,2,0.6
+2026-09-12T20:08:46.326461,Radiology,PPE Gown,PPE,59,13,1.69,4,13.89,5.96,6,15,Summer,25,132.19,0.94,6.42,3,16.56
+2026-09-12T20:08:46.326461,Radiology,Wound Care Pack,Wound Care,20,9,3.23,6,10.46,6.28,0,17,Spring,38,112.73,0.85,6.43,3,10.83
+2026-09-12T20:08:46.327472,ICU,Patient Monitoring Leads,Monitoring,71,15,1.39,4,4.77,5.41,0,22,Spring,45,72.79,0.91,8.01,4,7.86
+2026-09-12T20:08:46.327977,Emergency Department,IV Start Kit,IV Supplies,16,12,2.43,2,12.11,3.75,0,5,Winter,28,96.6,0.91,8.84,3,13.9
+2026-09-12T20:08:46.327977,Outpatient Clinic,Nasal Cannula,Respiratory,81,6,3.92,6,4.24,4.27,6,7,Summer,38,75.14,0.78,2.52,3,7.58
+2026-09-12T20:08:46.327977,Labor and Delivery,Saline Flush,IV Supplies,96,14,2.78,5,14.96,5.38,2,22,Spring,49,7.85,0.71,5.99,2,18.06
+2026-09-12T20:08:46.327977,Med-Surg,Patient Monitoring Leads,Monitoring,87,8,1.84,2,11.04,1.42,4,12,Summer,28,27.02,0.73,6.1,4,15.51
+2026-09-12T20:08:46.328984,Surgery,Sterile Gauze,Wound Care,64,10,1.0,4,10.65,1.01,3,4,Autumn,35,120.98,1.0,4.4,2,10.44
+2026-09-12T20:08:46.328984,ICU,PPE Gown,PPE,65,8,1.47,3,11.73,2.2,4,17,Spring,27,29.87,0.88,1.79,3,15.96
+2026-09-12T20:08:46.330031,Emergency Department,Foley Catheter Kit,Catheterization,21,10,3.52,6,11.74,4.6,5,2,Winter,22,139.93,0.89,3.59,3,11.36
+2026-09-12T20:08:46.330576,Med-Surg,Surgical Tray,Surgical Supplies,51,17,2.03,2,9.14,1.93,3,9,Summer,36,109.21,0.7,9.43,4,9.07
+2026-09-12T20:08:46.330576,Radiology,IV Start Kit,IV Supplies,20,13,3.01,4,12.98,2.05,6,16,Summer,27,65.01,0.77,5.64,3,13.04
+2026-09-12T20:08:46.331593,Med-Surg,Syringe 10ml,IV Supplies,43,15,2.06,6,9.29,1.12,3,17,Summer,13,5.85,0.86,6.96,3,10.01
+2026-09-12T20:08:46.332110,Emergency Department,Patient Monitoring Leads,Monitoring,39,9,2.39,5,5.94,5.04,6,7,Summer,46,63.46,0.82,3.08,4,9.01
+2026-09-12T20:08:46.332110,Emergency Department,Sterile Gauze,Wound Care,99,7,2.88,4,2.11,5.95,2,6,Winter,49,133.87,0.86,5.89,2,0.0
+2026-09-12T20:08:46.332110,Med-Surg,PPE Gown,PPE,10,10,1.31,4,3.96,3.77,6,2,Autumn,44,127.39,0.91,5.41,3,7.52
+2026-09-12T20:08:46.332110,Outpatient Clinic,Oxygen Mask,Respiratory,56,9,3.35,2,6.02,2.4,6,22,Autumn,25,132.16,0.82,5.84,4,8.21
+2026-09-12T20:08:46.333110,Outpatient Clinic,Nasal Cannula,Respiratory,97,9,3.14,1,14.23,2.19,0,17,Summer,49,25.74,0.95,7.92,3,13.41
+2026-09-12T20:08:46.333110,Labor and Delivery,Surgical Tray,Surgical Supplies,83,8,2.53,6,6.96,1.42,5,11,Spring,19,139.82,0.78,9.55,4,7.96
+2026-09-12T20:08:46.333110,Radiology,Nitrile Gloves Medium,PPE,84,6,3.64,3,2.4,2.29,5,18,Spring,46,147.41,0.89,2.45,2,1.36
+2026-09-12T20:08:46.334110,Surgery,Saline Flush,IV Supplies,47,15,2.23,1,12.46,4.5,2,7,Autumn,29,72.68,0.8,8.55,2,15.73
+2026-09-12T20:08:46.334110,Outpatient Clinic,PPE Gown,PPE,34,7,1.94,2,7.92,6.4,3,17,Spring,20,14.82,0.98,6.12,3,6.16
+2026-09-12T20:08:46.334110,Med-Surg,Nitrile Gloves Large,PPE,6,12,3.52,5,10.03,3.47,4,9,Spring,32,126.35,0.94,4.69,2,10.05
+2026-09-12T20:08:46.334110,Labor and Delivery,Nitrile Gloves Large,PPE,65,4,2.13,7,7.94,6.62,1,14,Summer,42,15.56,0.91,1.28,2,5.91
+2026-09-12T20:08:46.335109,Med-Surg,Sterile Gauze,Wound Care,87,9,1.7,5,14.55,0.6,2,6,Winter,25,67.64,0.87,4.92,2,19.16
+2026-09-12T20:08:46.335109,Labor and Delivery,Foley Catheter Kit,Catheterization,45,7,2.76,3,4.78,1.19,3,15,Summer,42,62.66,0.96,3.07,3,4.11
+2026-09-12T20:08:46.335615,Radiology,Wound Care Pack,Wound Care,81,9,3.93,3,7.73,4.3,2,11,Spring,34,7.59,0.94,6.44,3,8.45
+2026-09-12T20:08:46.335615,ICU,Saline Flush,IV Supplies,54,10,3.92,4,4.23,3.94,1,22,Winter,30,18.13,0.9,3.55,2,1.81
+2026-09-12T20:08:46.335615,Radiology,Nasal Cannula,Respiratory,94,14,2.56,4,6.04,4.5,4,21,Summer,19,131.37,0.82,4.62,3,6.76
+2026-09-12T20:08:46.336639,Labor and Delivery,Saline Flush,IV Supplies,74,8,2.6,4,11.26,3.0,2,13,Autumn,28,19.44,0.83,5.33,2,11.34
+2026-09-12T20:08:46.336639,Outpatient Clinic,Patient Monitoring Leads,Monitoring,58,9,3.45,5,11.5,0.76,0,14,Summer,28,33.96,0.8,9.92,4,9.76
+2026-09-12T20:08:46.336639,Labor and Delivery,Saline Flush,IV Supplies,14,12,1.69,6,14.1,1.22,1,4,Spring,26,19.49,0.72,3.75,2,15.74
+2026-09-12T20:08:46.336639,ICU,Nitrile Gloves Large,PPE,11,13,2.67,4,11.53,6.16,5,1,Summer,44,51.61,0.75,6.23,2,13.25
+2026-09-12T20:08:46.338149,Labor and Delivery,Nasal Cannula,Respiratory,36,5,1.02,5,10.68,0.76,2,19,Summer,37,146.79,0.7,6.6,3,7.84
+2026-09-12T20:08:46.338149,Emergency Department,Saline Flush,IV Supplies,52,11,1.26,2,12.62,0.59,6,11,Autumn,46,91.92,0.91,4.08,2,15.06
+2026-09-12T20:08:46.338149,ICU,Nitrile Gloves Medium,PPE,60,9,1.08,7,2.97,3.82,1,19,Spring,45,11.1,0.76,7.94,2,8.35
+2026-09-12T20:08:46.339160,Med-Surg,Saline Flush,IV Supplies,44,12,1.06,3,9.62,5.47,2,18,Autumn,40,119.15,0.88,9.87,2,12.47
+2026-09-12T20:08:46.339160,Surgery,Saline Flush,IV Supplies,91,9,1.52,1,4.4,2.72,0,13,Winter,39,32.03,0.9,7.34,2,5.58
+2026-09-12T20:08:46.339160,Labor and Delivery,Nitrile Gloves Large,PPE,44,10,2.86,8,9.21,1.67,6,20,Winter,40,7.24,0.92,8.85,2,9.85
+2026-09-12T20:08:46.340701,Surgery,Nitrile Gloves Large,PPE,77,10,3.5,7,10.14,5.08,3,5,Winter,37,129.51,0.83,1.57,2,9.36
+2026-09-12T20:08:46.340701,Labor and Delivery,Nitrile Gloves Large,PPE,99,9,2.74,2,9.48,3.25,1,12,Winter,33,99.6,0.96,3.32,2,11.32
+2026-09-12T20:08:46.341717,Labor and Delivery,PPE Gown,PPE,55,17,3.91,2,9.51,2.83,4,23,Autumn,14,75.11,0.98,6.25,3,10.44
+2026-09-12T20:08:46.341717,ICU,Patient Monitoring Leads,Monitoring,33,7,1.72,5,3.74,0.81,3,7,Autumn,25,112.01,0.81,5.26,4,5.61
+2026-09-12T20:08:46.341717,Radiology,Sterile Gauze,Wound Care,62,8,3.96,2,9.64,0.92,3,13,Winter,12,50.41,0.92,7.02,2,11.08
+2026-09-12T20:08:46.342745,Outpatient Clinic,Patient Monitoring Leads,Monitoring,31,7,2.25,4,12.21,4.88,0,18,Summer,22,141.78,0.74,6.79,4,14.37
+2026-09-12T20:08:46.342745,Labor and Delivery,Foley Catheter Kit,Catheterization,49,15,3.41,4,2.2,1.93,1,15,Autumn,29,26.08,0.96,7.34,3,2.18
+2026-09-12T20:08:46.342745,ICU,Wound Care Pack,Wound Care,51,9,1.33,2,3.78,5.47,0,13,Spring,21,13.42,0.94,9.09,3,2.22
+2026-09-12T20:08:46.344262,Labor and Delivery,IV Start Kit,IV Supplies,11,10,3.78,4,14.59,6.5,2,17,Summer,16,103.36,0.8,3.27,3,13.58
+2026-09-12T20:08:46.344262,Emergency Department,Oxygen Mask,Respiratory,86,8,1.49,4,11.07,3.94,4,20,Autumn,34,136.48,0.71,6.01,4,12.6
+2026-09-12T20:08:46.344262,Outpatient Clinic,Surgical Tray,Surgical Supplies,65,12,3.45,4,12.43,6.0,4,11,Autumn,24,143.96,0.81,1.59,4,16.6
+2026-09-12T20:08:46.345268,Outpatient Clinic,Patient Monitoring Leads,Monitoring,46,12,2.78,7,13.95,6.35,2,8,Autumn,25,66.88,0.75,2.79,4,13.58
+2026-09-12T20:08:46.345773,Med-Surg,Oxygen Mask,Respiratory,13,4,3.31,6,10.72,6.01,2,5,Autumn,33,136.13,0.92,5.89,4,9.4
+2026-09-12T20:08:46.345773,Labor and Delivery,IV Start Kit,IV Supplies,13,9,1.0,6,8.34,1.51,0,14,Summer,10,85.96,0.97,4.55,3,13.62
+2026-09-12T20:08:46.346307,Labor and Delivery,IV Start Kit,IV Supplies,64,6,3.55,1,5.6,6.11,6,7,Summer,31,134.24,0.86,9.81,3,6.52
+2026-09-12T20:08:46.346307,Surgery,Sterile Gauze,Wound Care,71,17,3.66,4,8.45,2.49,6,0,Autumn,21,97.85,0.93,9.65,2,7.28
+2026-09-12T20:08:46.346307,Emergency Department,Nasal Cannula,Respiratory,8,10,1.47,3,8.47,4.1,1,2,Spring,38,27.03,0.78,8.3,3,9.32
+2026-09-12T20:08:46.346307,Med-Surg,Saline Flush,IV Supplies,14,10,1.1,3,7.18,6.38,4,12,Summer,20,132.31,0.82,7.18,2,11.52
+2026-09-12T20:08:46.347850,Outpatient Clinic,Oxygen Mask,Respiratory,43,7,2.97,1,8.75,4.44,2,6,Autumn,17,70.94,0.87,9.35,4,7.59
+2026-09-12T20:08:46.348403,ICU,Wound Care Pack,Wound Care,61,11,3.72,7,13.01,0.92,3,4,Autumn,34,123.64,0.9,7.31,3,14.57
+2026-09-12T20:08:46.348403,Med-Surg,Surgical Tray,Surgical Supplies,55,9,2.07,3,7.9,3.01,6,13,Autumn,11,12.46,0.73,6.32,4,8.83
+2026-09-12T20:08:46.349412,Med-Surg,Nitrile Gloves Medium,PPE,27,8,3.2,2,8.25,6.56,2,1,Autumn,46,29.94,0.93,8.49,2,6.66
+2026-09-12T20:08:46.349412,Radiology,Blood Draw Kit,Lab Supplies,67,7,1.06,6,7.18,1.61,4,6,Summer,31,62.01,0.98,2.14,2,6.73
+2026-09-12T20:08:46.350411,ICU,Oxygen Mask,Respiratory,77,8,2.05,4,2.21,1.26,6,20,Summer,41,51.56,0.99,5.58,4,0.0
+2026-09-12T20:08:46.350411,Med-Surg,Blood Draw Kit,Lab Supplies,70,10,1.47,4,11.79,2.33,5,4,Winter,49,23.72,0.9,6.45,2,15.56
+2026-09-12T20:08:46.350411,Outpatient Clinic,Sterile Gauze,Wound Care,82,8,3.13,4,14.91,1.33,6,21,Spring,19,62.8,0.82,5.81,2,16.96
+2026-09-12T20:08:46.350411,Surgery,Surgical Tray,Surgical Supplies,60,12,3.83,2,13.96,0.82,3,12,Spring,45,36.67,0.96,1.17,4,17.66
+2026-09-12T20:08:46.351917,ICU,Oxygen Mask,Respiratory,23,11,2.58,5,9.9,1.18,5,6,Summer,35,129.22,0.88,1.11,4,9.46
+2026-09-12T20:08:46.351917,Surgery,Surgical Tray,Surgical Supplies,33,6,1.01,2,6.33,2.93,4,13,Winter,34,5.61,0.8,8.29,4,10.38
+2026-09-12T20:08:46.352922,ICU,Blood Draw Kit,Lab Supplies,10,12,1.3,4,3.82,2.59,5,0,Summer,30,141.53,0.81,9.21,2,5.62
+2026-09-12T20:08:46.352922,Surgery,Sterile Gauze,Wound Care,82,11,2.66,5,8.28,3.84,3,16,Winter,28,17.02,0.96,8.55,2,10.66
+2026-09-12T20:08:46.353922,Emergency Department,PPE Gown,PPE,42,12,2.78,3,11.45,1.2,5,17,Spring,49,9.9,0.91,4.3,3,11.91
+2026-09-12T20:08:46.353922,Outpatient Clinic,Blood Draw Kit,Lab Supplies,49,16,2.73,2,9.34,2.7,3,1,Spring,31,127.8,0.88,8.68,2,8.85
+2026-09-12T20:08:46.354428,Med-Surg,Sterile Gauze,Wound Care,77,10,2.28,5,11.02,4.7,4,6,Autumn,37,39.73,0.93,7.96,2,16.56
+2026-09-12T20:08:46.354428,Med-Surg,Surgical Tray,Surgical Supplies,99,9,3.45,3,8.2,2.42,3,20,Winter,26,56.4,0.87,1.43,4,7.26
+2026-09-12T20:08:46.355432,ICU,Surgical Tray,Surgical Supplies,65,11,2.21,2,14.06,3.48,2,0,Winter,22,13.97,0.93,6.55,4,12.28
+2026-09-12T20:08:46.356034,ICU,Nitrile Gloves Medium,PPE,23,14,1.92,3,14.96,3.27,1,19,Spring,35,54.9,0.95,5.09,2,17.97
+2026-09-12T20:08:46.356034,Labor and Delivery,Syringe 10ml,IV Supplies,84,11,2.9,4,10.63,3.68,4,3,Spring,43,139.17,0.79,2.0,3,9.82
+2026-09-12T20:08:46.356034,Radiology,Foley Catheter Kit,Catheterization,66,8,3.83,5,14.09,2.87,6,1,Winter,36,77.42,0.73,6.94,3,12.77
+2026-09-12T20:08:46.357044,Outpatient Clinic,Syringe 10ml,IV Supplies,52,10,3.8,9,6.93,0.73,4,21,Spring,33,131.14,0.74,5.06,3,10.73
+2026-09-12T20:08:46.357552,Radiology,Surgical Tray,Surgical Supplies,99,8,1.41,3,11.33,6.63,4,11,Summer,12,6.75,0.89,6.06,4,12.68
+2026-09-12T20:08:46.357552,Med-Surg,Nitrile Gloves Medium,PPE,63,15,2.97,7,11.7,3.89,3,9,Spring,37,83.06,0.9,3.91,2,17.6
+2026-09-12T20:08:46.358056,Med-Surg,Saline Flush,IV Supplies,73,11,2.52,3,10.25,5.82,3,12,Autumn,20,98.59,0.76,3.86,2,10.52
+2026-09-12T20:08:46.358056,Med-Surg,Oxygen Mask,Respiratory,38,15,3.31,5,5.71,2.26,4,23,Autumn,26,41.45,0.76,3.09,4,6.87
+2026-09-12T20:08:46.358574,Surgery,IV Start Kit,IV Supplies,77,9,3.03,3,14.4,5.79,6,3,Autumn,19,121.56,0.95,1.84,3,18.6
+2026-09-12T20:08:46.358574,Med-Surg,Patient Monitoring Leads,Monitoring,56,6,2.24,5,11.11,6.52,2,11,Spring,14,83.45,0.94,1.03,4,14.73
+2026-09-12T20:08:46.359588,Radiology,Blood Draw Kit,Lab Supplies,39,6,2.77,6,11.58,3.59,2,19,Autumn,32,68.39,0.92,4.3,2,16.15
+2026-09-12T20:08:46.360604,Radiology,Nitrile Gloves Large,PPE,15,8,2.24,0,12.93,3.84,3,20,Spring,27,67.47,0.76,3.42,2,16.75
+2026-09-12T20:08:46.360604,Med-Surg,Surgical Tray,Surgical Supplies,27,7,3.31,2,12.07,1.34,6,14,Summer,12,49.95,0.75,7.89,4,13.54
+2026-09-12T20:08:46.360604,Surgery,Sterile Gauze,Wound Care,52,8,1.87,5,5.77,4.02,6,3,Spring,25,62.99,0.98,7.49,2,7.76
+2026-09-12T20:08:46.361694,Med-Surg,Blood Draw Kit,Lab Supplies,46,11,3.91,5,9.04,1.08,0,3,Winter,40,39.17,0.8,1.58,2,12.88
+2026-09-12T20:08:46.361694,Radiology,Saline Flush,IV Supplies,70,12,2.05,4,3.3,5.73,0,7,Summer,36,37.86,0.88,5.49,2,3.59
+2026-09-12T20:08:46.361694,Radiology,IV Start Kit,IV Supplies,84,13,2.01,6,10.22,6.84,1,5,Spring,13,104.24,0.97,5.25,3,11.8
+2026-09-12T20:08:46.363203,Surgery,Saline Flush,IV Supplies,52,14,3.57,3,3.02,5.62,3,11,Spring,17,110.39,0.76,2.02,2,6.91
+2026-09-12T20:08:46.363820,Med-Surg,Surgical Tray,Surgical Supplies,87,7,2.33,4,9.33,4.75,2,17,Winter,45,4.91,0.75,9.88,4,11.07
+2026-09-12T20:08:46.363820,Outpatient Clinic,IV Start Kit,IV Supplies,75,10,3.74,5,11.45,2.96,0,21,Winter,13,73.51,0.71,7.18,3,13.62
+2026-09-12T20:08:46.364833,Emergency Department,Saline Flush,IV Supplies,53,9,2.6,2,10.72,5.4,1,6,Winter,38,96.39,0.93,2.27,2,8.26
+2026-09-12T20:08:46.364833,Radiology,Nasal Cannula,Respiratory,75,16,2.75,8,11.11,2.39,0,15,Winter,31,108.97,0.77,1.01,3,10.58
+2026-09-12T20:08:46.365830,ICU,Patient Monitoring Leads,Monitoring,52,9,1.13,6,4.46,6.09,3,9,Winter,40,130.76,0.9,4.08,4,5.98
+2026-09-12T20:08:46.366336,ICU,Saline Flush,IV Supplies,25,9,2.37,5,11.43,1.29,0,22,Autumn,47,89.28,0.89,4.57,2,12.16
+2026-09-12T20:08:46.366336,ICU,Nitrile Gloves Medium,PPE,28,6,3.26,1,2.04,3.31,4,7,Autumn,29,6.99,0.8,2.61,2,0.88
+2026-09-12T20:08:46.366336,Surgery,Patient Monitoring Leads,Monitoring,73,11,1.22,5,14.35,1.67,5,17,Winter,47,88.33,0.72,9.63,4,14.92
+2026-09-12T20:08:46.367861,Emergency Department,IV Start Kit,IV Supplies,65,7,3.16,6,7.99,6.29,3,1,Winter,43,12.2,0.98,4.27,3,7.2
+2026-09-12T20:08:46.367861,Surgery,Sterile Gauze,Wound Care,52,12,1.21,1,5.77,5.61,5,17,Autumn,14,22.27,0.71,5.23,2,9.13
+2026-09-12T20:08:46.367861,Labor and Delivery,IV Start Kit,IV Supplies,46,8,3.36,6,7.71,5.98,0,14,Spring,10,15.81,0.72,1.46,3,11.11
+2026-09-12T20:08:46.368871,Radiology,Wound Care Pack,Wound Care,22,6,1.47,3,3.99,3.24,3,23,Summer,13,53.67,0.94,5.59,3,5.15
+2026-09-12T20:08:46.369872,Emergency Department,Wound Care Pack,Wound Care,91,9,2.03,2,12.04,1.61,1,6,Winter,14,124.26,0.71,3.19,3,12.07
