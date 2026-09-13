@@ -1,4 +1,4 @@
-﻿import os
+import os
 import json
 from datetime import datetime
 from flask import Flask, request, jsonify
@@ -796,4 +796,33 @@ def rag_stats():
 
 
 if __name__ == "__main__":
+    # Pre-warm the ML model so the first user request is served instantly.
+    # Without this, joblib + XGBoost cold-load on the first /api/predict call
+    # can take 30+ seconds, exceeding the dashboard's request timeout.
+    try:
+        print("[startup] Pre-warming ML model...")
+        from backend.model import load_model_and_predict
+        _dummy = {
+            "department": "Emergency Department",
+            "item_name": "IV Start Kit",
+            "item_category": "IV Supplies",
+            "season": "Winter",
+            "current_stock": 10,
+            "patient_volume": 20,
+            "acuity_level": 2,
+            "procedure_count": 5,
+            "recent_usage_rate": 5,
+            "supplier_delay_days": 2,
+            "day_of_week": 1,
+            "hour": 8,
+            "reorder_point": 25,
+            "supplier_reliability_score": 0.9,
+            "clinical_criticality": 3,
+            "pack_time_minutes": 4,
+        }
+        load_model_and_predict(_dummy)
+        print("[startup] ML model pre-warm complete.")
+    except Exception as _e:
+        print(f"[startup] ML model pre-warm skipped: {_e}")
+
     app.run(host="0.0.0.0", port=PORT, debug=os.environ.get("FLASK_DEBUG", "0") == "1", threaded=True)

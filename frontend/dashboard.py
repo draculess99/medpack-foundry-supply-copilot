@@ -415,11 +415,11 @@ telemetry = {
 }
 
 
-def api_get(path, params=None, timeout=10):
+def api_get(path, params=None, timeout=60):
     return requests.get(f"{MEDPACK_API_BASE_URL}{path}", params=params or {}, timeout=timeout)
 
 
-def api_post(path, payload=None, timeout=20):
+def api_post(path, payload=None, timeout=90):
     return requests.post(f"{MEDPACK_API_BASE_URL}{path}", json=payload or {}, timeout=timeout)
 
 
