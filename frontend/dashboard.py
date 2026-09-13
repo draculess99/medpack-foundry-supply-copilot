@@ -228,7 +228,7 @@ def reset_state():
         "timestamp": time.time(),
     })
     try:
-        requests.post(f"{MEDPACK_API_BASE_URL}/api/reset", timeout=5)
+        requests.post(f"{MEDPACK_API_BASE_URL}/api/reset", timeout=90)
     except:
         pass
 
@@ -415,11 +415,11 @@ telemetry = {
 }
 
 
-def api_get(path, params=None, timeout=60):
+def api_get(path, params=None):
     return requests.get(f"{MEDPACK_API_BASE_URL}{path}", params=params or {}, timeout=timeout)
 
 
-def api_post(path, payload=None, timeout=90):
+def api_post(path, payload=None):
     return requests.post(f"{MEDPACK_API_BASE_URL}{path}", json=payload or {}, timeout=timeout)
 
 
@@ -1856,8 +1856,7 @@ try:
     queue_payload.update({"limit": 5, "max_records": 75})
     queue_res = requests.post(
         f"{MEDPACK_API_BASE_URL}/api/packing-queue",
-        json=queue_payload,
-        timeout=30,
+        json=queue_payload, timeout=90,
     )
     if queue_res.status_code == 200:
         queue_response = queue_res.json()
@@ -1908,7 +1907,7 @@ st.caption("Traceability -> Usable Stock -> Supply Chain Response -> Financial I
 st.markdown("#### Usable-Stock Check")
 st.caption("Shows the difference between total stock on paper and what is actually usable for the selected item.")
 try:
-    stage2_res = api_post("/api/usable-stock-analysis", telemetry, timeout=20)
+    stage2_res = api_post("/api/usable-stock-analysis", telemetry)
     if stage2_res.status_code == 200:
         stage2 = stage2_res.json()
         s2a, s2b, s2c, s2d, s2e, s2f = st.columns(6)
@@ -1931,7 +1930,7 @@ except Exception as e:
 st.markdown("#### \U0001F69A Supply Chain Action Plan")
 st.caption("From shortage detection to fix: transfer internally, order from a vendor, use a substitute, or escalate.")
 try:
-    stage3_res = api_post("/api/stage3-action-plan", telemetry, timeout=25)
+    stage3_res = api_post("/api/stage3-action-plan", telemetry)
     if stage3_res.status_code == 200:
         stage3 = stage3_res.json()
         transfer = stage3.get("transfer_recommendation", {}) or {}
@@ -1973,7 +1972,7 @@ except Exception as e:
 st.markdown("#### \U0001F4B0 Cost, Waste & ROI Executive View")
 st.caption("Business value at a glance: shortage dollars at risk, waste exposure, emergency premium, action cost, and net estimated value.")
 try:
-    stage4_res = api_post("/api/stage4-roi-analysis", telemetry, timeout=25)
+    stage4_res = api_post("/api/stage4-roi-analysis", telemetry)
     if stage4_res.status_code == 200:
         stage4 = stage4_res.json()
         q1, q2, q3, q4, q5, q6 = st.columns(6)
@@ -1997,7 +1996,7 @@ except Exception as e:
 st.markdown("#### \U0001F9ED Command Center")
 st.caption("The final command layer: priority code, owner, response window, action cards, escalation owner, audit checklist, and handoff packet.")
 try:
-    stage5_res = api_post("/api/stage5-command-center", telemetry, timeout=25)
+    stage5_res = api_post("/api/stage5-command-center", telemetry)
     if stage5_res.status_code == 200:
         stage5 = stage5_res.json()
         v1, v2, v3, v4, v5, v6 = st.columns(6)
@@ -2025,7 +2024,7 @@ except Exception as e:
 st.markdown("#### What-If Surge Simulator")
 st.caption("Stress-test the selected item/department under ED surge, ICU spike, flu season, supplier delay, mass-casualty, weekend staffing, or surgery spike.")
 try:
-    stage6_ref_res = api_get("/api/stage6-scenarios", timeout=10)
+    stage6_ref_res = api_get("/api/stage6-scenarios")
     if stage6_ref_res.status_code == 200:
         stage6_ref = stage6_ref_res.json()
         scenario_list = stage6_ref.get("scenarios", [])
@@ -2080,7 +2079,7 @@ try:
             },
         }
         with st.spinner("Running scenario through Stage 2-5 control tower..."):
-            stage6_res = api_post("/api/stage6-whatif-simulator", stage6_payload, timeout=35)
+            stage6_res = api_post("/api/stage6-whatif-simulator", stage6_payload)
 
         if stage6_res.status_code != 200:
             st.error(f"Stage 6 simulator API error: {stage6_res.status_code} - {stage6_res.text}")
@@ -2146,7 +2145,7 @@ stage_tabs = st.tabs([
 
 with stage_tabs[0]:
     try:
-        inv_res = api_get("/api/inventory", timeout=15)
+        inv_res = api_get("/api/inventory")
         if inv_res.status_code == 200:
             inventory_records = inv_res.json()
             df_inv = pd.DataFrame(inventory_records)
@@ -2170,7 +2169,7 @@ with stage_tabs[0]:
 
 with stage_tabs[1]:
     try:
-        alert_res = api_post("/api/compliance-alerts", {"department": dept, "expiration_window_days": 30}, timeout=15)
+        alert_res = api_post("/api/compliance-alerts", {"department": dept, "expiration_window_days": 30})
         if alert_res.status_code == 200:
             alerts = alert_res.json()
             counts = alerts.get("counts", {})
@@ -2230,7 +2229,7 @@ with stage_tabs[2]:
             "note": scan_note,
         }
         try:
-            scan_res = api_post("/api/scan-event", payload, timeout=15)
+            scan_res = api_post("/api/scan-event", payload)
             if scan_res.status_code == 200:
                 st.success("Scan event saved and inventory updated.")
                 st.json(scan_res.json().get("event", {}))
@@ -2241,7 +2240,7 @@ with stage_tabs[2]:
 
     st.markdown("#### Recent Scan Events")
     try:
-        events_res = api_get("/api/scan-events", params={"limit": 15}, timeout=10)
+        events_res = api_get("/api/scan-events", params={"limit": 15})
         if events_res.status_code == 200:
             events = events_res.json()
             if events:
@@ -2258,14 +2257,14 @@ with stage_tabs[3]:
     st.caption("This converts forecast + supplier delay + clinical criticality into a recommended PAR and max-stock level.")
     try:
         # First get a fresh prediction so the PAR recommendation reflects the current sidebar scenario.
-        pred_res = api_post("/api/predict-supply-demand", telemetry, timeout=20)
+        pred_res = api_post("/api/predict-supply-demand", telemetry)
         predicted = None
         if pred_res.status_code == 200:
             predicted = pred_res.json().get("predicted_24h_demand")
         par_payload = dict(telemetry)
         par_payload["predicted_24h_demand"] = predicted or recent_usage_rate * 24
         par_payload["par_level"] = reorder_point
-        par_res = api_post("/api/par-recommendation", par_payload, timeout=15)
+        par_res = api_post("/api/par-recommendation", par_payload)
         if par_res.status_code == 200:
             par = par_res.json()
             p1, p2, p3, p4 = st.columns(4)
@@ -2304,7 +2303,7 @@ with stage_tabs[4]:
             "note": task_note,
         }
         try:
-            create_res = api_post("/api/packing-tasks", payload, timeout=15)
+            create_res = api_post("/api/packing-tasks", payload)
             if create_res.status_code == 200:
                 st.success("Packing task created.")
                 st.json(create_res.json().get("task", {}))
@@ -2314,7 +2313,7 @@ with stage_tabs[4]:
             st.error(f"Task create failed: {e}")
 
     try:
-        tasks_res = api_get("/api/packing-tasks", params={"limit": 25}, timeout=10)
+        tasks_res = api_get("/api/packing-tasks", params={"limit": 25})
         if tasks_res.status_code == 200:
             tasks_payload = tasks_res.json()
             tasks = tasks_payload.get("tasks", [])
@@ -2326,7 +2325,7 @@ with stage_tabs[4]:
                 selected_task = st.selectbox("Update Task", df_tasks["task_id"].tolist())
                 new_status = st.selectbox("New Status", tasks_payload.get("valid_statuses", ["NEW", "ASSIGNED", "PICKING", "PACKED", "DELIVERED", "ESCALATED", "CANCELLED"]), index=1)
                 if st.button("Update Selected Task Status"):
-                    upd_res = requests.patch(f"{MEDPACK_API_BASE_URL}/api/packing-tasks", json={"task_id": selected_task, "status": new_status, "assigned_to": task_assignee, "note": "Updated from Streamlit task lifecycle panel."}, timeout=15)
+                    upd_res = requests.patch(f"{MEDPACK_API_BASE_URL}/api/packing-tasks", json={"task_id": selected_task, "status": new_status, "assigned_to": task_assignee, "note": "Updated from Streamlit task lifecycle panel."}, timeout=90)
                     if upd_res.status_code == 200:
                         st.success("Task status updated.")
                         st.json(upd_res.json().get("task", {}))
@@ -2341,7 +2340,7 @@ with stage_tabs[5]:
     st.markdown("#### Stage 3 Reference Data")
     st.caption("This is the seed data Stage 3 uses for supplier delay risk and substitute-item decisions.")
     try:
-        ref_res = api_get("/api/stage3-reference-data", timeout=10)
+        ref_res = api_get("/api/stage3-reference-data")
         if ref_res.status_code == 200:
             ref = ref_res.json()
             vendors = (ref.get("vendor_state") or {}).get("vendors", [])
@@ -2369,7 +2368,7 @@ with stage_tabs[6]:
     st.markdown("#### Stage 4 Financial Assumptions")
     st.caption("Transparent assumptions used to estimate shortage risk, waste risk, emergency-order premium, labor value, and ROI.")
     try:
-        cost_ref_res = api_get("/api/stage4-reference-data", timeout=10)
+        cost_ref_res = api_get("/api/stage4-reference-data")
         if cost_ref_res.status_code == 200:
             st.json(cost_ref_res.json())
         else:
@@ -2382,7 +2381,7 @@ with stage_tabs[7]:
     st.markdown("#### Stage 5 Command Playbook")
     st.caption("Editable owners, priority codes, response windows, and escalation cadence used by the final command center.")
     try:
-        playbook_res = api_get("/api/stage5-reference-data", timeout=10)
+        playbook_res = api_get("/api/stage5-reference-data")
         if playbook_res.status_code == 200:
             st.json(playbook_res.json())
         else:
@@ -2395,7 +2394,7 @@ with stage_tabs[8]:
     st.markdown("#### Stage 6 Scenario Playbooks")
     st.caption("Editable what-if scenarios used by the surge simulator. These modify telemetry and then run the adjusted case through Stages 2-5.")
     try:
-        scenario_res = api_get("/api/stage6-scenarios", timeout=10)
+        scenario_res = api_get("/api/stage6-scenarios")
         if scenario_res.status_code == 200:
             scenario_ref = scenario_res.json()
             scenarios = scenario_ref.get("scenarios", [])
@@ -2416,7 +2415,7 @@ if col2 is not None:
     with col2:
         st.header("Runtime Status")
         try:
-            health_res = requests.get(f"{MEDPACK_API_BASE_URL}/health", timeout=5)
+            health_res = requests.get(f"{MEDPACK_API_BASE_URL}/health", timeout=90)
             if health_res.status_code == 200:
                 health = health_res.json()
                 st.json({
@@ -2438,7 +2437,7 @@ if col2 is not None:
 
         st.header("Transparent Memory")
         try:
-            mem_res = requests.get(f"{MEDPACK_API_BASE_URL}/api/supply-memory", timeout=5)
+            mem_res = requests.get(f"{MEDPACK_API_BASE_URL}/api/supply-memory", timeout=90)
             if mem_res.status_code == 200:
                 memory_state = mem_res.json()
                 st.markdown("### Current Rolling State")
@@ -2470,7 +2469,7 @@ if col2 is not None:
                 
         st.markdown("### Recent Event Logs (supply_memory_events.jsonl)")
         try:
-            events_res = requests.get(f"{MEDPACK_API_BASE_URL}/api/supply-memory-events", timeout=5)
+            events_res = requests.get(f"{MEDPACK_API_BASE_URL}/api/supply-memory-events", timeout=90)
             if events_res.status_code == 200:
                 st.json(events_res.json())
         except Exception as e:
@@ -2480,7 +2479,7 @@ if col2 is not None:
 st.markdown("---")
 st.header("Data Source Transparency")
 try:
-    sources_res = requests.get(f"{MEDPACK_API_BASE_URL}/api/data-sources", timeout=5)
+    sources_res = requests.get(f"{MEDPACK_API_BASE_URL}/api/data-sources", timeout=90)
     if sources_res.status_code == 200:
         data_sources = sources_res.json()
         st.json(data_sources)
