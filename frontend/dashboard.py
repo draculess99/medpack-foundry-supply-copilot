@@ -416,11 +416,11 @@ telemetry = {
 
 
 def api_get(path, params=None):
-    return requests.get(f"{MEDPACK_API_BASE_URL}{path}", params=params or {}, timeout=timeout)
+    return requests.get(f"{MEDPACK_API_BASE_URL}{path}", params=params or {}, timeout=60)
 
 
 def api_post(path, payload=None):
-    return requests.post(f"{MEDPACK_API_BASE_URL}{path}", json=payload or {}, timeout=timeout)
+    return requests.post(f"{MEDPACK_API_BASE_URL}{path}", json=payload or {}, timeout=90)
 
 
 
