@@ -71,13 +71,12 @@ def main():
         env=env
     )
     
-    # Wait for backend to start up
-    time.sleep(2)
-    
-    # 5. Start Streamlit frontend
+
+    # 5. Start Streamlit frontend FIRST so Railway's port binding check passes
+    # (Railway requires the process to bind $PORT within 60s of start)
     print(f"Launching Streamlit Dashboard on port {FRONTEND_PORT}...")
     env["MEDPACK_API_BASE_URL"] = API_BASE_URL
-    
+
     # We can pass port and address directly to Streamlit
     frontend_proc = subprocess.Popen(
         [
@@ -88,7 +87,23 @@ def main():
         ],
         env=env
     )
-    
+
+    # Wait for Flask backend to be ready (up to 60s) before declaring success
+    print(f"Waiting for Flask backend on port {BACKEND_PORT}...")
+    import urllib.request
+    health_url = f"http://127.0.0.1:{BACKEND_PORT}/health"
+    for attempt in range(60):
+        try:
+            with urllib.request.urlopen(health_url, timeout=2) as resp:
+                if resp.status == 200:
+                    print(f"Backend ready after {attempt + 1}s.")
+                    break
+        except Exception:
+            pass
+        time.sleep(1)
+    else:
+        print("WARNING: Backend did not respond within 60s — continuing anyway.")
+
     print("\n----------------------------------------------------")
     print(f"MedPack AI backend running at http://127.0.0.1:{BACKEND_PORT}")
     print(f"MedPack AI dashboard running at http://127.0.0.1:{FRONTEND_PORT}")
