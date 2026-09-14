@@ -136,6 +136,10 @@ The terminal evidence below demonstrates a successful authenticated call to the 
 
 MedPack AI supports two complementary decision-support paths.
 
+![MedPack AI Decision Paths — Deterministic + Foundry vs Groq Committee](docs/images/medpack-decision-paths-foundry.png)
+
+*MedPack AI provides two reasoning paths. The deterministic engine produces authoritative operational facts and can optionally use Microsoft AI Foundry for a governed natural-language explanation. Alternatively, the Groq Committee provides LLM-powered multi-agent reasoning with its explanation built into the committee workflow. Both paths remain subject to human review and approval.*
+
 ### Path 1 — Deterministic + Microsoft AI Foundry
 
 1. Select the deterministic/local decision mode.
