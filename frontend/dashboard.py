@@ -260,16 +260,33 @@ with st.sidebar.container(border=True):
         )
         if selected_provider == "Groq":
             st.warning("Groq selected: the committee keeps the freeze-safe local calculation, then uses one short Groq call to rewrite the response if GROQ_API_KEY is available.")
-            if os.environ.get("GROQ_API_KEY", "").strip():
-                st.success("Groq API key detected in this Streamlit process.")
-            else:
-                st.error("Groq API key not detected in this Streamlit process. Groq will fall back to local mode and the token meter will correctly stay at 0.")
+            
             selected_model = st.selectbox(
                 "Select Remote Model",
                 ["openai/gpt-oss-120b", "qwen/qwen3.6-27b"],
                 index=0,
                 on_change=reset_state
             )
+            
+            usage = st.session_state.get("last_llm_usage", {}) or {}
+            last_provider = usage.get("provider", "").lower()
+            last_status = usage.get("last_call_status", "").lower()
+
+            if last_provider == "groq" and "success" in last_status:
+                tokens_used = usage.get("total_tokens", 0)
+                used_model = usage.get("model", selected_model)
+                st.success(
+                    f"**Groq Committee active**  \n"
+                    f"Remote Groq call succeeded.  \n\n"
+                    f"Provider: Groq  \n"
+                    f"Model: {used_model}  \n"
+                    f"Status: success  \n"
+                    f"Tokens: {tokens_used:,}"
+                )
+            elif last_provider == "groq" and "fail" in last_status:
+                st.error("Groq remote call failed. Groq fell back to local mode and the token meter correctly stayed at 0.")
+            else:
+                st.info("Groq selected — awaiting first committee execution.")
         else:
             st.warning("Remote LLM Mode selected. Tokens are only used if the backend is explicitly configured with USE_LLM_AGENTS=true and GEMINI_API_KEY.")
             selected_model = st.selectbox(
@@ -875,10 +892,12 @@ with col1:
     st.header("\U0001F4CA Prediction & Logistics Actions")
     
     # Buttons
-    run_forecast = st.button("\U0001F52E Predict 24-Hour Supply Demand")
-    run_committee_btn = st.button("\U0001F9E0 Run MedPack Committee Decision")
+    is_predicting = st.session_state.get("is_predicting", False)
+    run_forecast = st.button("\U0001F52E Predict 24-Hour Supply Demand", disabled=is_predicting)
+    run_committee_btn = st.button("\U0001F9E0 Run MedPack Committee Decision", disabled=is_predicting)
     
     if run_forecast or run_committee_btn:
+        st.session_state["is_predicting"] = True
         # Call Backend. Stage 2 fix: every committee path has a timeout and a local fallback.
         try:
             result = None
@@ -1454,17 +1473,34 @@ with col1:
                             "if it failed before any response arrived, there are no Groq usage tokens to count and the sidebar explains the failure status. "
                             f"MedPack kept the no-freeze local committee response. Reason: {groq_exc}"
                         )
+                # Release lock for Groq path
+                st.session_state["is_predicting"] = False
             else:
-                with st.spinner("Running forecast pipeline..."):
-                    res = requests.post(
-                        f"{MEDPACK_API_BASE_URL}/api/run-medpack-committee-fast",
-                        json=request_payload,
-                        timeout=(5, 90),
-                    )
-                if res.status_code == 200:
-                    result = res.json()
-                else:
-                    st.error(f"Backend API returned error code {res.status_code}: {res.text}")
+                max_attempts = 3
+                for attempt in range(1, max_attempts + 1):
+                    try:
+                        msg = "Running forecast pipeline..." if attempt == 1 else f"MedPack prediction engine is starting... (Attempt {attempt}/{max_attempts})"
+                        with st.spinner(msg):
+                            res = requests.post(
+                                f"{MEDPACK_API_BASE_URL}/api/run-medpack-committee-fast",
+                                json=request_payload,
+                                timeout=(5, 20),
+                            )
+                        if res.status_code == 200:
+                            result = res.json()
+                            break
+                        else:
+                            st.error(f"Backend API returned error code {res.status_code}: {res.text}")
+                            break
+                    except requests.exceptions.RequestException as e:
+                        if attempt < max_attempts:
+                            time.sleep(attempt)
+                        else:
+                            st.error(f"Failed to connect to backend server after {max_attempts} attempts. Please ensure it is running.\n\n{str(e)}")
+                            break
+                
+                # Release lock after API call is done
+                st.session_state["is_predicting"] = False
 
             if result:
                 # Persist the locked deterministic result so the Foundry panel

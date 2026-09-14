@@ -798,10 +798,11 @@ def rag_stats():
     return jsonify(_rag.get_stats())
 
 
-if __name__ == "__main__":
-    # Pre-warm the ML model so the first user request is served instantly.
-    # Without this, joblib + XGBoost cold-load on the first /api/predict call
-    # can take 30+ seconds, exceeding the dashboard's request timeout.
+def pre_warm_ml_model():
+    """Pre-warm the ML model so the first user request is served instantly.
+    Without this, joblib + XGBoost cold-load on the first /api/predict call
+    can take 30+ seconds, exceeding the dashboard's request timeout.
+    """
     try:
         print("[startup] Pre-warming ML model...")
         from backend.model import load_model_and_predict
@@ -824,8 +825,21 @@ if __name__ == "__main__":
             "pack_time_minutes": 4,
         }
         load_model_and_predict(_dummy)
-        print("[startup] ML model pre-warm complete.")
+        
+        # Also pre-warm the RAG FAISS index and HF embedding model since it is used in the fast deterministic path
+        try:
+            from backend.rag_manager import rag_manager
+            if rag_manager:
+                rag_manager._ensure_initialized()
+        except Exception as _rag_exc:
+            print(f"[startup] RAG pre-warm skipped: {_rag_exc}")
+
+        print("[startup] ML model and RAG pre-warm complete.")
     except Exception as _e:
         print(f"[startup] ML model pre-warm skipped: {_e}")
 
+# Run pre-warming unconditionally during app import/startup (e.g., Gunicorn workers)
+pre_warm_ml_model()
+
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port=PORT, debug=os.environ.get("FLASK_DEBUG", "0") == "1", threaded=True)
