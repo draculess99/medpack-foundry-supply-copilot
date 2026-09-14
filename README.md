@@ -132,6 +132,52 @@ The terminal evidence below demonstrates a successful authenticated call to the 
 ![Live Foundry call](docs/foundry-live-call-success.png)
 *Successful end-to-end Microsoft Foundry live authentication and execution.*
 
+## Demo Walkthrough — Choosing a Reasoning Path
+
+MedPack AI supports two complementary decision-support paths.
+
+### Path 1 — Deterministic + Microsoft AI Foundry
+
+1. Select the deterministic/local decision mode.
+2. MedPack calculates the authoritative operational result using its ML and
+   deterministic pipeline, including forecast demand, usable inventory,
+   shortage gap, risk level, packing priority, and recommended action.
+3. The deterministic result can stand on its own without an LLM.
+4. Optionally select Microsoft AI Foundry to generate a human-readable
+   operational explanation of the authoritative MedPack snapshot.
+5. Foundry preserves the supplied facts and does not recalculate or override
+   the deterministic decision.
+6. A human operator reviews the recommendation before any action is executed.
+
+**Use this path when:** deterministic, auditable calculations should remain
+authoritative while an LLM provides a clearer natural-language explanation.
+
+### Path 2 — Groq Agentic Committee
+
+1. Select the Groq remote LLM mode.
+2. MedPack supplies the operational context to the agentic committee.
+3. The Groq-powered committee produces its recommendation and
+   natural-language reasoning.
+4. Human review remains required before execution.
+
+Because Groq already provides an LLM-generated explanation as part of the
+committee workflow, an additional Microsoft AI Foundry explanation is
+normally unnecessary.
+
+### Why Both?
+
+The two modes demonstrate different AI design patterns:
+
+- **Deterministic + Foundry:** authoritative computation with optional
+  generative explanation.
+- **Groq Committee:** LLM-powered multi-agent reasoning with explanation
+  generated as part of the reasoning workflow.
+
+Microsoft AI Foundry is therefore an optional explanation layer rather than
+a dependency of the MedPack decision engine.
+
+In both modes, MedPack remains human-governed: no recommendation is
+automatically executed without human approval.
 
 ---
 
