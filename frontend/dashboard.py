@@ -1459,7 +1459,7 @@ with col1:
                     res = requests.post(
                         f"{MEDPACK_API_BASE_URL}/api/run-medpack-committee-fast",
                         json=request_payload,
-                        timeout=(5, 30),
+                        timeout=(5, 90),
                     )
                 if res.status_code == 200:
                     result = res.json()
