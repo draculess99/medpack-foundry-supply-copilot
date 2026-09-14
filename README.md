@@ -31,15 +31,19 @@ flowchart TD
     C --> D["ML Forecast"]
     D --> E["True Shortage Risk"]
     E --> F["Packing Optimizer"]
-    F --> G["Agentic Committee"]
-    G --> H["RAG Knowledge Layer"]
-    H --> I["Command Output"]
+    F --> G["Authoritative MedPack Decision / Snapshot"]
 
-    I -->|Authoritative MedPack Snapshot| J["Microsoft AI Foundry<br/>Operational Explanation<br/>Facts preserved — no recalculation"]
-    J --> K["Human Review / Approval"]
+    G -->|0 LLM Tokens| H["Local / Deterministic Mode"]
+    G -->|Optional LLM| I["Groq Committee Mode"]
+    G -->|Optional LLM| J["Microsoft AI Foundry Mode"]
+
+    H --> K["Human Review / Approval"]
     I --> K
-    I -.->|JSON Memory Feedback Loop| C
+    J --> K
+
+    G -.->|JSON Memory Feedback Loop| C
 ```
+
 
 ---
 
@@ -66,6 +70,8 @@ By default, MedPack AI runs entirely locally without needing any cloud API keys 
    python app.py
    ```
 3. **Open the Dashboard**: The script will automatically launch the Streamlit frontend (default `http://127.0.0.1:8503`) and the Flask backend (`http://127.0.0.1:5001`).
+
+*(Note for production deployments: Deterministic ML and RAG assets are pre-warmed at worker startup so the first production prediction does not incur model initialization latency.)*
 
 ### Optional: Microsoft Foundry Configuration
 To enable the `gpt-5.4-nano` remote agent committee:
@@ -118,9 +124,9 @@ MedPack first produces a zero-token, deterministic supply-risk decision using fo
 - Foundry acts as an operational explanation/reasoning layer that converts those facts into a readable explanation for a human operator.
 - The Foundry response should preserve the supplied facts and explicitly identify assumptions or missing information rather than inventing values.
 - Human approval remains required before operational execution.
-- This demonstrates a hybrid architecture: deterministic/ML decision engine + agentic committee/RAG + optional LLM explanation + human governance.
+- This demonstrates a hybrid architecture with one authoritative deterministic core that branches into optional decision-support paths (Groq Committee or Microsoft AI Foundry), governed by human approval.
 
-*(Note: MedPack also supports Groq as a remote LLM mode. Neither Groq nor Foundry replace the deterministic engine.)*
+*(Note: MedPack supports Groq as an independent, alternative remote LLM mode. Neither Groq nor Foundry replace the deterministic engine, nor do they depend on each other.)*
 
 ![Live production Microsoft AI Foundry explanation](docs/production-foundry-explanation.png)
 *Live production Microsoft AI Foundry explanation — the deployed MedPack AI application sends authoritative operational facts to the Foundry agent, which returns a human-readable explanation while preserving the deterministic decision.*
@@ -134,54 +140,35 @@ The terminal evidence below demonstrates a successful authenticated call to the 
 
 ## Demo Walkthrough — Choosing a Reasoning Path
 
-MedPack AI supports two complementary decision-support paths.
+MedPack AI has one authoritative deterministic core that branches into three decision-support paths.
 
-![MedPack AI Decision Paths — Deterministic + Foundry vs Groq Committee](docs/images/medpack-decision-paths-foundry.png)
+![MedPack AI Architecture and Decision Paths](docs/images/medpack-architecture-foundry.png)
 
-*MedPack AI provides two reasoning paths. The deterministic engine produces authoritative operational facts and can optionally use Microsoft AI Foundry for a governed natural-language explanation. Alternatively, the Groq Committee provides LLM-powered multi-agent reasoning with its explanation built into the committee workflow. Both paths remain subject to human review and approval.*
+*MedPack AI provides three optional reasoning paths. The deterministic engine produces the authoritative operational facts. From there, users can optionally use the Groq Committee for LLM-powered multi-agent reasoning, or Microsoft AI Foundry for a governed natural-language explanation. All paths remain subject to human review and approval.*
 
-### Path 1 — Deterministic + Microsoft AI Foundry
+### 1. Local / Deterministic Mode
+- MedPack operates entirely without an external LLM.
+- The deterministic engine produces the operational result and decision-support snapshot.
+- This path uses 0 external LLM tokens.
+- MedPack remains fully functional even when Groq and Foundry are unavailable.
+- A human operator reviews the recommendation before any action is executed.
 
-1. Select the deterministic/local decision mode.
-2. MedPack calculates the authoritative operational result using its ML and
-   deterministic pipeline, including forecast demand, usable inventory,
-   shortage gap, risk level, packing priority, and recommended action.
-3. The deterministic result can stand on its own without an LLM.
-4. Optionally select Microsoft AI Foundry to generate a human-readable
-   operational explanation of the authoritative MedPack snapshot.
-5. Foundry preserves the supplied facts and does not recalculate or override
-   the deterministic decision.
-6. A human operator reviews the recommendation before any action is executed.
+### 2. Groq Committee Mode
+- Groq acts as an optional agentic reasoning layer, explicitly selected by the user.
+- The Groq Committee receives the authoritative deterministic MedPack facts and provides richer committee reasoning, interpretation, and explanation.
+- Groq does NOT recalculate the authoritative ML forecast, inventory quantities, shortage gap, or packing priority. 
+- Token telemetry is accurately recorded and displayed in the sidebar.
+- A human operator reviews the recommendation before any action is executed.
 
-**Use this path when:** deterministic, auditable calculations should remain
-authoritative while an LLM provides a clearer natural-language explanation.
+### 3. Microsoft AI Foundry Mode
+- Microsoft AI Foundry is another optional branch from the same authoritative deterministic MedPack snapshot.
+- Foundry provides a governed operational explanation of the MedPack result.
+- Foundry does NOT recalculate or override the authoritative deterministic values.
+- It is explicitly invoked by the user and is NOT required for Groq Committee mode, nor is Groq required for Foundry.
+- A human operator reviews the recommendation before any action is executed.
 
-### Path 2 — Groq Agentic Committee
-
-1. Select the Groq remote LLM mode.
-2. MedPack supplies the operational context to the agentic committee.
-3. The Groq-powered committee produces its recommendation and
-   natural-language reasoning.
-4. Human review remains required before execution.
-
-Because Groq already provides an LLM-generated explanation as part of the
-committee workflow, an additional Microsoft AI Foundry explanation is
-normally unnecessary.
-
-### Why Both?
-
-The two modes demonstrate different AI design patterns:
-
-- **Deterministic + Foundry:** authoritative computation with optional
-  generative explanation.
-- **Groq Committee:** LLM-powered multi-agent reasoning with explanation
-  generated as part of the reasoning workflow.
-
-Microsoft AI Foundry is therefore an optional explanation layer rather than
-a dependency of the MedPack decision engine.
-
-In both modes, MedPack remains human-governed: no recommendation is
-automatically executed without human approval.
+### Human Governance
+In all three modes, human review and approval remains the final governance control before an operational action is executed. Neither Groq nor Foundry can silently execute orders.
 
 ---
 
