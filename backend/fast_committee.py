@@ -197,7 +197,7 @@ def build_fast_committee_payload(telemetry: Mapping[str, Any]) -> Dict[str, Any]
         "tokens_used": 0,
         "fallback_mode": True,
         "mode_note": "Freeze Fix v3: fast local committee endpoint used. No Groq, Gemini, streaming, joblib model load, or remote LLM call was made.",
-        "rag_knowledge": rag_manager.query_rag(f"{item} in {dept}") if rag_manager else "",
+        "rag_knowledge": rag_manager.query_rag(f"{item} in {dept}") if (rag_manager and getattr(rag_manager, "_initialized", False)) else "(RAG optional for fast path)",
     }
 
     return {

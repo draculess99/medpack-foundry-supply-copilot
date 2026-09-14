@@ -70,7 +70,7 @@ def main():
         [sys.executable, "-m", "backend.server"],
         env=env
     )
-    
+    print(f"[startup] backend process launched PID={backend_proc.pid}")
 
     # 5. Start Streamlit frontend FIRST so Railway's port binding check passes
     # (Railway requires the process to bind $PORT within 60s of start)
@@ -93,6 +93,10 @@ def main():
     import urllib.request
     health_url = f"http://127.0.0.1:{BACKEND_PORT}/health"
     for attempt in range(60):
+        if backend_proc.poll() is not None:
+            print(f"FATAL: Backend process terminated unexpectedly with exit code {backend_proc.returncode} during startup.")
+            break
+            
         try:
             with urllib.request.urlopen(health_url, timeout=2) as resp:
                 if resp.status == 200:

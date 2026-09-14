@@ -54,6 +54,8 @@ def _resolve_committee_agent_mode(telemetry):
     requested = str(telemetry.get("agent_mode", os.environ.get("DEFAULT_AGENT_MODE", "local"))).strip().lower()
     return "remote" if requested == "remote" else "local"
 
+_ML_READY = False
+
 @app.route("/health", methods=["GET"])
 def health():
     remote_enabled = str(os.environ.get("USE_LLM_AGENTS", "false")).strip().lower() in {"1", "true", "yes", "y", "on"}
@@ -73,6 +75,13 @@ def health():
         "stage5_agentic_command_center": True,
         "stage6_whatif_surge_simulator": True
     })
+
+@app.route("/ready", methods=["GET"])
+def ready():
+    """Returns 200 only when the deterministic prediction engine is ready."""
+    if _ML_READY:
+        return jsonify({"ready": True, "status": "ok"})
+    return jsonify({"ready": False, "status": "starting"}), 503
 
 @app.route("/api/data-sources", methods=["GET"])
 def data_sources():
@@ -803,8 +812,11 @@ def pre_warm_ml_model():
     Without this, joblib + XGBoost cold-load on the first /api/predict call
     can take 30+ seconds, exceeding the dashboard's request timeout.
     """
+    global _ML_READY
     try:
-        print("[startup] Pre-warming ML model...")
+        print("[startup] ML prewarm started", flush=True)
+        import time
+        t0 = time.time()
         from backend.model import load_model_and_predict
         _dummy = {
             "department": "Emergency Department",
@@ -826,20 +838,17 @@ def pre_warm_ml_model():
         }
         load_model_and_predict(_dummy)
         
-        # Also pre-warm the RAG FAISS index and HF embedding model since it is used in the fast deterministic path
-        try:
-            from backend.rag_manager import rag_manager
-            if rag_manager:
-                rag_manager._ensure_initialized()
-        except Exception as _rag_exc:
-            print(f"[startup] RAG pre-warm skipped: {_rag_exc}")
-
-        print("[startup] ML model and RAG pre-warm complete.")
+        t1 = time.time()
+        print(f"[startup] ML prewarm completed in {t1 - t0:.2f} sec", flush=True)
+        
+        _ML_READY = True
     except Exception as _e:
-        print(f"[startup] ML model pre-warm skipped: {_e}")
+        print(f"[startup] ML model pre-warm skipped: {_e}", flush=True)
 
 # Run pre-warming unconditionally during app import/startup (e.g., Gunicorn workers)
 pre_warm_ml_model()
 
 if __name__ == "__main__":
+    print(f"[startup] Flask binding port {PORT}", flush=True)
+    print("[startup] backend ready", flush=True)
     app.run(host="0.0.0.0", port=PORT, debug=os.environ.get("FLASK_DEBUG", "0") == "1", threaded=True)

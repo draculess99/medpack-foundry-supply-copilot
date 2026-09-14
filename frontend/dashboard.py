@@ -432,12 +432,25 @@ telemetry = {
 }
 
 
+class _MockResponse:
+    def __init__(self):
+        self.status_code = 503
+        self.text = "MedPack prediction engine is starting. Please wait..."
+    def json(self):
+        return {"error": self.text}
+
 def api_get(path, params=None):
-    return requests.get(f"{MEDPACK_API_BASE_URL}{path}", params=params or {}, timeout=60)
+    try:
+        return requests.get(f"{MEDPACK_API_BASE_URL}{path}", params=params or {}, timeout=60)
+    except requests.exceptions.ConnectionError:
+        return _MockResponse()
 
 
 def api_post(path, payload=None):
-    return requests.post(f"{MEDPACK_API_BASE_URL}{path}", json=payload or {}, timeout=90)
+    try:
+        return requests.post(f"{MEDPACK_API_BASE_URL}{path}", json=payload or {}, timeout=90)
+    except requests.exceptions.ConnectionError:
+        return _MockResponse()
 
 
 
@@ -1496,7 +1509,7 @@ with col1:
                         if attempt < max_attempts:
                             time.sleep(attempt)
                         else:
-                            st.error(f"Failed to connect to backend server after {max_attempts} attempts. Please ensure it is running.\n\n{str(e)}")
+                            st.info("MedPack prediction engine is starting. Please wait...")
                             break
                 
                 # Release lock after API call is done
@@ -1890,10 +1903,13 @@ st.caption(
 try:
     queue_payload = dict(telemetry)
     queue_payload.update({"limit": 5, "max_records": 75})
-    queue_res = requests.post(
-        f"{MEDPACK_API_BASE_URL}/api/packing-queue",
-        json=queue_payload, timeout=90,
-    )
+    try:
+        queue_res = requests.post(
+            f"{MEDPACK_API_BASE_URL}/api/packing-queue",
+            json=queue_payload, timeout=90,
+        )
+    except requests.exceptions.ConnectionError:
+        queue_res = _MockResponse()
     if queue_res.status_code == 200:
         queue_response = queue_res.json()
         queue_data = queue_response.get("queue", queue_response if isinstance(queue_response, list) else [])
