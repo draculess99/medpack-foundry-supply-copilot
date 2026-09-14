@@ -17,22 +17,28 @@ MedPack AI bridges the gap between historical inventory data and operational rea
 
 ## Architecture & Microsoft Foundry Integration
 
-> Microsoft Foundry is an optional explanation copilot; deterministic MedPack calculations and human approval remain authoritative.
-
-
-
-MedPack AI leverages **Microsoft AI Foundry** to deploy a multi-agent system (`medpack-supply-copilot`). 
-We use the **`gpt-5.4-nano`** model to ensure lightning-fast inference and tight cost-control, making it economically viable to run hundreds of supply checks per hour across a hospital network.
+MedPack AI leverages a hybrid architecture:
+- XGBoost/deterministic logic produces authoritative operational facts.
+- Agentic committee + RAG provide operational decision support.
+- Groq can provide an optional LLM response/explanation mode.
+- Microsoft AI Foundry provides a governed operational explanation of the authoritative MedPack snapshot.
+- Human approval remains the final control before execution.
 
 ```mermaid
 flowchart TD
-    A["Hospital inventory data (no PHI)"] --> B["Deterministic MedPack Core"]
-    B --> C["Demand forecast (XGBoost)"]
-    C --> D["Usable-stock and shortage analysis"]
-    D --> E["Local committee consensus"]
-    E --> F["Foundry explanation copilot (optional)"]
-    E --> G["Human approval required"]
-    F --> G
+    A["Operational Signals"] --> B["Streamlit Dashboard"]
+    B --> C["Flask API"]
+    C --> D["ML Forecast"]
+    D --> E["True Shortage Risk"]
+    E --> F["Packing Optimizer"]
+    F --> G["Agentic Committee"]
+    G --> H["RAG Knowledge Layer"]
+    H --> I["Command Output"]
+
+    I -->|Authoritative MedPack Snapshot| J["Microsoft AI Foundry<br/>Operational Explanation<br/>Facts preserved — no recalculation"]
+    J --> K["Human Review / Approval"]
+    I --> K
+    I -.->|JSON Memory Feedback Loop| C
 ```
 
 ---
@@ -103,27 +109,28 @@ MedPack first produces a zero-token, deterministic supply-risk decision using fo
 
 ---
 
-## Live Microsoft Foundry Evidence
+## Microsoft AI Foundry — Operational Explanation Layer
 
-MedPack Version 1 was tested end-to-end using the deployed `medpack-supply-copilot` agent in Microsoft Foundry.
+- MedPack AI's deterministic/ML pipeline remains the authoritative source for operational facts and decisions.
+- The existing MedPack engine calculates forecast demand, usable stock, true shortage gap, risk level, transfer possibilities, packing priority, escalation status, and recommended action.
+- Microsoft AI Foundry does NOT recalculate or override those authoritative values.
+- The authoritative MedPack snapshot is passed to the Microsoft AI Foundry agent.
+- Foundry acts as an operational explanation/reasoning layer that converts those facts into a readable explanation for a human operator.
+- The Foundry response should preserve the supplied facts and explicitly identify assumptions or missing information rather than inventing values.
+- Human approval remains required before operational execution.
+- This demonstrates a hybrid architecture: deterministic/ML decision engine + agentic committee/RAG + optional LLM explanation + human governance.
 
-Verified results:
-* The application successfully authenticated through Azure CLI and received HTTP 200 from the Foundry agent endpoint.
-* The original deterministic MedPack engine remains the authoritative source of truth.
-* Foundry receives the authoritative snapshot and explains it without changing the decision.
-* The live synthetic scenario produced:
-  * High shortage risk
-  * 10-kit gap after a confirmed 25-kit transfer
-  * expedited-order recommendation
-  * explicit human approval required
-* The demo used synthetic, no-PHI operational data only.
-* The live test used the low-cost `gpt-5.4-nano` deployment.
+*(Note: MedPack also supports Groq as a remote LLM mode. Neither Groq nor Foundry replace the deterministic engine.)*
+
+![Live production Microsoft AI Foundry explanation](docs/production-foundry-explanation.png)
+*Live production Microsoft AI Foundry explanation — the deployed MedPack AI application sends authoritative operational facts to the Foundry agent, which returns a human-readable explanation while preserving the deterministic decision.*
+
+### Foundry Integration Evidence
+
+The terminal evidence below demonstrates a successful authenticated call to the configured Microsoft AI Foundry agent. 
 
 ![Live Foundry call](docs/foundry-live-call-success.png)
-*Figure 1: Successful end-to-end Microsoft Foundry live authentication and execution.*
-
-![Foundry explanation output](docs/foundry-explanation-output.png)
-*Figure 2: The deployed medpack-supply-copilot accurately explaining the immutable MedPack risk snapshot.*
+*Successful end-to-end Microsoft Foundry live authentication and execution.*
 
 
 ---
