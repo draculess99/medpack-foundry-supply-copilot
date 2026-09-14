@@ -533,17 +533,10 @@ def _build_tiny_groq_context(telemetry_payload, local_result):
     stage5 = local_result.get("stage5_command_center", {}) if isinstance(local_result, dict) else {}
     committee = local_result.get("committee", {}) if isinstance(local_result, dict) else {}
 
-    # Force inject RAG directly from frontend to avoid backend restart issues
+    # Rely purely on the backend's provided RAG knowledge to avoid blocking the UI.
     rag_text = committee.get("rag_knowledge", "")
-    if not rag_text:
-        try:
-            from backend.rag_manager import rag_manager
-            item = telemetry_payload.get("item_name", "")
-            dept = telemetry_payload.get("department", "")
-            if rag_manager:
-                rag_text = rag_manager.query_rag(f"{item} in {dept}")
-        except Exception:
-            pass
+    if not rag_text or rag_text == "(RAG optional for fast path)":
+        rag_text = "RAG knowledge not loaded in fast mode. Run a RAG-enabled workflow to retrieve supporting knowledge."
     committee["rag_knowledge"] = rag_text
 
     tiny = {
@@ -1735,21 +1728,14 @@ with col1:
                     st.markdown("#### \U0001F4DD Committee Consensus Summary")
                     st.success(committee["committee_summary"])
                     with st.expander("\U0001F4DA DEBUG: RAG Knowledge Received", expanded=True):
-                        # Use the exact same logic here so the debug panel shows exactly what Groq sees
+                        # Display the RAG knowledge received from the backend (if any)
                         debug_rag_text = committee.get("rag_knowledge", "")
-                        if not debug_rag_text:
-                            try:
-                                from backend.rag_manager import rag_manager
-                                item = request_payload.get("item_name", "")
-                                dept = request_payload.get("department", "")
-                                if rag_manager:
-                                    debug_rag_text = rag_manager.query_rag(f"{item} in {dept}")
-                            except Exception:
-                                pass
+                        if not debug_rag_text or debug_rag_text == "(RAG optional for fast path)":
+                            debug_rag_text = "RAG knowledge not loaded in fast mode. Run a RAG-enabled workflow to retrieve supporting knowledge."
                         
-                        st.write(f"RAG Payload: {debug_rag_text or 'EMPTY/NONE'}")
+                        st.write(f"RAG Payload: {debug_rag_text}")
                         with open("rag_debug_log.txt", "w") as f:
-                            f.write(str(debug_rag_text or 'EMPTY/NONE'))
+                            f.write(str(debug_rag_text))
                     
                     mode_actual = str(committee.get("actual_agent_mode", "local"))
                     tokens_used = int(committee.get("tokens_used", 0) or 0)
