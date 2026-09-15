@@ -1879,6 +1879,23 @@ if st.session_state.get("medpack_deterministic_result") is not None:
 
 st.markdown("---")
 with st.expander("🧪 What-If Scenario Simulator — HYPOTHETICAL", expanded=False):
+    st.markdown(
+        """
+        <style>
+        div[data-testid="stExpander"]:has(#whatif-simulator-marker) {
+            border: 2px solid #0d9488 !important;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        div[data-testid="stExpanderDetails"]:has(#whatif-simulator-marker) {
+            background-color: rgba(13, 148, 136, 0.1) !important;
+            border-top: 1px solid rgba(13, 148, 136, 0.3) !important;
+        }
+        </style>
+        <div id="whatif-simulator-marker"></div>
+        """,
+        unsafe_allow_html=True,
+    )
     st.markdown("#### 🧪 What-If Scenario Simulator <span style='font-size: 0.6em; background: rgba(56, 189, 248, 0.2); color: #38bdf8; padding: 2px 8px; border-radius: 10px; vertical-align: middle; margin-left: 10px;'>SIMULATION</span>", unsafe_allow_html=True)
     st.markdown("<p style='color: #94a3b8; font-size: 0.9em; margin-bottom: 20px;'>Hypothetical analysis — does not modify the active MedPack prediction or committee decision.</p>", unsafe_allow_html=True)
     try:
@@ -1994,6 +2011,8 @@ with st.expander("🧪 What-If Scenario Simulator — HYPOTHETICAL", expanded=Fa
                             st.write("No modifiers returned.")
                 if show_stage6_json:
                     st.json(stage6)
+        
+        st.markdown("<div style='margin-top: 20px; padding: 12px; border-radius: 8px; background: rgba(0,0,0,0.25); border-left: 4px solid #0d9488;'><span style='color: #cbd5e1; font-size: 0.95em;'>Simulation results are for planning and exploration only. They do not modify the current MedPack prediction, committee decision, or any saved data.</span></div>", unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Stage 6 simulator panel unavailable: {e}")
 
