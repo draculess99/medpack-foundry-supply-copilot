@@ -2059,114 +2059,125 @@ except Exception as e:
     st.error(f"Stage 5 command-center panel unavailable: {e}")
 
 
-st.markdown("#### What-If Surge Simulator")
-st.caption("Stress-test the selected item/department under ED surge, ICU spike, flu season, supplier delay, mass-casualty, weekend staffing, or surgery spike.")
-try:
-    stage6_ref_res = api_get("/api/stage6-scenarios")
-    if stage6_ref_res.status_code == 200:
-        stage6_ref = stage6_ref_res.json()
-        scenario_list = stage6_ref.get("scenarios", [])
-    else:
-        scenario_list = []
-    if not scenario_list:
-        scenario_list = [
-            {"scenario_id": "ED_SURGE_40", "scenario_name": "ED Surge +40%"},
-            {"scenario_id": "ICU_RESPIRATORY_SPIKE", "scenario_name": "ICU Respiratory Spike"},
-            {"scenario_id": "FLU_SEASON_DEMAND", "scenario_name": "Flu Season Demand"},
-            {"scenario_id": "SUPPLIER_DELAY_5D", "scenario_name": "Supplier Delay +5 Days"},
-            {"scenario_id": "MASS_CASUALTY_MODE", "scenario_name": "Mass Casualty Mode"},
-            {"scenario_id": "WEEKEND_STAFFING_CONSTRAINT", "scenario_name": "Weekend Staffing Constraint"},
-            {"scenario_id": "SURGERY_SCHEDULE_SPIKE", "scenario_name": "Surgery Schedule Spike"},
-        ]
-
-    scenario_names = [s.get("scenario_name", s.get("scenario_id")) for s in scenario_list]
-    scenario_name_to_id = {s.get("scenario_name", s.get("scenario_id")): s.get("scenario_id") for s in scenario_list}
-    w1, w2, w3 = st.columns([1.5, 1, 1])
-    with w1:
-        selected_scenario_name = st.selectbox("Scenario", scenario_names, index=0, key="stage6_scenario_select")
-        selected_scenario_id = scenario_name_to_id.get(selected_scenario_name, "ED_SURGE_40")
-    with w2:
-        compare_all_scenarios = st.checkbox("Compare all scenarios", value=False, key="stage6_compare_all")
-    with w3:
-        show_stage6_json = st.checkbox("Show full JSON", value=False, key="stage6_show_json")
-
-    with st.expander("Optional custom shock controls", expanded=False):
-        c1, c2, c3, c4, c5 = st.columns(5)
-        with c1:
-            custom_demand_multiplier = st.number_input("Demand multiplier", min_value=0.5, max_value=3.0, value=1.0, step=0.05, key="stage6_demand_mult")
-        with c2:
-            custom_supplier_delay = st.number_input("Add supplier delay days", min_value=0.0, max_value=14.0, value=0.0, step=0.5, key="stage6_delay_add")
-        with c3:
-            custom_stock_loss = st.number_input("Stock loss units", min_value=0, max_value=500, value=0, step=1, key="stage6_stock_loss")
-        with c4:
-            custom_acuity_delta = st.number_input("Acuity delta", min_value=0.0, max_value=2.0, value=0.0, step=0.1, key="stage6_acuity_delta")
-        with c5:
-            custom_pack_multiplier = st.number_input("Pack time multiplier", min_value=0.5, max_value=3.0, value=1.0, step=0.05, key="stage6_pack_mult")
-
-    if st.button("Run What-If Simulator", key="run_stage6_whatif"):
-        stage6_payload = {
-            "telemetry": telemetry,
-            "scenario_id": selected_scenario_id,
-            "compare_all": bool(compare_all_scenarios),
-            "custom_modifiers": {
-                "demand_multiplier": float(custom_demand_multiplier),
-                "supplier_delay_add_days": float(custom_supplier_delay),
-                "stock_reduction_units": int(custom_stock_loss),
-                "acuity_delta": float(custom_acuity_delta),
-                "pack_time_multiplier": float(custom_pack_multiplier),
-            },
-        }
-        with st.spinner("Running scenario through Stage 2-5 control tower..."):
-            stage6_res = api_post("/api/stage6-whatif-simulator", stage6_payload)
-
-        if stage6_res.status_code != 200:
-            st.error(f"Stage 6 simulator API error: {stage6_res.status_code} - {stage6_res.text}")
+st.markdown("---")
+with st.expander("🧪 What-If Scenario Simulator — HYPOTHETICAL", expanded=False):
+    st.markdown("#### 🧪 What-If Scenario Simulator <span style='font-size: 0.6em; background: rgba(56, 189, 248, 0.2); color: #38bdf8; padding: 2px 8px; border-radius: 10px; vertical-align: middle; margin-left: 10px;'>SIMULATION</span>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #94a3b8; font-size: 0.9em; margin-bottom: 20px;'>Hypothetical analysis — does not modify the active MedPack prediction or committee decision.</p>", unsafe_allow_html=True)
+    try:
+        stage6_ref_res = api_get("/api/stage6-scenarios")
+        if stage6_ref_res.status_code == 200:
+            stage6_ref = stage6_ref_res.json()
+            scenario_list = stage6_ref.get("scenarios", [])
         else:
-            stage6 = stage6_res.json()
-            if stage6.get("benchmark_rows"):
-                st.success(stage6.get("control_tower_summary", "Scenario benchmark complete."))
-                df_stage6 = pd.DataFrame(stage6.get("benchmark_rows", []))
-                show_cols = [
-                    "scenario_name", "severity", "scenario_forecast", "demand_delta",
-                    "scenario_gap", "gap_delta", "scenario_priority", "scenario_score",
-                ]
-                st.dataframe(df_stage6[[c for c in show_cols if c in df_stage6.columns]], use_container_width=True)
-                top = stage6.get("highest_risk_scenario", {})
-                b1, b2, b3, b4 = st.columns(4)
-                b1.metric("Highest Risk Scenario", top.get("scenario_name", "N/A"))
-                b2.metric("Priority", top.get("scenario_priority", "N/A"))
-                b3.metric("Scenario Gap", top.get("scenario_gap", 0))
-                b4.metric("Demand (Change)", top.get("demand_delta", 0))
+            scenario_list = []
+        if not scenario_list:
+            scenario_list = [
+                {"scenario_id": "ED_SURGE_40", "scenario_name": "ED Surge +40%"},
+                {"scenario_id": "ICU_RESPIRATORY_SPIKE", "scenario_name": "ICU Respiratory Spike"},
+                {"scenario_id": "FLU_SEASON_DEMAND", "scenario_name": "Flu Season Demand"},
+                {"scenario_id": "SUPPLIER_DELAY_5D", "scenario_name": "Supplier Delay +5 Days"},
+                {"scenario_id": "MASS_CASUALTY_MODE", "scenario_name": "Mass Casualty Mode"},
+                {"scenario_id": "WEEKEND_STAFFING_CONSTRAINT", "scenario_name": "Weekend Staffing Constraint"},
+                {"scenario_id": "SURGERY_SCHEDULE_SPIKE", "scenario_name": "Surgery Schedule Spike"},
+            ]
+
+        scenario_names = [s.get("scenario_name", s.get("scenario_id")) for s in scenario_list]
+        scenario_name_to_id = {s.get("scenario_name", s.get("scenario_id")): s.get("scenario_id") for s in scenario_list}
+        w1, w2, w3 = st.columns([1.5, 1, 1])
+        with w1:
+            selected_scenario_name = st.selectbox("Scenario", scenario_names, index=0, key="stage6_scenario_select")
+            selected_scenario_id = scenario_name_to_id.get(selected_scenario_name, "ED_SURGE_40")
+        with w2:
+            compare_all_scenarios = st.checkbox("Compare all scenarios", value=False, key="stage6_compare_all")
+        with w3:
+            show_stage6_json = st.checkbox("Show full JSON", value=False, key="stage6_show_json")
+
+        with st.expander("Optional custom shock controls", expanded=False):
+            c1, c2, c3, c4, c5 = st.columns(5)
+            with c1:
+                custom_demand_multiplier = st.number_input("Demand multiplier", min_value=0.5, max_value=3.0, value=1.0, step=0.05, key="stage6_demand_mult")
+            with c2:
+                custom_supplier_delay = st.number_input("Add supplier delay days", min_value=0.0, max_value=14.0, value=0.0, step=0.5, key="stage6_delay_add")
+            with c3:
+                custom_stock_loss = st.number_input("Stock loss units", min_value=0, max_value=500, value=0, step=1, key="stage6_stock_loss")
+            with c4:
+                custom_acuity_delta = st.number_input("Acuity delta", min_value=0.0, max_value=2.0, value=0.0, step=0.1, key="stage6_acuity_delta")
+            with c5:
+                custom_pack_multiplier = st.number_input("Pack time multiplier", min_value=0.5, max_value=3.0, value=1.0, step=0.05, key="stage6_pack_mult")
+
+        if st.button("↺ Return to Current MedPack Baseline", key="reset_stage6"):
+            keys_to_clear = ["stage6_scenario_select", "stage6_compare_all", "stage6_show_json", "stage6_demand_mult", "stage6_delay_add", "stage6_stock_loss", "stage6_acuity_delta", "stage6_pack_mult"]
+            for k in keys_to_clear:
+                if k in st.session_state:
+                    del st.session_state[k]
+            st.rerun()
+
+        if st.button("Run What-If Simulator", key="run_stage6_whatif"):
+            stage6_payload = {
+                "telemetry": telemetry,
+                "scenario_id": selected_scenario_id,
+                "compare_all": bool(compare_all_scenarios),
+                "custom_modifiers": {
+                    "demand_multiplier": float(custom_demand_multiplier),
+                    "supplier_delay_add_days": float(custom_supplier_delay),
+                    "stock_reduction_units": int(custom_stock_loss),
+                    "acuity_delta": float(custom_acuity_delta),
+                    "pack_time_multiplier": float(custom_pack_multiplier),
+                },
+            }
+            with st.spinner("Running scenario through Stage 2-5 control tower..."):
+                stage6_res = api_post("/api/stage6-whatif-simulator", stage6_payload)
+
+            if stage6_res.status_code != 200:
+                st.error(f"Stage 6 simulator API error: {stage6_res.status_code} - {stage6_res.text}")
             else:
-                s1, s2, s3, s4, s5, s6 = st.columns(6)
-                s1.metric("Baseline Demand", f"{stage6.get('baseline_forecast', 0):.1f}")
-                s2.metric("Scenario Demand", f"{stage6.get('scenario_forecast', 0):.1f}", delta=f"{stage6.get('demand_delta', 0):+.1f}")
-                s3.metric("Baseline Gap", stage6.get("baseline_true_shortage_gap", 0))
-                s4.metric("Scenario Gap", stage6.get("scenario_true_shortage_gap", 0), delta=f"{stage6.get('true_shortage_gap_delta', 0):+.1f}")
-                s5.metric("Priority Shift", f"{stage6.get('baseline_priority_code')} -> {stage6.get('scenario_priority_code')}")
-                s6.metric("Net Value (Change)", f"${stage6.get('net_value_delta', 0):,.0f}")
-                st.warning(stage6.get("simulator_summary", "No scenario summary returned."))
-                st.success(stage6.get("recommended_scenario_action", "No scenario action returned."))
-                scenario_stage5 = stage6.get("scenario_stage5_command_center", {})
-                if scenario_stage5:
-                    with st.expander("Scenario Stage 5 command cards", expanded=True):
-                        cards = scenario_stage5.get("action_cards", [])
-                        if cards:
-                            df_cards = pd.DataFrame(cards)
-                            cols = ["action_id", "owner", "status", "due_minutes", "action", "success_metric"]
-                            st.dataframe(df_cards[[c for c in cols if c in df_cards.columns]], use_container_width=True)
+                stage6 = stage6_res.json()
+                if stage6.get("benchmark_rows"):
+                    st.success(stage6.get("control_tower_summary", "Scenario benchmark complete."))
+                    st.markdown("###### 🧪 SIMULATED RESULT")
+                    df_stage6 = pd.DataFrame(stage6.get("benchmark_rows", []))
+                    show_cols = [
+                        "scenario_name", "severity", "scenario_forecast", "demand_delta",
+                        "scenario_gap", "gap_delta", "scenario_priority", "scenario_score",
+                    ]
+                    st.dataframe(df_stage6[[c for c in show_cols if c in df_stage6.columns]], use_container_width=True)
+                    top = stage6.get("highest_risk_scenario", {})
+                    b1, b2, b3, b4 = st.columns(4)
+                    b1.metric("Highest Risk Simulated Scenario", top.get("scenario_name", "N/A"))
+                    b2.metric("Simulated Priority", top.get("scenario_priority", "N/A"))
+                    b3.metric("Simulated Shortage Gap", top.get("scenario_gap", 0))
+                    b4.metric("Demand (Change)", top.get("demand_delta", 0))
+                else:
+                    s1, s2, s3, s4, s5, s6 = st.columns(6)
+                    s1.metric("Current Baseline Demand", f"{stage6.get('baseline_forecast', 0):.1f}")
+                    s2.metric("Simulated Demand", f"{stage6.get('scenario_forecast', 0):.1f}", delta=f"{stage6.get('demand_delta', 0):+.1f}")
+                    s3.metric("Current Shortage Gap", stage6.get("baseline_true_shortage_gap", 0))
+                    s4.metric("Simulated Shortage Gap", stage6.get("scenario_true_shortage_gap", 0), delta=f"{stage6.get('true_shortage_gap_delta', 0):+.1f}")
+                    s5.metric("Priority Shift", f"{stage6.get('baseline_priority_code')} -> {stage6.get('scenario_priority_code')}")
+                    s6.metric("Net Value (Change)", f"${stage6.get('net_value_delta', 0):,.0f}")
+                    st.warning(stage6.get("simulator_summary", "No scenario summary returned."))
+                    st.markdown("###### 🧪 SIMULATED RESULT")
+                    st.success(stage6.get("recommended_scenario_action", "No scenario action returned."))
+                    scenario_stage5 = stage6.get("scenario_stage5_command_center", {})
+                    if scenario_stage5:
+                        with st.expander("Scenario Stage 5 command cards", expanded=True):
+                            cards = scenario_stage5.get("action_cards", [])
+                            if cards:
+                                df_cards = pd.DataFrame(cards)
+                                cols = ["action_id", "owner", "status", "due_minutes", "action", "success_metric"]
+                                st.dataframe(df_cards[[c for c in cols if c in df_cards.columns]], use_container_width=True)
+                            else:
+                                st.write("No action cards generated.")
+                    with st.expander("Applied scenario modifiers", expanded=False):
+                        mods = stage6.get("applied_modifiers", [])
+                        if mods:
+                            st.dataframe(pd.DataFrame(mods), use_container_width=True)
                         else:
-                            st.write("No action cards generated.")
-                with st.expander("Applied scenario modifiers", expanded=False):
-                    mods = stage6.get("applied_modifiers", [])
-                    if mods:
-                        st.dataframe(pd.DataFrame(mods), use_container_width=True)
-                    else:
-                        st.write("No modifiers returned.")
-            if show_stage6_json:
-                st.json(stage6)
-except Exception as e:
-    st.error(f"Stage 6 simulator panel unavailable: {e}")
+                            st.write("No modifiers returned.")
+                if show_stage6_json:
+                    st.json(stage6)
+    except Exception as e:
+        st.error(f"Stage 6 simulator panel unavailable: {e}")
 
 
 stage_tabs = st.tabs([

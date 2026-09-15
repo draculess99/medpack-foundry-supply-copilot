@@ -25,6 +25,7 @@ FRONTEND_HOST = os.environ.get("MEDPACK_FRONTEND_HOST", "0.0.0.0") # Must bind t
 API_BASE_URL = os.environ.get("MEDPACK_API_BASE_URL", f"http://127.0.0.1:{BACKEND_PORT}")
 
 def main():
+    global FRONTEND_PORT
     print("====================================================")
     print("   Starting MedPack AI / MedAIM Setup & Services    ")
     print("====================================================")
@@ -74,6 +75,22 @@ def main():
 
     # 5. Start Streamlit frontend FIRST so Railway's port binding check passes
     # (Railway requires the process to bind $PORT within 60s of start)
+    
+    is_railway = "PORT" in os.environ or "RAILWAY_ENVIRONMENT" in os.environ
+    if not is_railway:
+        import socket
+        base_port = FRONTEND_PORT
+        for test_port in range(base_port, base_port + 10):
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                if s.connect_ex(('127.0.0.1', test_port)) != 0:
+                    if test_port != base_port:
+                        print(f"[startup] Port {base_port} already in use.")
+                        print(f"[startup] Using available local Streamlit port {test_port}.")
+                    FRONTEND_PORT = test_port
+                    break
+        else:
+            print(f"[startup] Warning: Could not find an open local port in range {base_port}-{base_port+9}")
+
     print(f"Launching Streamlit Dashboard on port {FRONTEND_PORT}...")
     env["MEDPACK_API_BASE_URL"] = API_BASE_URL
 
