@@ -138,6 +138,16 @@ The terminal evidence below demonstrates a successful authenticated call to the 
 ![Live Foundry call](docs/foundry-live-call-success.png)
 *Successful end-to-end Microsoft Foundry live authentication and execution.*
 
+## What-If Surge Simulator
+
+![MedPack AI What-If Surge Simulator](docs/images/whatif-surge-simulator.png)
+
+The What-If Surge Simulator is a hypothetical planning and sandbox capability. It stress-tests the current MedPack baseline against scenarios such as flu-season demand, ED surge, supplier delay, mass-casualty events, weekend staffing, and surgery spikes.
+
+It compares baseline demand and shortage gap with simulated demand and simulated shortage gap. It can show changes in operational priority, financial/net-value impact, and scenario-specific Stage 5 command cards. Simulation results do NOT modify the authoritative MedPack prediction, committee decision, or saved operational state.
+
+The screenshot demonstrates an important negative case: Flu Season Demand increases forecast demand from 15.4 to 18.7 units, but sufficient usable stock means the true shortage gap remains zero, so priority correctly remains P3 instead of generating an unnecessary escalation. This demonstrates that the system does not manufacture a critical alert merely because demand increased.
+
 ## Demo Walkthrough — Choosing a Reasoning Path
 
 MedPack AI has one authoritative deterministic core that branches into three decision-support paths.
