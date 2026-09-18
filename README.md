@@ -190,4 +190,4 @@ To run the tests:
 ```bash
 pytest tests/
 ```
-Ensure all tests pass. If you see regressions, verify that no `.env` files with remote settings are polluting the test environment.
+Ensure all tests pass. If you see regressions, verify that no `.env` files with remote settings are polluting the test environments.
